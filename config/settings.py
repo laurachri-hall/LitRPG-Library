@@ -23,9 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wn%ps4y0ml=51hj#iv1n0@9h5nup7hlldjdpq=rxgzyiu$#e)+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['8000-laurachriha-litrpglibra-oilbcmmfwss.ws.codeinstitute-ide.net']
+ALLOWED_HOSTS = [
+    '8000-laurachriha-litrpglibra-oilbcmmfwss.ws.codeinstitute-ide.net',
+    'litrpg-library-2e24401b712e.herokuapp.com/'
+]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://*.codeinstitute-ide.net',

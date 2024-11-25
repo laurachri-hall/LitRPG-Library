@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from review.views import my_review
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('review/', my_review, name='review'),
 ]
