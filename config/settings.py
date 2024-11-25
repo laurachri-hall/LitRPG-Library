@@ -27,7 +27,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-laurachriha-litrpglibra-oilbcmmfwss.ws.codeinstitute-ide.net',
-    'litrpg-library-2e24401b712e.herokuapp.com/'
+    'litrpg-library-2e24401b712e.herokuapp.com',
 ]
 
 CSRF_TRUSTED_ORIGINS = [
