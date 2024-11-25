@@ -1,7 +1,4 @@
 # LitRPG Library
-
-<<<<<<< HEAD
-Welcome Laura Hall,
 =======
 ![Responsive ScreenShot Goes Here](link goes here)
 >>>>>>> 675a096d00c42b2b39f9ce6fafb68a030b191539
