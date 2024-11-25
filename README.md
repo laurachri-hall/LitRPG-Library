@@ -31,9 +31,9 @@ For Admin access with relevant sign-in information: [LitRPG Admin](link goes her
     - [Visitor User Stories](#visitor-user-stories)
     - [User Registration](#user-registration)
     - [Book Reviews](#book-reviews)
-    - [Epic - Booking](#epic---booking)
-    - [Epic - Photo Gallery](#epic---photo-gallery)
-    - [Epic - Visit Us/Reviews](#epic---visit-usreviews)
+    - [Comments](#comments)
+    - [To Be Read List](#to-be-read-list)
+    - [User Profile](#user-profile)
   - [Scope Plane](#scope-plane)
   - [Structural Plane](#structural-plane)
   - [Skeleton \& Surface Planes](#skeleton--surface-planes)
@@ -109,6 +109,31 @@ User stories and features recorded and managed on [GitHub Projects](<https://git
 | User Story | Priority |
 |----------------------------------------------------------------------------------------------------------------------------|---------------|    
 | As a **logged-in user**, I want to **post a review for a LitRPG book** so I can **share my opinion**.| **MUST HAVE** |
+| As a **review author**, I want to **edit my posted reviews** so I can **update or correct information**.| **MUST HAVE** |
+| As a **review author** I can **delete my reviews** so that **my content is no longer avaiable to view**.| **MUST HAVE** |
+|As a **logged-in user** I can **like reviews** so that **I can show appreciation for helpful content and give feedback to the community**.| **SHOULD HAVE** |
+
+### Comments
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------|---------------|    
+| As a **logged-in user** I can **post comments on reviews** so that **I can engage in discussions**.| **MUST HAVE** |
+| As a **comment author** I can **edit my comments** so that **I can update or correct information**.| **MUST HAVE** |
+| As a **comment authors** I can **delete my comments** so that **they are no longer viewable**.| **MUST HAVE** |
+|As a **logged-in user** I can **like comments** so that **I can show agreement or appreciation for a review**.| **SHOULD HAVE** |
+
+### To Be Read List
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------|---------------|    
+| As a **logged in user** I can **add books to my TBR list from book reviews** so that **I can keep track of which books interest me**.| **MUST HAVE** |
+| As a **user with a TBR list** I can **remove books I've read or no longer interested in** so that **they no longer show on my TBR**.| **MUST HAVE** |
+| As a **user** I can **move a book from my TBR list to a read list** so that **I can track books that I have read**.| **COULD HAVE** |
+
+### User Profile
+| User Story | Priority |
+|----------------------------------------------------------------------------------------------------------------------------|---------------|    
+| As a **logged-in user** I can **access my profile page** so that **I can view my activity, personal info, TBR and read lists**.| **COULD HAVE** |
+| As a **logged-in user** I can **view and manage my posted reviews from my profile page** so that **I can easily edit and delete my reviews**.| **COULD HAVE** |
+| As a **logged-in user** I can **view and mange my comments on reviews** so that **easily edit and delete them**.| **COULD HAVE** |
 
 # Deployment
   
