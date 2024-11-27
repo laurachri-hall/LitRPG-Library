@@ -152,11 +152,11 @@ To begin this project from scratch, you must first create a new GitHub repositor
 1. Install Django and supporting libraries: 
    
 - ``` pip3 install Django~=4.2.1 ```
--``` pip3 install gunicorn~=20.1```
+- ``` pip3 install gunicorn~=20.1```
 - ``` pip3 install dj-database-url~=0.5 psycopg```
 - ``` pip3 install dj3-cloudinary-storage~=0.0.6```
 - ```pip3 install urllib3~=1.26.15``` 
--``` pip3 install django-summernote~=0.8.20.0```
+- ``` pip3 install django-summernote~=0.8.20.0```
   
 2. As you are installing any relevant dependencies or libraries, such as the ones listed above, it is important to create a **requirements.txt** file and add all installed libraries to it with the ```pip3 freeze --local > requirements.txt``` command in the terminal.  
 3. Create a new Django project in the terminal ```django-admin startproject config.```
@@ -167,7 +167,7 @@ To begin this project from scratch, you must first create a new GitHub repositor
 8. An **env.py** file must be created to store all protected data such as the **DATABASE_URL** and **SECRET_KEY**. These may be called upon in your project's **settings.py** file along with your Database configurations. The **env.py** file must be added to your **gitignore** file so that your important, protected information is not pushed to public viewing on GitHub. For adding to **env.py**:
 
 - ```import os```
-- ```os.environ["DATABASE_URL"]="<PostgreSQL_URL_from_CI>"``` [CI DatabaseMaker] (https://dbs.ci-dbs.net/)
+- ```os.environ["DATABASE_URL"]="<PostgreSQL_URL_from_CI>"``` [CI Database Maker](https://dbs.ci-dbs.net/)
 - ```os.environ["SECRET_KEY"]="insertYourOwnKeyHere"```
   
 For adding to **settings.py**:
