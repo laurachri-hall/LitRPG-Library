@@ -21,9 +21,15 @@ class ReviewList(generic.ListView):
 def review_detail(request, slug):
     queryset = Review.objects.filter(status=1)
     review = get_object_or_404(queryset, slug=slug)
+    comments = review.comments.all().order_by("-created_on")
+    comment_count = review.comments.filter(approved=True).count()
 
     return render(
         request,
         "review/review_detail.html",
-        {"review": review},
+        {
+            "review": review,
+            "comments": comments,
+            "comment_count": comment_count,
+        },
     )
