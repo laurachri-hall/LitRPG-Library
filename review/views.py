@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView
 from django.views import generic
-from .models import Review
+from .models import Review, Book, Comment
 
 class HomePage(TemplateView):
     """
@@ -20,7 +20,7 @@ class ReviewList(generic.ListView):
 
 def review_detail(request, slug):
     queryset = Review.objects.filter(status=1)
-    post = get_object_or_404(queryset, slug=slug)
+    review = get_object_or_404(queryset, slug=slug)
 
     return render(
         request,
