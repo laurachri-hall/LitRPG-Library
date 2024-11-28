@@ -85,12 +85,12 @@ body {
 
 .post-link {
     text-decoration: none;
-    color: #682149;
+    color: #E9BCB9;
 }
 
 .post-link:hover,
 .page-link {
-    color: #682149;
+    color: #F09D57;
 }
 
 .post-title {
@@ -100,7 +100,7 @@ body {
 
 .post-subtitle {
     margin-left: 5%;
-    color: lightgray;
+    color: #F09D57
 }
 
 .btn-signup,
