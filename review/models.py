@@ -27,6 +27,9 @@ class Review(models.Model):
     created_on = models.DateTimeField(auto_now_add=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
+
+    class Meta:
+        ordering = ["-created_on"]
    
     def __str__(self):
         return f'Review for {self.book.book_title}'
@@ -37,6 +40,10 @@ class Comment(models.Model):
     content = models.TextField()
     rating = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ["created_on"]
 
     def __str__(self):
         return f'Comment by {self.user.username} on {self.review.book.book_title} review'
