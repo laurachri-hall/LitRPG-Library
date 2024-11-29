@@ -31,6 +31,10 @@ p {
     background-color: transparent;
 }
 
+.card-body {
+    height:300px;
+}
+
 .image-container {
     position: relative;
 }
@@ -81,7 +85,7 @@ p {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #682149;
+    background: #44174E;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);

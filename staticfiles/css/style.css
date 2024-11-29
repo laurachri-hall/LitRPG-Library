@@ -33,7 +33,16 @@ h2, h3, h4, h5, h6 {
 
 .image-container {
     position: relative;
+    height: 200px; /* Fixed height */
+    overflow: hidden; /* Hide overflow */
 }
+
+.image-container img {
+    width: 100%; /* Full width */
+    height: 100%; /* Full height to fill the container */
+    object-fit: cover; /* Cover the container, cropping as needed */
+}
+
 
 .image-flash {
     position: absolute;
