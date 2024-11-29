@@ -1,5 +1,5 @@
-{% extends 'base.html' %} {% block content %} 
-{% load static %} 
+{% extends 'base.html' %} {% block content %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 <div class="masthead">
@@ -14,11 +14,7 @@
         </p>
       </div>
       <div class="d-none d-md-block col-md-6 masthead-image">
-        <img
-          src="{% static 'images/default.jpg' %}"
-          class="scale"
-          alt="placeholder"
-        />
+        <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder" />
       </div>
     </div>
   </div>
@@ -30,8 +26,9 @@
       <div class="card-body">
         <!-- The post content goes inside the card-text. -->
         <!-- Use the | safe filter inside the template tags -->
-        <p class="card-text">{{ review.content | safe }}</p>
         <p>Rating {{ review.rating }} out of 5.</p>
+        <p class="card-text">{{ review.content | safe }}</p>
+
       </div>
     </div>
   </div>
@@ -55,8 +52,7 @@
           to iterate through each comment in comments -->
         {% for comment in comments %}
         <div
-          class="p-2 comments {% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}"
-        >
+          class="p-2 comments {% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
           <p class="font-weight-bold">
             {{ comment.user }}
             <span class="font-weight-normal"> {{ comment.created_on }} </span>
@@ -66,8 +62,11 @@
             {{ comment.content | linebreaks }}
             <p>Rating {{ comment.rating }} out of 5.</p>
           </div>
-          {% if not comment.approved and comment.author == user %}
+          {% if not comment.approved and comment.user == user %}
           <p class="approval">This comment is awaiting approval</p>
+          {% endif %}
+          {% if user.is_authenticated and comment.user == user %}
+          <button class="btn btn-edit" comment_id="{{ comment.id }}">Edit</button>
           {% endif %}
         </div>
         <!-- Our for loop ends here -->
@@ -95,3 +94,7 @@
 </div>
 
 {% endblock content %}
+
+{% block extras %}
+<script src="{% static 'js/comments.js' %}"></script>
+{% endblock %}
