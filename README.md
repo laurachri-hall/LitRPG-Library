@@ -6,7 +6,7 @@
 
 LitRPG Library is a review websites specifically for books in the LitRPG and LitRPG adjacent genre. It has been developed ad part of the Code Insititutes 16 Week Fult-Stack Developer Bootcamp as my final project - demonstrating all I have learned so far. Essential criteria include use of Django, database manipulation and CRUD functionality. It is for educational purposes only (for right now).
 
-View live site here : [LitRPG Library](link goes here)  
+View live site here : [LitRPG Library](https://litrpg-library-2e24401b712e.herokuapp.com/)  
   
 For Admin access with relevant sign-in information: [LitRPG Admin](link goes here)
 
@@ -111,6 +111,8 @@ User stories and features recorded and managed on [GitHub Projects](<https://git
 | As a **logged-in user**, I want to **post a review for a LitRPG book** so I can **share my opinion**.| **MUST HAVE** |
 | As a **review author**, I want to **edit my posted reviews** so I can **update or correct information**.| **MUST HAVE** |
 | As a **review author** I can **delete my reviews** so that **my content is no longer avaiable to view**.| **MUST HAVE** |
+|As a **site user** I can **click on a post** so that **I can read the full text**.| **MUST HAVE** |
+|As a **site user** I can **view a paginate list of posts** so that **I can select which post I want to view**.| **MUST HAVE** |
 |As a **logged-in user** I can **like reviews** so that **I can show appreciation for helpful content and give feedback to the community**.| **SHOULD HAVE** |
 
 ### Comments
