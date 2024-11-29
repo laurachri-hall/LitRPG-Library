@@ -242,7 +242,7 @@ As a newcomer to Django and database development, I faced numerous challenges ty
 | 1   | Unable to deploy to Heroku | Yes | Procfile set up incorrect - missing "web:" and removed a trailing backslash from a url in allowed hosts | Me! I Found it! Win! | a9f523b and e9057d4 |
 | 2   | CSS not showing in development or deployed site | Yes | Debug was set to False for deployment - swaped back to True and everything worked. | A wild Amy appeared in Coding Coach| none |
 | 3  | Migrations not migrating | Yes | In the book model I changed "book" to "book_title" | Me! I fixed it! Another Win!| 6c98937 |
-| 4 | When editing a comment, form forces you to select a rating again. This appears in the comment as a double rating | -- | -- | Me! --| --|
+| 4 | When editing a comment, form forces you to select a rating again. This appears in the comment as a double rating | Yes | the javascript was fetching all of the innter conent of the element with the ID of comment{{ comment.id }} and I needed to move the review content outside of this div | The Wonderful Coding Wizard Ruu at Coding Coach| e3a0f90 |
 
 
 ### Known Bugs
