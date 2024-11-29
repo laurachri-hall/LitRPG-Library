@@ -58,8 +58,8 @@
           </p>
           <div id="comment{{ comment.id }}">
             {{ comment.content | linebreaks }}
-            <p>Rating {{ comment.rating }} out of 5.</p>
           </div>
+          <p>Rating {{ comment.rating }} out of 5.</p>
           {% if not comment.approved and comment.user == user %}
           <p class="approval">This comment is awaiting approval</p>
           {% endif %} {% if user.is_authenticated and comment.user == user %}
