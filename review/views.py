@@ -27,6 +27,7 @@ class ReviewList(generic.ListView):
 def review_detail(request, slug):
     queryset = Review.objects.filter(status=1)
     review = get_object_or_404(queryset, slug=slug)
+    book = review.book
     comments = review.comments.all().order_by("-created_on")
     comment_count = review.comments.filter(approved=True).count()
     comment_form = CommentForm()
@@ -47,6 +48,7 @@ def review_detail(request, slug):
         "review/review_detail.html",
         {
             "review": review,
+            "book": book,
             "comments": comments,
             "comment_count": comment_count,
             "comment_form": comment_form,
@@ -148,3 +150,7 @@ def add_book(request):
             "book_form": book_form
         },
     )
+
+    def review_detail(request, book_id):
+        book = get_object_or_404(Book, id=book_id)  # This retrieves the book based on its ID
+        return render(request, 'review/review_detail.html', {'book': book, 'review': review})

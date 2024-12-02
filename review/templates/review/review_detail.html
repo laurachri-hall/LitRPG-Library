@@ -31,6 +31,13 @@
         <!-- The post content goes inside the card-text. -->
         <!-- Use the | safe filter inside the template tags -->
         <p>Rating {{ review.rating }} out of 5.</p>
+
+        {% if user.is_authenticated %}
+        <form action="{% url 'add_to_read_list' book.id %}" method="post">
+          {% csrf_token %}
+          <button type="submit">Add Book</button>
+        </form>
+        {% endif %}
         <p class="card-text">{{ review.content | safe }}</p>
       </div>
     </div>

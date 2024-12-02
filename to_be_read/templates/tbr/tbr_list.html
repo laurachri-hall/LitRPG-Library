@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% load static %}
+{% load cloudinary %}
+{% block content %}
+
+<h1>Your To Be Read List</h1>
+<ul>
+    {% for entry in tbr_books %}
+        <li>
+            {{ entry.book.book_title }} by {{ entry.book.book_author }}
+            <form action="{% url 'delete_from_tbr' entry.id %}" method="post" style="display:inline;">
+                {% csrf_token %}
+                <button type="submit">Remove</button>
+            </form>
+        </li>
+    {% empty %}
+        <li>No books in your TBR list.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}
