@@ -1,11 +1,12 @@
-from django.shortcuts import render, get_object_or_404,reverse
+from django.shortcuts import render, get_object_or_404,reverse, redirect
 from django.views.generic import TemplateView
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect
+from django.db.models import Q
 from .models import Review, Book, Comment
-from .forms import CommentForm
-from .forms import ReviewForm
+from .forms import CommentForm, ReviewForm, BookForm
+
 
 
 class HomePage(TemplateView):
@@ -91,14 +92,59 @@ def comment_delete(request, slug, comment_id):
     return HttpResponseRedirect(reverse('review_detail', args=[slug]))
 
 def add_review(request):
-    review = Review.objects.all().order_by('-created_on').first()
-    review_form = ReviewForm()
-
+    if request.method == 'POST':
+        review_form = ReviewForm(request.POST)
+        if review_form.is_valid():
+            book = review_form.cleaned_data['book']
+            
+            # Check if a review for this book already exists
+            existing_review = Review.objects.filter(book=book).first()
+            
+            if existing_review:
+                messages.warning(request, f'A review for "{book.book_title}" already exists.')
+            else:
+                review = review_form.save(commit=False)
+                review.user = request.user  
+                review.save()
+                messages.success(request, f'Your review for "{book.book_title}" has been added successfully.')
+                return redirect('home')  
+    else:
+        review_form = ReviewForm()
+    
     return render(
         request,
         "review/add_review.html",
         {
-            "add_review": add_review,
             "review_form": review_form
+        },
+    )
+
+
+def add_book(request):
+    if request.method == 'POST':
+        book_form = BookForm(request.POST, request.FILES)
+        if book_form.is_valid():
+            title = book_form.cleaned_data['book_title']
+            author = book_form.cleaned_data['book_author']
+            
+            # Check for existing books with the same title and author
+            existing_book = Book.objects.filter(
+                Q(book_title__iexact=title) & Q(book_author__iexact=author)
+            ).first()
+            
+            if existing_book:
+                messages.warning(request, f'A book titled "{title}" by {author} already exists.')
+            else:
+                book_form.save()
+                messages.success(request, f'Successfully added "{title}" by {author}.')
+                return redirect('home') 
+    else:
+        book_form = BookForm()
+
+    return render(
+        request,
+        "review/add_book.html",
+        {
+            "book_form": book_form
         },
     )

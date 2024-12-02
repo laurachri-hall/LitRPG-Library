@@ -23,7 +23,7 @@ class Review(models.Model):
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviews")
-    book_cover = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="book_cover_reviews" )
+    book_cover = models.ForeignKey(Book, on_delete=models.CASCADE, related_name="book_cover_reviews", null=True, blank=True)
     content = models.TextField()
     rating = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     created_on = models.DateTimeField(auto_now_add=True)
@@ -34,7 +34,7 @@ class Review(models.Model):
         ordering = ["-created_on"]
    
     def __str__(self):
-        return f'Review for {self.book.book_title}'
+        return self.book.book_title
 
 class Comment(models.Model):
     review = models.ForeignKey(Review, on_delete=models.CASCADE, related_name="comments")
