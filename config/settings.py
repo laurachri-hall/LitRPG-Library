@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     '8000-laurachriha-litrpglibra-oilbcmmfwss.ws.codeinstitute-ide.net',
@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'django_summernote',
     'cloudinary',
     'review',
+    'to_be_read',
 ]
 
 SITE_ID = 1
