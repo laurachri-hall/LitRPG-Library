@@ -5,6 +5,7 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect
 from .models import Review, Book, Comment
 from .forms import CommentForm
+from .forms import ReviewForm
 
 
 class HomePage(TemplateView):
@@ -88,3 +89,16 @@ def comment_delete(request, slug, comment_id):
         messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('review_detail', args=[slug]))
+
+def add_review(request):
+    review = Review.objects.all().order_by('-created_on').first()
+    review_form = ReviewForm()
+
+    return render(
+        request,
+        "review/add_review.html",
+        {
+            "add_review": add_review,
+            "review_form": review_form
+        },
+    )

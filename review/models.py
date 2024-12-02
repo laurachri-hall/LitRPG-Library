@@ -51,3 +51,5 @@ class Comment(models.Model):
         return f'Comment by {self.user.username} on {self.review.book.book_title} review'
 
 
+
+
