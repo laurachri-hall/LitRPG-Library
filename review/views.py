@@ -55,6 +55,7 @@ def review_detail(request, slug):
         },
     )
 
+
 def comment_edit(request, slug, comment_id):
     """
     view to edit comments
@@ -94,6 +95,9 @@ def comment_delete(request, slug, comment_id):
     return HttpResponseRedirect(reverse('review_detail', args=[slug]))
 
 def add_review(request):
+    """
+    Add Review
+    """
     if request.method == 'POST':
         review_form = ReviewForm(request.POST)
         if review_form.is_valid():
@@ -121,8 +125,10 @@ def add_review(request):
         },
     )
 
-
 def add_book(request):
+    """
+    view to add book
+    """
     if request.method == 'POST':
         book_form = BookForm(request.POST, request.FILES)
         if book_form.is_valid():
