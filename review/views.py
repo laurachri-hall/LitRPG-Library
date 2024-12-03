@@ -124,7 +124,7 @@ def add_review(request):
             "review_form": review_form
         },
     )
-
+   
 def add_book(request):
     """
     view to add book
