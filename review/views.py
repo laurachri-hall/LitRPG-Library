@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 from .models import Review, Book, Comment
 from .forms import CommentForm, ReviewForm, BookForm
-
+from . import views
 
 
 class HomePage(TemplateView):
@@ -154,3 +154,4 @@ def add_book(request):
     def review_detail(request, book_id):
         book = get_object_or_404(Book, id=book_id)  # This retrieves the book based on its ID
         return render(request, 'review/review_detail.html', {'book': book, 'review': review})
+

@@ -1,4 +1,4 @@
-from django.shortcuts import redirect, get_object_or_404, render
+from django.shortcuts import redirect, get_object_or_404, render, reverse
 from django.contrib.auth.decorators import login_required
 from .models import ToBeRead
 from review.models import Book  
@@ -6,8 +6,9 @@ from review.models import Book
 @login_required
 def add_to_read_list(request, book_id):
     book = get_object_or_404(Book, id=book_id)
+    review = book.review
     ToBeRead.objects.get_or_create(user=request.user, book=book)
-    return redirect('review_detail', book_id=book.id)
+    return redirect(reverse('review_detail', args=[review.slug]))
 
 @login_required
 def tbr_list(request):
