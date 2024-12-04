@@ -16,8 +16,11 @@ class HomePage(TemplateView):
     template_name = 'index.html'
 
 class ReviewList(generic.ListView):
+    """
+    List of all reviews
+    """
     queryset = Review.objects.filter(status=1)
-    template_name = "review/index.html"
+    template_name = "review_list.html"
     paginate_by = 6
 
     """
