@@ -1,5 +1,5 @@
-{% extends 'base.html' %} {% block content %} {% load static %} {% load
-cloudinary %} {% load crispy_forms_tags %}
+{% extends 'base.html' %} {% block content %} {% load static %} 
+{% load cloudinary %} {% load crispy_forms_tags %}
 
 <div class="masthead">
   <div class="container">
@@ -13,8 +13,8 @@ cloudinary %} {% load crispy_forms_tags %}
         </p>
       </div>
       <div class="d-none d-md-block col-md-6 masthead-image">
-        {% if review.book.book_cover %} {% cloudinary review.book.book_cover
-        class="scale" alt=review.title %} {% else %}
+        {% if review.book.book_cover %} {% cloudinary review.book.book_cover class="scale" alt=review.title %} 
+        {% else %}
         <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder image" />
         {% endif %}
       </div>

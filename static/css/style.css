@@ -9,6 +9,38 @@ p {
     color: #E9BCB9;
 }
 
+/* Slogan */
+.slogan-container {
+    height: 600px;
+    background: url("static/images/default.jpg") no-repeat center center/cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  /* Jumbotron */
+  
+  .jumbotron {
+    background-color: rgba(133, 166, 166, 0.8);
+  }
+  
+  .jumbotron h1 {
+    font-family: "Montserrat", sans-serif;
+    color: #22130c;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .jumbotron h4 {
+    color: #22130c;
+    margin-top: 20px;
+  }
+
 .brand {
     font-family: Lato, sans-serif;
     font-size: 1.4rem;

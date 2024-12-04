@@ -1,11 +1,45 @@
+
 body {
     background-color: #1C1A32;
-    color: #F09D57;
+    color: fff;
+
 }
 
-h2, h3, h4, h5, h6 {
-    color: #F09D57
+p {
+    color: #E9BCB9;
 }
+
+/* Slogan */
+.slogan-container {
+    height: 600px;
+    background: url("static/images/default.jpg") no-repeat center center/cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  
+  /* Jumbotron */
+  
+  .jumbotron {
+    background-color: rgba(133, 166, 166, 0.8);
+  }
+  
+  .jumbotron h1 {
+    font-family: "Montserrat", sans-serif;
+    color: #22130c;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .jumbotron h4 {
+    color: #22130c;
+    margin-top: 20px;
+  }
 
 .brand {
     font-family: Lato, sans-serif;
@@ -31,18 +65,13 @@ h2, h3, h4, h5, h6 {
     background-color: transparent;
 }
 
+.card-body {
+    height:300px;
+}
+
 .image-container {
     position: relative;
-    height: 200px; /* Fixed height */
-    overflow: hidden; /* Hide overflow */
 }
-
-.image-container img {
-    width: 100%; /* Full width */
-    height: 100%; /* Full height to fill the container */
-    object-fit: cover; /* Cover the container, cropping as needed */
-}
-
 
 .image-flash {
     position: absolute;
@@ -90,7 +119,7 @@ h2, h3, h4, h5, h6 {
     right: 90%;
     height: 100%;
     width: 150%;
-    background: #682149;
+    background: #44174E;
     -webkit-transform: skew(15deg);
     -moz-transform: skew(15deg);
     transform: skew(15deg);
