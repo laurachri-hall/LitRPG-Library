@@ -124,7 +124,40 @@ def add_review(request):
             "review_form": review_form
         },
     )
-   
+
+def review_edit(request, slug):
+    """
+    Edit Review
+    """
+    review = get_object_or_404(Review, slug=slug)
+    
+    if request.method == 'POST':
+        form = ReviewForm(request.POST, instance=review)
+        if form.is_valid():
+            form.save()
+            return redirect('review_detail', slug=review.slug)
+    else:
+        form = ReviewForm(instance=review)
+    
+    return render(request, 'review/review_edit.html', {'form': form, 'review': review})
+
+
+def review_delete(request, slug):
+    """
+    Delete Review
+    """
+    review = get_object_or_404(Review, slug=slug)  # Use slug to fetch the review
+
+    # Check if the logged-in user is the owner of the review
+    if request.user != review.user:
+        return HttpResponseForbidden("You are not allowed to delete this review.")
+
+    # If the request method is POST, delete the review
+    if request.method == 'POST':
+        review.delete()
+        messages.success(request, 'Review deleted successfully!')
+        return redirect('home')  # Redirect to home after deletion
+
 def add_book(request):
     """
     view to add book
@@ -157,7 +190,4 @@ def add_book(request):
         },
     )
 
-    def review_detail(request, book_id):
-        book = get_object_or_404(Book, id=book_id)  # This retrieves the book based on its ID
-        return render(request, 'review/review_detail.html', {'book': book, 'review': review})
 
