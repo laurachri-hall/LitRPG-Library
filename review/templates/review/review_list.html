@@ -6,12 +6,12 @@
 <!-- index.html content starts here -->
 <div class="container-fluid">
     <div class="row">
-        <!-- Blog Entries Column -->
+        <!-- Review Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for review in review_list %}
                 <div class="col-md-4">
-                    <div class="card mb-4">
+                    <div class="card mb-4" style="width: 15rem;">
                         <div class="image-container">
                             {% if review.book.book_cover %}
                             {% cloudinary review.book.book_cover class="card-img-top" alt=review.title %}

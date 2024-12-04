@@ -2,8 +2,9 @@ from django.shortcuts import render, get_object_or_404,reverse, redirect
 from django.views.generic import TemplateView
 from django.views import generic
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models import Q
+from django.db import IntegrityError
 from .models import Review, Book, Comment
 from .forms import CommentForm, ReviewForm, BookForm
 from . import views
@@ -108,18 +109,25 @@ def add_review(request):
             
             # Check if a review for this book already exists
             existing_review = Review.objects.filter(book=book).first()
-            
+            print(f"Existing review for book {book.id}: {existing_review}") 
             if existing_review:
-                messages.warning(request, f'A review for "{book.book_title}" already exists.')
-            else:
+                return HttpResponse("A review for this book already exists.", status=400)
+
+            try:
+                # Save the review
                 review = review_form.save(commit=False)
-                review.user = request.user  
-                review.save()
+                review.user = request.user
+                review.save()  # This is where the IntegrityError could occur due to the slug constraint
+
                 messages.success(request, f'Your review for "{book.book_title}" has been added successfully.')
-                return redirect('home')  
+                return redirect('home')
+            
+            except IntegrityError as e:
+                # Handle the error if there's an issue with the slug or any other unique constraint
+                return HttpResponse("An error occurred while saving your review. Please try again later.", status=500)
     else:
         review_form = ReviewForm()
-    
+
     return render(
         request,
         "review/add_review.html",
