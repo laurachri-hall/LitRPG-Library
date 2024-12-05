@@ -216,6 +216,24 @@ p {
     text-align: left; /* Center Text in Cards */
 }
 
+.review-card {
+    border: 2px solid var(--secondary-color); /* Border Color */
+    border-radius: 10px; /* Rounded Corners */
+    margin: 20px auto; /* Margin Around Card */
+    background-color: #292a33; /* Card Background */
+    transition: all 0.3s ease; /* Smooth Transition */
+    text-align: left; /* Center Text in Cards */
+}
+
+.cover-image {
+    width: 100%;
+    height: 100%; /* Let image container take full height */
+    object-fit: cover; /* Ensures the image covers the container without distortion */
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+    min-height: 200px; /* Ensure the image container has a consistent height */
+}
+
 .image-container {
     position: relative;
     
@@ -300,7 +318,7 @@ p {
 .btn-edit {
     background-color: var(--highlight-color);
     color: var(--bg-color);
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .btn-signup:hover,
@@ -338,6 +356,14 @@ p {
     border: none;
 }
 
+.stars i {
+    font-size: 20px;
+    margin-right: 3px;
+}
+.text-warning {
+    color: #ffcc00;
+}
+
 .faded {
     color: rgb(172, 175, 175);
 }
@@ -346,6 +372,36 @@ p {
     color: rgb(222, 146, 168);
 }
 
+/* Footer */
+
+footer .social-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px; /* Adjust spacing as needed */
+}
+
+footer .social-links {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Adjust spacing between icons */
+}
+
+footer .social-links li {
+    display: inline-block;
+}
+
+footer .social-links li svg path {
+    transition: fill 0.3s ease;
+}
+
+footer .social-links li:hover svg path,
+footer .social-links li:active svg path {
+    fill: var(--highlight-color); 
+}
 /* Media */
 
 @media (max-width: 767px) {
@@ -383,24 +439,18 @@ p {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* Align to the left or you can adjust as needed */
     }
 
     .navbar-text p {
     margin: 0;
-    /* Remove default margin */
     white-space: nowrap;
-    /* Prevent the text from wrapping */
     }
 
     .header {
         display: flex;
         flex-direction: row;
-        /* Keeps layout horizontal */
         justify-content: flex-start;
-        /* Align items to the left */
         align-items: center;
-        /* Center items vertically */
         text-align: left;
     }
 
@@ -425,13 +475,10 @@ p {
 
     .header-video {
         width: 100%;
-        /* Ensure video container takes up full space */
         max-width: 500px;
-        /* Optional: limit max width of the video */
         aspect-ratio: 1 / 1;
-        /* Adjust the aspect ratio of the video */
         object-fit: cover;
-        /* Ensure the video covers the container properly */
+
     }
 
     .text-content {
@@ -440,10 +487,7 @@ p {
         justify-content: center;
         text-align: left;
     }
-}
-
-/* Card Adjustments for Tablet / Laptop (768px and up) */
-@media (min-width: 768px) and (max-width: 991px) {
+    
     .index-card {
         width: 100%; /* Ensure cards are wide enough */
     }
@@ -453,8 +497,22 @@ p {
     }
 }
 
-/* Card Adjustments for Large Screens */
-@media (min-width: 992px) {
+/* Media for  Laptop (1024px and up) */
+@media (min-width: 1024px) {
+
+    .litrpg-container {
+        max-width: 80%; 
+        margin: 0 auto;
+    }
+   
+    .what-title {
+        margin-top: 10%;
+    }
+
+    .what-title p {
+        font-size: larger;
+    }
+
     .index-card {
         width: 100%; /* Make cards full width in large screens */
     }
@@ -462,4 +520,9 @@ p {
         flex: 0 0 22%; /* Cards take up about 22% on large screens */
         margin-right: 2%; /* Add spacing between cards */
     }
+    
 }
+
+
+
+
