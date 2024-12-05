@@ -12,12 +12,12 @@ p {
     color: #E2E5F6;
 }
 
-.nav-links {
+.nav-link {
     color: #91A5FE;
 }
 
-.nav-links:hover,
-.nav-links:active {
+.nav-link:hover,
+.nav-link:active {
     color:#FF8695;
 }
 
