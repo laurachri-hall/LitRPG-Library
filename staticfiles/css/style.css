@@ -1,6 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #1f1d5e;
+    /* Dark Blue */
+    --secondary-color: #91a5fe;
+    /* Light Blue */
+    --accent-color: #597ffc;
+    /* Blue */
+    --text-color: #e2e5f6;
+    /* Light Gray */
+    --highlight-color: #ff8695;
+    /* Pink */
+}
+
+/* General Styles */
+
 body {
-    background-color: #1F1D5E;
-    color: #E2E5F6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Raleway", Arial, sans-serif;
 }
 
 h1,
@@ -9,17 +33,22 @@ h3,
 h4,
 h5,
 h6 {
-    color: #597FFC;
+    color: var(--accent-color);
+    font-family: "Cabin", Arial, sans-serif;
 }
 
 p {
-    color: #E2E5F6;
+    color: var(--text-color);
+}
+
+.text-muted {
+    font-weight: 200;
 }
 
 /* Navbar */
 
 .nav {
-    background-color: #1F1D5E;
+    background-color: var(--bg-color);
 }
 
 .navbar {
@@ -30,7 +59,7 @@ p {
 }
 
 .navbar .navbar-toggler {
-    color: #597FFC;
+    color: var(--accent-color);
 }
 
 .nav {
@@ -39,7 +68,7 @@ p {
 
 .navbar-toggler {
     float: none;
-    margin-right: 0
+    margin-right: 0;
 }
 
 .navbar-toggler:focus {
@@ -47,36 +76,36 @@ p {
     box-shadow: none;
 }
 
-.gravity-ui--bars {
-    display: inline-block;
-    width: 32px;
-    height: 32px;
-    background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23597FFC' fill-rule='evenodd' d='M1.25 3.25A.75.75 0 0 1 2 2.5h12A.75.75 0 0 1 14 4H2a.75.75 0 0 1-.75-.75m0 4.75A.75.75 0 0 1 2 7.25h12a.75.75 0 0 1 0 1.5H2A.75.75 0 0 1 1.25 8M2 12a.75.75 0 0 0 0 1.5h12a.75.75 0 0 0 0-1.5z' clip-rule='evenodd'/%3E%3C/svg%3E");
-  }
-
 .dropdown-menu {
-    background-color: #1F1D5E;
-    color: #E2E5F6;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
 }
 
-.nav-link, .dropdown-item {
-    color: #91A5FE;
+.nav-link,
+.dropdown-item {
+    color: var(--secondary-color);
+    font-weight: bold;
 }
 
 .nav-link:hover,
 .nav-link:active,
 .dropdown-item:hover,
 .dropdown-item:active {
-    color: #FF8695;
+    color: var(--highlight-color);
 }
+
+.dropdown-item:hover,
+.dropdown-item:active {
+    background-color: var(--accent-color);
+}
+
 /* Nav Spin */
 .navbar-toggler .icon-bar {
     display: block;
     width: 22px;
     height: 2px;
-    background-color: #597FFC;
+    background-color: var(--accent-color);
     transition: all 0.35s ease-in-out;
     -moz-transition: all 0.35s ease-in-out;
     -webkit-transition: all 0.35s ease-in-out;
@@ -84,9 +113,8 @@ p {
 }
 
 .navbar-toggler:hover .icon-bar {
-    background-color: #FF8695; 
+    background-color: var(--highlight-color);
 }
-
 
 .navbar-toggler .top-bar {
     transform: rotate(0);
@@ -114,25 +142,34 @@ p {
     transform-origin: 10% 90%;
 }
 
+.hero-break {
+    width: 75%;
+    margin: 20px auto;
+    border: 2px solid var(--text-color);
+}
+
 /* bg */
 .light-bg {
-    background-color: #91A5FE;
+    background-color: var(--secondary-color);
 }
 
 .dark-bg {
-    background-color: #597FFC;
+    background-color: var(--accent-color);
 }
 
 .main-bg {
-    background-color: #1F1D5E;
+    background-color: var(--bg-color);
 }
 
 /* Hero Video */
 .header-video {
     position: relative;
     overflow: hidden;
-    height: 500px;
-    /* Adjust height as needed */
+    width: 100%;
+    /* Full width of the container */
+    height: auto;
+    aspect-ratio: 1/ 1;
+    /* Keeps it proportional */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -142,26 +179,46 @@ p {
     position: absolute;
     top: 0;
     left: 0;
-    width: 500px;
-    height: 500px;
+    width: 100%;
+    /* Ensure it fills the container */
+    height: 100%;
+    /* Ensure it fills the container */
     object-fit: cover;
-    /* Ensures the video covers the area */
-    z-index: -1;
-    /* Places the video behind other content */
+    /* Maintains aspect ratio and covers the container */
 }
 
+.title-tagline {
+    margin-top: 20px;
+}
+
+.tagline {
+
+    font-family: "Raleway", Arial, sans-serif;
+    color: var(--secondary-color);
+    margin: 20px 10px 30px 0px;
+
+}
+
+/* Cards */
+
 .card {
-    border: #E2E5F6 1px solid;
+    border:none;
     background-color: transparent;
 }
 
 .index-card {
-    border: #91A5FE 1px solid;
-    background-color: rgba(51, 49, 114 0.2);
+    border: 2px solid var(--secondary-color); /* Border Color */
+    border-radius: 10px; /* Rounded Corners */
+    margin: 20px auto; /* Margin Around Card */
+    padding: 20px; /* Padding Inside the Card */
+    background-color: #292a33; /* Card Background */
+    transition: all 0.3s ease; /* Smooth Transition */
+    text-align: left; /* Center Text in Cards */
 }
 
 .image-container {
     position: relative;
+    
 }
 
 .image-flash {
@@ -217,11 +274,6 @@ p {
     z-index: 100;
 }
 
-
-.profile-image {
-    width: 75%;
-}
-
 .post-link {
     text-decoration: none;
     color: #445261;
@@ -229,7 +281,7 @@ p {
 
 .post-link:hover,
 .page-link {
-    color: #E84610;
+    color: #e84610;
 }
 
 .post-title {
@@ -242,20 +294,23 @@ p {
     color: lightgray;
 }
 
+/* Buttons */
+
 .btn-signup,
 .btn-edit {
-    background-color: #188181;
-    color: #fff;
+    background-color: var(--highlight-color);
+    color: var(--bg-color);
+    font-weight: 500;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
-    background-color: #fff;
-    color: #23BBBB;
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
 }
 
 .link {
-    color: #23BBBB;
+    color: #23bbbb;
     text-decoration: none;
 }
 
@@ -266,19 +321,19 @@ p {
 }
 
 .btn-like {
-    color: #E84610;
+    color: #e84610;
     border: none;
     background: transparent;
 }
 
 .btn-delete {
     color: #fff;
-    background: #E84610;
+    background: #e84610;
 }
 
 .btn-like:hover,
 .btn-like:active {
-    color: #E84610;
+    color: #e84610;
     background: transparent;
     border: none;
 }
@@ -291,16 +346,21 @@ p {
     color: rgb(222, 146, 168);
 }
 
+/* Media */
+
 @media (max-width: 767px) {
     .navbar .container-fluid {
         flex-direction: column;
     }
-    .navbar .container-fluid > div:first-child {
+
+    .navbar .container-fluid>div:first-child {
         width: 100%;
     }
+
     .navbar-brand {
         margin-right: 0;
     }
+
     .navbar-toggler {
         margin-left: auto;
     }
@@ -308,11 +368,98 @@ p {
 
 @media (min-width: 768px) {
     .navbar .navbar-brand {
-        position: absolute;
-        left: 0;
-        margin-left: 15px; /* Adjust as needed */
+        position: relative;
+        margin-left: 0;
+        margin-top: 10px;
     }
-    .navbar .text-center.w-100 {
-        text-align: left; /* Align text to the left */
+
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: .7rem;
+        padding-left: .5rem;
+    }
+
+
+    .navbar-text {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    /* Align to the left or you can adjust as needed */
+    }
+
+    .navbar-text p {
+    margin: 0;
+    /* Remove default margin */
+    white-space: nowrap;
+    /* Prevent the text from wrapping */
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row;
+        /* Keeps layout horizontal */
+        justify-content: flex-start;
+        /* Align items to the left */
+        align-items: center;
+        /* Center items vertically */
+        text-align: left;
+    }
+
+    .header .container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-right: 0;
+        padding-right: 0;
+    }
+
+    .header .row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
+
+    .header .col-md-6 {
+        width: 50%;
+        padding: 0 15px;
+    }
+
+    .header-video {
+        width: 100%;
+        /* Ensure video container takes up full space */
+        max-width: 500px;
+        /* Optional: limit max width of the video */
+        aspect-ratio: 1 / 1;
+        /* Adjust the aspect ratio of the video */
+        object-fit: cover;
+        /* Ensure the video covers the container properly */
+    }
+
+    .text-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+    }
+}
+
+/* Card Adjustments for Tablet / Laptop (768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .index-card {
+        width: 100%; /* Ensure cards are wide enough */
+    }
+    .col-md-3 {
+        flex: 0 0 48%; /* Ensure cards take up about 48% of the width */
+        margin-right: 2%; /* Add spacing between cards */
+    }
+}
+
+/* Card Adjustments for Large Screens */
+@media (min-width: 992px) {
+    .index-card {
+        width: 100%; /* Make cards full width in large screens */
+    }
+    .col-lg-3 {
+        flex: 0 0 22%; /* Cards take up about 22% on large screens */
+        margin-right: 2%; /* Add spacing between cards */
     }
 }
