@@ -1,6 +1,4 @@
-{% extends "base.html" %}
-{% load static %}
-{% load cloudinary %}
+{% extends "base.html" %} {% load static %} {% load cloudinary %}
 {% block content %}
 <!-- hero image and tag line -->
 <header class="header">
@@ -8,14 +6,17 @@
         <div class="row align-items-center">
             <div class="col-md-6 title-tagline">
                 <h1>LitRPG Library</h1>
-                <h4 class="tagline">Your LitRPG Companion: Discover, Save, and Review the Best in Fantasy Gaming!</h4>
+                <h4 class="tagline">
+                    Your LitRPG Companion: Discover, Save, and Review the Best in Fantasy
+                    Gaming!
+                </h4>
                 <div>
                     <a href="{% url 'account_signup' %}" class="btn btn-signup">Register</a>
                 </div>
             </div>
             <div class="col-md-6 header-video">
                 <video autoplay muted loop playsinline preload="auto" class="bg-video">
-                    <source src="{% static 'videos/hero.mp4' %}" type="video/mp4">
+                    <source src="{% static 'videos/hero.mp4' %}" type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -23,7 +24,7 @@
     </div>
 </header>
 
-<hr class="solid hero-break">
+<hr class="solid hero-break" />
 
 <!-- What You Can Do Cards -->
 <div class="container">
@@ -36,7 +37,6 @@
                         <i class="fas fa-book-open"></i>
                     </h5>
                     <p class="card-text">A book to the LitRPG Library.</p>
-                    <a href="{% url 'add_book' %}" class="btn btn-primary">Add Book</a>
                 </div>
             </div>
         </div>
@@ -48,7 +48,6 @@
                         <i class="fas fa-keyboard"></i>
                     </h5>
                     <p class="card-text">Review a book and add a rating.</p>
-                    <a href="{% url 'add_review' %}" class="btn btn-primary">Review</a>
                 </div>
             </div>
         </div>
@@ -60,7 +59,6 @@
                         <i class="fas fa-comments"></i>
                     </h5>
                     <p class="card-text">Add your voice to the discussion.</p>
-                    <a href="{% url 'review_list' %}" class="btn btn-primary">Review List</a>
                 </div>
             </div>
         </div>
@@ -72,12 +70,43 @@
                         <i class="fas fa-list-alt"></i>
                     </h5>
                     <p class="card-text">Add books to your to be read list.</p>
-                    <a href="{% url 'tbr_list' %}" class="btn btn-primary">TBR List</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<div class="h2"></div>
+<!-- LitRPG Description Section -->
+<!-- LitRPG Description Section -->
+<section class="litrpg-description">
+    <div class="container litrpg-container">
+        <div class="row">
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <img src="{% static 'images/genres.png' %}" class="scale" alt="genres images">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body flex-column align-items-center justify-content-center what-title"> <!-- Add flexbox here -->
+                        <div>
+                            <h2 class="card-title mb-3">What is LitRPG?</h2>
+                            <p class="card-text m-4">
+                                LitRPG (Literary Role Playing Game) incorporates the strategic aspects of role-playing games into a narrative format.
+                                These novels showcase game-like mechanics and reflect the progression-driven characteristics typical of RPGs.
+                            </p>
+                            <p class="card-text m-4">
+                                The types of LitRPG books are many and varied. From comfort reads about setting up a cozy pub in a sleepy village to
+                                the overpowered min-maxer set to dominate a dungeon boss, there is something for everyone.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 {% endblock %}

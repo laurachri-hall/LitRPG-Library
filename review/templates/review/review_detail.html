@@ -15,7 +15,7 @@
       <div class="d-none d-md-block col-md-6 masthead-image">
         {% if review.book.book_cover %} {% cloudinary review.book.book_cover class="scale" alt=review.title %} 
         {% else %}
-        <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder image" />
+        <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder image" >
         {% endif %}
       </div>
     </div>
