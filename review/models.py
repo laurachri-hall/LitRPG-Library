@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import MinValueValidator, MaxValueValidator
 from cloudinary.models import CloudinaryField
+from star_ratings.models import Rating
 
 # Define STATUS choices 
 STATUS = ((0, "Draft"), (1, "Published"))
@@ -14,9 +15,8 @@ class Book(models.Model):
     series_name = models.CharField(max_length=200, blank=True)
     series_volume = models.PositiveIntegerField(null=True, blank=True)
      
-
     def __str__(self):
-        return self.book_title
+        return f"{self.book_title} | written by {self.book_author}"
 
 class Review(models.Model):
     book = models.OneToOneField(Book, on_delete=models.CASCADE, related_name="review")
@@ -32,9 +32,9 @@ class Review(models.Model):
 
     class Meta:
         ordering = ["-created_on"]
-   
+
     def __str__(self):
-        return self.book.book_title
+        return f"{self.title} | written by {self.user}"
 
 class Comment(models.Model):
     review = models.ForeignKey(Review, on_delete=models.CASCADE, related_name="comments")
@@ -45,10 +45,10 @@ class Comment(models.Model):
     approved = models.BooleanField(default=False)
 
     class Meta:
-        ordering = ["-created_on"]
+        ordering = ["created_on"]
 
     def __str__(self):
-        return f'Comment by {self.user.username} on {self.review.book.book_title} review'
+        return f"{self.content} | by {self.user}"
 
 
 

@@ -1,4 +1,5 @@
-from django.urls import path
+from django.urls import path, include
+from star_ratings.urls import urlpatterns as star_ratings_urls
 from . import views
 
 urlpatterns = [
@@ -11,4 +12,5 @@ urlpatterns = [
     path('review/<slug:slug>/delete/', views.review_delete, name='review_delete'), 
     path('review/<slug:slug>/edit_comment/<int:comment_id>/', views.comment_edit, name='comment_edit'),
     path('review/<slug:slug>/delete_comment/<int:comment_id>/', views.comment_delete, name='comment_delete'),
+    path('ratings/', include(star_ratings_urls)),
 ]

@@ -34,7 +34,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     '8000-laurachriha-litrpglibra-oilbcmmfwss.ws.codeinstitute-ide.net',
@@ -51,23 +51,31 @@ CSRF_TRUSTED_ORIGINS = [
 # Application definition
 
 INSTALLED_APPS = [
+    # Django core apps (must be at the top)
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    
+    # Third-party apps (like authentication, cloud storage, crispy forms, etc.)
     'cloudinary_storage',
-    'django.contrib.sites',
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
+    'cloudinary',
     'crispy_forms',
     'crispy_bootstrap5',
     'django_summernote',
-    'cloudinary',
+    'star_ratings',
+    
+    # Your custom apps
     'review',
     'to_be_read',
+
+    # Other third-party or utility apps
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'django.contrib.sites',
 ]
 
 SITE_ID = 1

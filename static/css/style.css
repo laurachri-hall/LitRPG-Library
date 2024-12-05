@@ -339,6 +339,14 @@ p {
     border: none;
 }
 
+.stars i {
+    font-size: 20px;
+    margin-right: 3px;
+}
+.text-warning {
+    color: #ffcc00;
+}
+
 .faded {
     color: rgb(172, 175, 175);
 }

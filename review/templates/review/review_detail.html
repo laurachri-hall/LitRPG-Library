@@ -1,5 +1,9 @@
-{% extends 'base.html' %} {% block content %} {% load static %} 
-{% load cloudinary %} {% load crispy_forms_tags %}
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load cloudinary %}
+{% load crispy_forms_tags %}
+{% load ratings %}
 
 <div class="masthead">
   <div class="container">
@@ -13,9 +17,10 @@
         </p>
       </div>
       <div class="d-none d-md-block col-md-6 masthead-image">
-        {% if review.book.book_cover %} {% cloudinary review.book.book_cover class="scale" alt=review.title %} 
+        {% if review.book.book_cover %}
+          {% cloudinary review.book.book_cover class="scale" alt=review.title %}
         {% else %}
-        <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder image" >
+          <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder image">
         {% endif %}
       </div>
     </div>
@@ -27,109 +32,120 @@
     <div class="col card mb-4 mt-3 left top">
       <div class="card-body">
         <!-- Rating and Review content -->
-        <p>Rating {{ review.rating }} out of 5.</p>
         {% if user.is_authenticated %}
+          <p>Rating:</p>
+          <div class="stars">
+            {% for i in "12345" %}
+              {% if forloop.counter <= review.rating %}
+                <i class="fas fa-star text-warning"></i>  <!-- Filled star -->
+              {% else %}
+                <i class="far fa-star text-warning"></i>  <!-- Empty star -->
+              {% endif %}
+            {% endfor %}
+          </div>
+        {% endif %}
+
         <form action="{% url 'add_to_read_list' book.id %}" method="post">
           {% csrf_token %}
           <button type="submit">Add Book</button>
         </form>
-        {% endif %}
+
         <p class="card-text">{{ review.content | safe }}</p>
+
         {% if user == review.user %}
-        <a href="{% url 'review_edit' slug=review.slug %}" class="btn btn-secondary">Edit</a>
-        <!-- Delete form for review, will trigger modal -->
-        <form method="post" action="{% url 'review_delete' slug=review.slug %}" style="display: inline"
-          id="reviewDeleteForm">
-          {% csrf_token %}
-          <button type="button" class="btn btn-danger" data-slug="{{ review.slug }}" data-bs-toggle="modal" data-bs-target="#reviewDeleteModal">
-            Delete
-          </button>
-        </form>
+          <a href="{% url 'review_edit' slug=review.slug %}" class="btn btn-secondary btn-sm">Edit</a>
+          <!-- Delete form for review, will trigger modal -->
+          <form method="post" action="{% url 'review_delete' slug=review.slug %}" style="display: inline" id="reviewDeleteForm">
+            {% csrf_token %}
+            <button type="button" class="btn btn-danger" data-slug="{{ review.slug }}" data-bs-toggle="modal" data-bs-target="#reviewDeleteModal">
+              Delete
+            </button>
+          </form>
         {% endif %}
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete confirmation modal for the review -->
+  <div class="modal fade" id="reviewDeleteModal" tabindex="-1" aria-labelledby="reviewDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="reviewDeleteModalLabel">Delete review?</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to delete this review? This action cannot be undone.
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <!-- This will trigger form submission -->
+          <button type="button" class="btn btn-danger" id="confirmReviewDelete">Delete</button>
         </div>
       </div>
     </div>
-    <!-- Delete confirmation modal for the review -->
-    <div class="modal fade" id="reviewDeleteModal" tabindex="-1" aria-labelledby="reviewDeleteModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="reviewDeleteModalLabel">Delete review?</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            Are you sure you want to delete this review? This action cannot be undone.
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <!-- This will trigger form submission -->
-            <button type="button" class="btn btn-danger" id="confirmReviewDelete">Delete</button>
-          </div>
-        </div>
-      </div>
+  </div>
+
+  <!-- Displaying count of comments -->
+  <div class="row">
+    <div class="col-12">
+      <strong class="text-secondary">
+        <i class="far fa-comments"></i> {{ comment_count }}
+      </strong>
     </div>
-    <!-- Displaying count of comments -->
-    <div class="row">
-      <div class="col-12">
-        <strong class="text-secondary">
-          <i class="far fa-comments"></i> {{ comment_count }}
-        </strong>
-      </div>
-      <div class="col-12">
-        <hr />
-      </div>
+    <div class="col-12">
+      <hr />
     </div>
-    <!-- Displaying Comments -->
-    <div class="row">
-      <div class="col-md-8 card mb-4 mt-3">
-        <h3>Comments:</h3>
-        <div class="card-body">
-          <!--loop inside the empty control tags
-          to iterate through each comment in comments -->
-          {% for comment in comments %}
+  </div>
+
+  <!-- Displaying Comments -->
+  <div class="row">
+    <div class="col-md-8 card mb-4 mt-3">
+      <h3>Comments:</h3>
+      <div class="card-body">
+        <!-- Loop to iterate through each comment in comments -->
+        {% for comment in comments %}
           <div
             class="p-2 comments {% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
             <p class="font-weight-bold">
               {{ comment.user }}
-              <span class="font-weight-normal"> {{ comment.created_on }} </span>
-              wrote:
+              <span class="font-weight-normal"> {{ comment.created_on }} </span> wrote:
             </p>
             <div id="comment{{ comment.id }}">
               {{ comment.content | linebreaks }}
             </div>
             <p>Rating {{ comment.rating }} out of 5.</p>
             {% if not comment.approved and comment.user == user %}
-            <p class="approval">This comment is awaiting approval</p>
-            {% endif %} {% if user.is_authenticated and comment.user == user %}
-            <button class="btn btn-delete" comment_id="{{ comment.id }}">
-              Delete
-            </button>
-            <button class="btn btn-edit" comment_id="{{ comment.id }}">
-              Edit
-            </button>
+              <p class="approval">This comment is awaiting approval</p>
+            {% endif %}
+            {% if user.is_authenticated and comment.user == user %}
+              <button class="btn btn-delete" comment_id="{{ comment.id }}">
+                Delete
+              </button>
+              <button class="btn btn-edit" comment_id="{{ comment.id }}">
+                Edit
+              </button>
             {% endif %}
           </div>
-          <!-- Our for loop ends here -->
-          {% endfor %}
-        </div>
+          <!-- End of for loop -->
+        {% endfor %}
       </div>
-      <!-- Creating New Comments -->
-      <div class="col-md-4 card mb-4 mt-3">
-        <div class="card-body">
-          {% if user.is_authenticated %}
+    </div>
+
+    <!-- Creating New Comments -->
+    <div class="col-md-4 card mb-4 mt-3">
+      <div class="card-body">
+        {% if user.is_authenticated %}
           <h3>Leave a comment:</h3>
           <p>Posting as: {{ user.username }}</p>
           <form id="commentForm" method="post" style="margin-top: 1.3em">
-            {{ comment_form | crispy }} {% csrf_token %}
-            <button id="submitButton" type="submit" class="btn btn-signup btn-lg">
-              Submit
-            </button>
+            {{ comment_form | crispy }} 
+            {% csrf_token %}
+            <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
           </form>
-          {% else %}
+        {% else %}
           <p>Log in to leave a comment</p>
-          {% endif %}
-        </div>
+        {% endif %}
       </div>
     </div>
   </div>
@@ -143,22 +159,18 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Are you sure you want to delete your comment? This action cannot be
-          undone.
+          Are you sure you want to delete your comment? This action cannot be undone.
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            Close
-          </button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
         </div>
       </div>
     </div>
   </div>
 
-  {% endblock %} {% block extras %}
+{% endblock %}
 
-  <script src="{% static 'js/edit_delete.js' %}"></script>
-
-  {% endblock %}
-</div>
+{% block extras %}
+<script src="{% static 'js/edit_delete.js' %}"></script>
+{% endblock %}

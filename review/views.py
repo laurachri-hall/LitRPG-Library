@@ -58,52 +58,12 @@ def review_detail(request, slug):
             "comment_form": comment_form,
         },
     )
-
-
-def comment_edit(request, slug, comment_id):
-    """
-    view to edit comments
-    """
-    if request.method == "POST":
-
-        queryset = Review.objects.filter(status=1)
-        review = get_object_or_404(queryset, slug=slug)
-        comment = get_object_or_404(Comment, pk=comment_id)
-        comment_form = CommentForm(data=request.POST, instance=comment)
-
-        if comment_form.is_valid() and comment.user == request.user:
-            comment = comment_form.save(commit=False)
-            comment.review = review
-            comment.approved = False
-            comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
-        else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
-
-    return HttpResponseRedirect(reverse('review_detail', args=[slug]))
-
-def comment_delete(request, slug, comment_id):
-    """
-    view to delete comment
-    """
-    queryset = Review.objects.filter(status=1)
-    review = get_object_or_404(queryset, slug=slug)
-    comment = get_object_or_404(Comment, pk=comment_id)
-
-    if comment.user == request.user:
-        comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
-    else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
-
-    return HttpResponseRedirect(reverse('review_detail', args=[slug]))
-
 def add_review(request):
     """
     Add Review
     """
     if request.method == 'POST':
-        review_form = ReviewForm(request.POST)
+        review_form = ReviewForm(request.POST, request.FILES)  # Include files if using file uploads
         if review_form.is_valid():
             book = review_form.cleaned_data['book']
             
@@ -114,9 +74,14 @@ def add_review(request):
                 return HttpResponse("A review for this book already exists.", status=400)
 
             try:
-                # Save the review
+                # Save the review with slug generation
                 review = review_form.save(commit=False)
-                review.user = request.user
+                review.user = request.user  # Associate the review with the logged-in user
+
+                # Automatically generate slug if it's empty
+                if not review.slug:
+                    review.slug = slugify(review.title)
+
                 review.save()  # This is where the IntegrityError could occur due to the slug constraint
 
                 messages.success(request, f'Your review for "{book.book_title}" has been added successfully.')
@@ -168,6 +133,45 @@ def review_delete(request, slug):
         review.delete()
         messages.success(request, 'Review deleted successfully!')
         return redirect('home')  # Redirect to home after deletion
+
+
+def comment_edit(request, slug, comment_id):
+    """
+    view to edit comments
+    """
+    if request.method == "POST":
+
+        queryset = Review.objects.filter(status=1)
+        review = get_object_or_404(queryset, slug=slug)
+        comment = get_object_or_404(Comment, pk=comment_id)
+        comment_form = CommentForm(data=request.POST, instance=comment)
+
+        if comment_form.is_valid() and comment.user == request.user:
+            comment = comment_form.save(commit=False)
+            comment.review = review
+            comment.approved = False
+            comment.save()
+            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+        else:
+            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+
+    return HttpResponseRedirect(reverse('review_detail', args=[slug]))
+
+def comment_delete(request, slug, comment_id):
+    """
+    view to delete comment
+    """
+    queryset = Review.objects.filter(status=1)
+    review = get_object_or_404(queryset, slug=slug)
+    comment = get_object_or_404(Comment, pk=comment_id)
+
+    if comment.user == request.user:
+        comment.delete()
+        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+    else:
+        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+
+    return HttpResponseRedirect(reverse('review_detail', args=[slug]))
 
 def add_book(request):
     """
