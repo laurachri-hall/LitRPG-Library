@@ -33,6 +33,26 @@ p {
     background-color: #1F1D5E;
 }
 
+/* Hero Video */
+.header-video {
+    position: relative;
+    overflow: hidden;
+    height: 500px; /* Adjust height as needed */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bg-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    object-fit: cover; /* Ensures the video covers the area */
+    z-index: -1; /* Places the video behind other content */
+}
+
 .card {
     border: #E2E5F6 1px solid;
     background-color: transparent;

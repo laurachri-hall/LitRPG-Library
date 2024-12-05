@@ -4,15 +4,17 @@
 {% block content %}
 <header class="header">
   <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6 header-image">
-            <h1>LitRPG Library</h1>
-        </div>
-          <!-- Image Section -->
-          <div class="col-md-6 header-image">
-              <img src="{%static 'images/hero.gif' %}" alt="Header Image">
-          </div>
+    <div class="row align-items-center">
+      <div class="col-md-6">
+        <h1>LitRPG Library</h1>
       </div>
+      <div class="col-md-6 header-video">
+        <video autoplay muted loop playsinline class="bg-video">
+          <source src="{% static 'videos/hero.mp4' %}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
   </div>
 </header>
 {% endblock %}
