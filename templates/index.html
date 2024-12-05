@@ -23,58 +23,60 @@
     </div>
 </header>
 
-<hr class="solid">
+<hr class="solid hero-break">
+
+<!-- What You Can Do Cards -->
 <div class="container">
-    <div class="row justify-content-center"">
-        <div class=" col-sm-2">
-        <div class="card">
-            <div class="card-body index-card">
-                <h5 class="card-title d-flex justify-content-between align-items-center">
-                    Add
-                    <i class="fas fa-book-open"></i>
-                </h5>
-                <p class="card-text">A book to the LitRPG Library.</p>
-                <a href="{% url 'add_book' %}" class="btn btn-primary">Add Book</a>
+    <div class="row justify-content-center">
+        <div class="col-sm-2 col-md-3 col-lg-3">
+            <div class="card index-card">
+                <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-between align-items-center">
+                        Add
+                        <i class="fas fa-book-open"></i>
+                    </h5>
+                    <p class="card-text">A book to the LitRPG Library.</p>
+                    <a href="{% url 'add_book' %}" class="btn btn-primary">Add Book</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 col-md-3 col-lg-3">
+            <div class="card index-card">
+                <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-between align-items-center">
+                        Review
+                        <i class="fas fa-keyboard"></i>
+                    </h5>
+                    <p class="card-text">A book and add a rating.</p>
+                    <a href="{% url 'add_review' %}" class="btn btn-primary">Review</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 col-md-3 col-lg-3">
+            <div class="card index-card">
+                <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-between align-items-center">
+                        Comment
+                        <i class="fas fa-comments"></i>
+                    </h5>
+                    <p class="card-text">Add your voice to the discussion.</p>
+                    <a href="{% url 'review_list' %}" class="btn btn-primary">Review List</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-2 col-md-3 col-lg-3">
+            <div class="card index-card">
+                <div class="card-body">
+                    <h5 class="card-title d-flex justify-content-between align-items-center">
+                        TBR List
+                        <i class="fas fa-list-alt"></i>
+                    </h5>
+                    <p class="card-text">Add books to your to be read list.</p>
+                    <a href="{% url 'tbr_list' %}" class="btn btn-primary">TBR List</a>
+                </div>
             </div>
         </div>
     </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body index-card">
-                <h5 class="card-title d-flex justify-content-between align-items-center">
-                    Review
-                    <i class="fas fa-keyboard"></i>
-                </h5>
-                <p class="card-text">A book and add a rating.</p>
-                <a href="{% url 'add_review' %}" class="btn btn-primary">Review</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card index-card">
-            <div class="card-body">
-                <h5 class="card-title d-flex justify-content-between align-items-center">
-                    Comment
-                    <i class="fas fa-comments"></i>
-                </h5>
-                <p class="card-text">Add your voice to the discussion.</p>
-                <a href="{% url 'review_list' %}" class="btn btn-primary">Reviw List</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-sm-2">
-        <div class="card">
-            <div class="card-body index-card">
-                <h5 class="card-title d-flex justify-content-between align-items-center">
-                    TBR List
-                    <i class="fas fa-list-alt"></i>
-                </h5>
-                <p class="card-text">Add books to your to be read list.</p>
-                <a href="{% url 'tbr_list' %}" class="btn btn-primary">TBR List</a>
-            </div>
-        </div>
-    </div>
-</div>
 </div>
 
 

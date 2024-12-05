@@ -1,24 +1,30 @@
 @import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 :root {
-  --bg-color: #1f1d5e; /* Dark Blue */
-  --secondary-color: #91a5fe; /* Light Blue */
-  --accent-color: #597ffc; /* Blue */
-  --text-color: #e2e5f6; /* Light Gray */
-  --highlight-color: #ff8695; /* Pink */
+    --bg-color: #1f1d5e;
+    /* Dark Blue */
+    --secondary-color: #91a5fe;
+    /* Light Blue */
+    --accent-color: #597ffc;
+    /* Blue */
+    --text-color: #e2e5f6;
+    /* Light Gray */
+    --highlight-color: #ff8695;
+    /* Pink */
 }
+
 /* General Styles */
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  font-family: "Raleway", Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: "Raleway", Arial, sans-serif;
 }
 
 h1,
@@ -27,164 +33,168 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--accent-color);
-  font-family: "Cabin", Arial, sans-serif;
+    color: var(--accent-color);
+    font-family: "Cabin", Arial, sans-serif;
 }
 
 p {
-  color: var(--text-color);
+    color: var(--text-color);
 }
 
 .text-muted {
-  font-weight: 200;
+    font-weight: 200;
 }
 
 /* Navbar */
 
 .nav {
-  background-color: var(--bg-color);
+    background-color: var(--bg-color);
 }
 
 .navbar {
-  margin-bottom: 0;
-  width: 100%;
-  border: 0;
-  z-index: 1;
+    margin-bottom: 0;
+    width: 100%;
+    border: 0;
+    z-index: 1;
 }
 
 .navbar .navbar-toggler {
-  color: var(--accent-color);
+    color: var(--accent-color);
 }
 
 .nav {
-  text-align: center;
+    text-align: center;
 }
 
 .navbar-toggler {
-  float: none;
-  margin-right: 0;
+    float: none;
+    margin-right: 0;
 }
 
 .navbar-toggler:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.gravity-ui--bars {
-  display: inline-block;
-  width: 32px;
-  height: 32px;
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='%23597FFC' fill-rule='evenodd' d='M1.25 3.25A.75.75 0 0 1 2 2.5h12A.75.75 0 0 1 14 4H2a.75.75 0 0 1-.75-.75m0 4.75A.75.75 0 0 1 2 7.25h12a.75.75 0 0 1 0 1.5H2A.75.75 0 0 1 1.25 8M2 12a.75.75 0 0 0 0 1.5h12a.75.75 0 0 0 0-1.5z' clip-rule='evenodd'/%3E%3C/svg%3E");
+    outline: none;
+    box-shadow: none;
 }
 
 .dropdown-menu {
-  background-color: var(--bg-color);
-  color:var(--text-color);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+
 }
 
 .nav-link,
 .dropdown-item {
-  color: var(--secondary-color);
-  font-weight: bold;
+    color: var(--secondary-color);
+    font-weight: bold;
 }
 
 .nav-link:hover,
 .nav-link:active,
 .dropdown-item:hover,
 .dropdown-item:active {
-  color: var(--highlight-color);
+    color: var(--highlight-color);
 }
 
 .dropdown-item:hover,
 .dropdown-item:active {
-  background-color: var(--accent-color);
+    background-color: var(--accent-color);
 }
 
 /* Nav Spin */
 .navbar-toggler .icon-bar {
-  display: block;
-  width: 22px;
-  height: 2px;
-  background-color: var(--accent-color);
-  transition: all 0.35s ease-in-out;
-  -moz-transition: all 0.35s ease-in-out;
-  -webkit-transition: all 0.35s ease-in-out;
-  -o-transition: all 0.35s ease-in-out;
+    display: block;
+    width: 22px;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: all 0.35s ease-in-out;
+    -moz-transition: all 0.35s ease-in-out;
+    -webkit-transition: all 0.35s ease-in-out;
+    -o-transition: all 0.35s ease-in-out;
 }
 
 .navbar-toggler:hover .icon-bar {
-  background-color: var(--highlight-color);
+    background-color: var(--highlight-color);
 }
 
 .navbar-toggler .top-bar {
-  transform: rotate(0);
+    transform: rotate(0);
 }
 
 .navbar-toggler .middle-bar {
-  opacity: 1;
+    opacity: 1;
 }
 
 .navbar-toggler .bottom-bar {
-  transform: rotate(0);
+    transform: rotate(0);
 }
 
 .navbar-toggler:not(.collapsed) .top-bar {
-  transform: rotate(45deg);
-  transform-origin: 10% 10%;
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
 }
 
 .navbar-toggler:not(.collapsed) .middle-bar {
-  opacity: 0;
+    opacity: 0;
 }
 
 .navbar-toggler:not(.collapsed) .bottom-bar {
-  transform: rotate(-45deg);
-  transform-origin: 10% 90%;
+    transform: rotate(-45deg);
+    transform-origin: 10% 90%;
+}
+
+.hero-break {
+    width: 75%;
+    margin: 20px auto;
+    border: 2px solid var(--text-color);
 }
 
 /* bg */
 .light-bg {
-  background-color:var(--secondary-color);
+    background-color: var(--secondary-color);
 }
 
 .dark-bg {
-  background-color: var(--accent-color);
+    background-color: var(--accent-color);
 }
 
 .main-bg {
-  background-color:var(--bg-color);
+    background-color: var(--bg-color);
 }
 
 /* Hero Video */
 .header-video {
-  position: relative;
-  overflow: hidden;
-  width: 100%; /* Full width of the container */
-  height: auto;
-  aspect-ratio: 1/ 1; /* Keeps it proportional */
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    /* Full width of the container */
+    height: auto;
+    aspect-ratio: 1/ 1;
+    /* Keeps it proportional */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .bg-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%; /* Ensure it fills the container */
-  height: 100%; /* Ensure it fills the container */
-  object-fit: cover; /* Maintains aspect ratio and covers the container */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Ensure it fills the container */
+    height: 100%;
+    /* Ensure it fills the container */
+    object-fit: cover;
+    /* Maintains aspect ratio and covers the container */
 }
-.title-tagline{
-    
+
+.title-tagline {
+    margin-top: 20px;
 }
 
 .tagline {
 
     font-family: "Raleway", Arial, sans-serif;
-    color:var(--secondary-color);
+    color: var(--secondary-color);
     margin: 20px 10px 30px 0px;
 
 }
@@ -192,217 +202,264 @@ p {
 /* Cards */
 
 .card {
-  border: #e2e5f6 1px solid;
-  background-color: transparent;
+    border:none;
+    background-color: transparent;
 }
 
 .index-card {
-  border: #91a5fe 1px solid;
-  background-color: rgba(51, 49, 114 0.2);
+    border: 2px solid var(--secondary-color); /* Border Color */
+    border-radius: 10px; /* Rounded Corners */
+    margin: 20px auto; /* Margin Around Card */
+    padding: 20px; /* Padding Inside the Card */
+    background-color: #292a33; /* Card Background */
+    transition: all 0.3s ease; /* Smooth Transition */
+    text-align: left; /* Center Text in Cards */
 }
 
 .image-container {
-  position: relative;
+    position: relative;
+    
 }
 
 .image-flash {
-  position: absolute;
-  bottom: 5%;
-  min-width: 30%;
-  left: -2px;
-  background-color: #188181;
+    position: absolute;
+    bottom: 5%;
+    min-width: 30%;
+    left: -2px;
+    background-color: #188181;
 }
 
 .scale {
-  width: 100%;
-  height: auto;
+    width: 100%;
+    height: auto;
 }
 
 .author {
-  color: white;
-  margin: 4px;
-  text-transform: uppercase;
+    color: white;
+    margin: 4px;
+    text-transform: uppercase;
 }
 
 .masthead {
-  margin-top: 10px;
-  overflow: hidden;
-  position: relative;
-  display: inline-block;
-  height: 33vh;
-  width: 100%;
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 33vh;
+    width: 100%;
 }
 
 .masthead-text {
-  background-color: #445261;
-  color: white;
-  position: relative;
+    background-color: #445261;
+    color: white;
+    position: relative;
 }
 
 .masthead-image {
-  position: relative;
-  overflow: hidden;
+    position: relative;
+    overflow: hidden;
 }
 
 .masthead-image:after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 90%;
-  height: 100%;
-  width: 150%;
-  background: #445261;
-  -webkit-transform: skew(15deg);
-  -moz-transform: skew(15deg);
-  transform: skew(15deg);
-  z-index: 100;
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: #445261;
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
 }
 
 .post-link {
-  text-decoration: none;
-  color: #445261;
+    text-decoration: none;
+    color: #445261;
 }
 
 .post-link:hover,
 .page-link {
-  color: #e84610;
+    color: #e84610;
 }
 
 .post-title {
-  margin-top: 10%;
-  margin-left: 5%;
+    margin-top: 10%;
+    margin-left: 5%;
 }
 
 .post-subtitle {
-  margin-left: 5%;
-  color: lightgray;
+    margin-left: 5%;
+    color: lightgray;
 }
 
 /* Buttons */
 
 .btn-signup,
 .btn-edit {
-  background-color: var(--highlight-color);
-  color: var(--bg-color);
-  font-weight: 500;
+    background-color: var(--highlight-color);
+    color: var(--bg-color);
+    font-weight: 500;
 }
 
 .btn-signup:hover,
 .btn-signup:active {
-  background-color: var(--secondary-color);
-  color: var(--bg-color);
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
 }
 
 .link {
-  color: #23bbbb;
-  text-decoration: none;
+    color: #23bbbb;
+    text-decoration: none;
 }
 
 .link:hover,
 .link:active {
-  color: #445261;
-  text-decoration: underline;
+    color: #445261;
+    text-decoration: underline;
 }
 
 .btn-like {
-  color: #e84610;
-  border: none;
-  background: transparent;
+    color: #e84610;
+    border: none;
+    background: transparent;
 }
 
 .btn-delete {
-  color: #fff;
-  background: #e84610;
+    color: #fff;
+    background: #e84610;
 }
 
 .btn-like:hover,
 .btn-like:active {
-  color: #e84610;
-  background: transparent;
-  border: none;
+    color: #e84610;
+    background: transparent;
+    border: none;
 }
 
 .faded {
-  color: rgb(172, 175, 175);
+    color: rgb(172, 175, 175);
 }
 
 .approval {
-  color: rgb(222, 146, 168);
+    color: rgb(222, 146, 168);
 }
 
 /* Media */
 
 @media (max-width: 767px) {
-  .navbar .container-fluid {
-    flex-direction: column;
-  }
-  .navbar .container-fluid > div:first-child {
-    width: 100%;
-  }
-  .navbar-brand {
-    margin-right: 0;
-  }
-  .navbar-toggler {
-    margin-left: auto;
-  }
+    .navbar .container-fluid {
+        flex-direction: column;
+    }
+
+    .navbar .container-fluid>div:first-child {
+        width: 100%;
+    }
+
+    .navbar-brand {
+        margin-right: 0;
+    }
+
+    .navbar-toggler {
+        margin-left: auto;
+    }
 }
 
 @media (min-width: 768px) {
-  .navbar .navbar-brand {
-    position: relative;
-    margin-left: 0;
-    margin-top: 10px;
-  }
+    .navbar .navbar-brand {
+        position: relative;
+        margin-left: 0;
+        margin-top: 10px;
+    }
 
-  .navbar-text {
+    .navbar-expand-md .navbar-nav .nav-link {
+        padding-right: .7rem;
+        padding-left: .5rem;
+    }
+
+
+    .navbar-text {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Align to the left or you can adjust as needed */
-  }
+    justify-content: flex-start;
+    /* Align to the left or you can adjust as needed */
+    }
 
-  .navbar-text p {
-    margin: 0; /* Remove default margin */
-    white-space: nowrap; /* Prevent the text from wrapping */
-  }
+    .navbar-text p {
+    margin: 0;
+    /* Remove default margin */
+    white-space: nowrap;
+    /* Prevent the text from wrapping */
+    }
 
-  .header {
-    display: flex;
-    flex-direction: row; /* Keeps layout horizontal */
-    justify-content: flex-start; /* Align items to the left */
-    align-items: center; /* Center items vertically */
-    text-align: left;
-  }
+    .header {
+        display: flex;
+        flex-direction: row;
+        /* Keeps layout horizontal */
+        justify-content: flex-start;
+        /* Align items to the left */
+        align-items: center;
+        /* Center items vertically */
+        text-align: left;
+    }
 
-  .header .container {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-    margin-right: 0;
-    padding-right: 0;
-  }
+    .header .container {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-right: 0;
+        padding-right: 0;
+    }
 
-  .header .row {
-    display: flex;
-    flex-direction: row;
-    width: 100%;
-  }
+    .header .row {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+    }
 
-  .header .col-md-6 {
-    width: 50%;
-    padding: 0 15px;
-  }
+    .header .col-md-6 {
+        width: 50%;
+        padding: 0 15px;
+    }
 
-  .header-video {
-    width: 100%; /* Ensure video container takes up full space */
-    max-width: 500px; /* Optional: limit max width of the video */
-    aspect-ratio: 1 / 1; /* Adjust the aspect ratio of the video */
-    object-fit: cover; /* Ensure the video covers the container properly */
-  }
+    .header-video {
+        width: 100%;
+        /* Ensure video container takes up full space */
+        max-width: 500px;
+        /* Optional: limit max width of the video */
+        aspect-ratio: 1 / 1;
+        /* Adjust the aspect ratio of the video */
+        object-fit: cover;
+        /* Ensure the video covers the container properly */
+    }
 
-  .text-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-  }
+    .text-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: left;
+    }
+}
+
+/* Card Adjustments for Tablet / Laptop (768px and up) */
+@media (min-width: 768px) and (max-width: 991px) {
+    .index-card {
+        width: 100%; /* Ensure cards are wide enough */
+    }
+    .col-md-3 {
+        flex: 0 0 48%; /* Ensure cards take up about 48% of the width */
+        margin-right: 2%; /* Add spacing between cards */
+    }
+}
+
+/* Card Adjustments for Large Screens */
+@media (min-width: 992px) {
+    .index-card {
+        width: 100%; /* Make cards full width in large screens */
+    }
+    .col-lg-3 {
+        flex: 0 0 22%; /* Cards take up about 22% on large screens */
+        margin-right: 2%; /* Add spacing between cards */
+    }
 }
