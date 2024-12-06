@@ -138,6 +138,16 @@ p {
     object-fit: contain;
 }
 
+.hero-section {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-buttons {
+    position: relative;
+    z-index: 2;
+}
+
 /* Bootstrap divider */
 
 .b-example-divider {
