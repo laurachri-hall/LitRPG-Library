@@ -38,8 +38,8 @@
       <div class="card mb-4 mt-3">
         <div class="card-body">
           {% if user.is_authenticated %}
-            <p><strong>Rating:</strong></p>
             <div class="stars">
+              <span><strong>Rating:</strong></span>
               {% for i in "12345" %}
                 {% if forloop.counter <= review.rating %}
                   <i class="fas fa-star text-warning"></i> <!-- Filled star -->
@@ -48,7 +48,14 @@
                 {% endif %}
               {% endfor %}
             </div>
+            <!-- Add Book Button -->
+            <form action="{% url 'add_to_read_list' book.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn btn-book-add">Add Book</button>
+            </form>
           {% endif %}
+          <hr>
+          <!-- Review Content -->
           <p class="mt-3">{{ review.content | safe }}</p>
           {% if user == review.user %}
             <a href="{% url 'review_edit' slug=review.slug %}" class="btn btn-edit">Edit</a>

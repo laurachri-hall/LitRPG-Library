@@ -420,12 +420,31 @@ footer .social-links li:active svg path {
     font-weight: bold;
 }
 
-.btn-review-delete,
-.btn-review-delete {
+.btn-review-delete:hover,
+.btn-review-delete:active {
     background-color: var(--secondary-color);
     border: 1px solid var(--accent-color);
     color: var(--bg-color);
 }
+
+    /* add book btn */
+.btn-book-add {
+    background-color: var(--accent-color);
+    margin:5px;
+    border: 1px solid var(--secondary-color);
+    color: var(--bg-color);
+    font-weight: 700;
+}
+
+.bbtn-book-add:hover,
+.btn-book-add:active {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--accent-color);
+    color: var(--bg-color);
+}
+
+
+
 
 
 

@@ -413,6 +413,41 @@ footer .social-links li:active svg path {
     color: var(--bg-color);
 }
 
+.btn-review-delete {
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    background-color: var(--highlight-color);
+    font-weight: bold;
+}
+
+.btn-review-delete:hover,
+.btn-review-delete:active {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--accent-color);
+    color: var(--bg-color);
+}
+
+    /* add book btn */
+.btn-book-add {
+    background-color: var(--accent-color);
+    margin:5px;
+    border: 1px solid var(--secondary-color);
+    color: var(--bg-color);
+    font-weight: 700;
+}
+
+.bbtn-book-add:hover,
+.btn-book-add:active {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--accent-color);
+    color: var(--bg-color);
+}
+
+
+
+
+
+
 /* Centers navbar on small screens */
 @media (max-width: 991px) {
     .navbar .container-fluid {
