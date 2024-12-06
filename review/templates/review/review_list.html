@@ -4,59 +4,49 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row justify-content-center"> <!-- Center the row -->
-        <!-- Review Entries Column -->
-        <div class="col-12 mt-3">
-            <div class="row justify-content-center"> <!-- Center the cards in the row -->
-                {% for review in review_list %}
-                <div class="col-md-4 d-flex justify-content-center"> <!-- Ensure equal column sizes -->
-                    <div class="card mb-3 review-card" style="max-width: 540px;">
-                        <div class="row g-0">
-                            <div class="col-md-4">
-                                {% if review.book.book_cover %}
-                                    {% cloudinary review.book.book_cover class="img-fluid rounded-start cover-image" alt=review.title %}
-                                {% else %}
-                                    <img src="{% static 'images/default.jpg' %}" class="img-fluid rounded-start cover-image" alt="placeholder image">
-                                {% endif %}
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <a href="{% url 'review_detail' review.slug %}" class="post-link">
-                                        <h5 class="card-title">{{ review.title }}</h5>
-                                        <p class="card-text">{{ review.excerpt }}</p>
-                                    </a>
-                                    <hr />
-                                    <p class="card-text text-muted h6">{{ review.created_on }}</p>
-                                </div>
-                            </div>
-                        </div>
+    <div class="row row-cols-1 row-cols-md-3 g-4 mx-4 my-4"> <!-- Bootstrap responsive grid -->
+        {% for review in review_list %}
+        <div class="col"> <!-- Each column for a card -->
+            <a href="{% url 'review_detail' review.slug %}" class="text-decoration-none"> <!-- Anchor link wrapping the card -->
+                <div class="card h-100 review-card"> <!-- Ensures all cards have equal height -->
+                    {% if review.book.book_cover %}
+                        {% cloudinary review.book.book_cover class="card-img-top" alt=review.title %}
+                    {% else %}
+                        <img src="{% static 'images/default.jpg' %}" class="card-img-top" alt="Default book cover">
+                    {% endif %}
+                    <div class="card-body">
+                        <h5 class="card-title">{{ review.title }}</h5>
+                        <p class="card-text">{{ review.excerpt }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">{{ review.created_on }}</small>
                     </div>
                 </div>
-
-                {% if forloop.counter|divisibleby:3 and not forloop.last %}
-            </div>
-            <div class="row justify-content-center"> <!-- Create a new row after every third card -->
-                {% endif %}
-                {% endfor %}
-            </div>
-
-            <!-- Pagination -->
-            {% if is_paginated %}
-            <nav aria-label="Page navigation">
-                <ul class="pagination justify-content-center">
-                    {% if page_obj.has_previous %}
-                    <li>
-                        <a href="?page={{ page_obj.previous_page_number }}" class="page-link btn btn-page">PREV</a>
-                    </li>
-                    {% endif %}
-                    {% if page_obj.has_next %}
-                    <li><a href="?page={{ page_obj.next_page_number }}" class="page-link btn btn-page"> NEXT</a></li>
-                    {% endif %}
-                </ul>
-            </nav>
-            {% endif %}
+            </a>
         </div>
+        {% if forloop.counter|divisibleby:3 and not forloop.last %}
+        </div><div class="row row-cols-1 row-cols-md-3 g-4 mx-4 my-4"> <!-- Start a new row every 3 cards -->
+        {% endif %}
+        {% endfor %}
     </div>
+
+    <!-- Pagination -->
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center mt-4">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link btn-lg btn-page">PREV</a>
+            </li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link btn-lg btn-page">NEXT</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
 </div>
 
 {% endblock %}

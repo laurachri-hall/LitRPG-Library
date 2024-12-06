@@ -1,112 +1,139 @@
-{% extends "base.html" %} {% load static %} {% load cloudinary %}
+{% extends "base.html" %} {% load static %} {% load cloudinary %} 
 {% block content %}
+
 <!-- hero image and tag line -->
-<header class="header">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-md-6 title-tagline">
-                <h1>LitRPG Library</h1>
-                <h4 class="tagline">
-                    Your LitRPG Companion: Discover, Save, and Review the Best in Fantasy
-                    Gaming!
-                </h4>
-                <div>
-                    <a href="{% url 'account_signup' %}" class="btn btn-signup">Register</a>
-                </div>
-            </div>
-            <div class="col-md-6 header-video">
-                <video autoplay muted loop playsinline preload="auto" class="bg-video">
-                    <source src="{% static 'videos/hero.mp4' %}" type="video/mp4" />
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-        </div>
+
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+    <!-- Use col-md-12 to ensure full-width on medium devices (portrait tablets) -->
+    <div class="col-12 col-sm-8 col-md-12 col-lg-6">
+      <img
+        src="{% static 'images/hero.gif' %}"
+        class="d-block mx-auto img-fluid"
+        alt="LitRPG Library Logo"
+        width="700"
+        height="500">
     </div>
-</header>
+    <div class="col-lg-6">
+      <h1 class="display-5 fw-bold lh-1 mb-3">LitRPG Library</h1>
+      <p class="lead">
+        Your LitRPG Companion: Discover, Save, and Review the Best Books in Progression Fantasy!
+      </p>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+        <button type="button" class="btn btn-signup btn-lg px-4 me-md-2">
+          Register
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <hr class="solid hero-break" />
 
 <!-- What You Can Do Cards -->
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-sm-2 col-md-3 col-lg-3">
-            <div class="card index-card">
-                <div class="card-body">
-                    <h5 class="card-title d-flex justify-content-between align-items-center">
-                        Add
-                        <i class="fas fa-book-open"></i>
-                    </h5>
-                    <p class="card-text">A book to the LitRPG Library.</p>
-                </div>
-            </div>
+  <div class="row justify-content-center">
+    <div class="col-sm-2 col-md-3 col-lg-3">
+      <div class="card index-card">
+        <div class="card-body">
+          <h5
+            class="card-title d-flex justify-content-between align-items-center"
+          >
+            Add
+            <i class="fas fa-book-open"></i>
+          </h5>
+          <p class="card-text">Add a book to the LitRPG Library.</p>
         </div>
-        <div class="col-sm-2 col-md-3 col-lg-3">
-            <div class="card index-card">
-                <div class="card-body">
-                    <h5 class="card-title d-flex justify-content-between align-items-center">
-                        Review
-                        <i class="fas fa-keyboard"></i>
-                    </h5>
-                    <p class="card-text">Review a book and add a rating.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-2 col-md-3 col-lg-3">
-            <div class="card index-card">
-                <div class="card-body">
-                    <h5 class="card-title d-flex justify-content-between align-items-center">
-                        Comment
-                        <i class="fas fa-comments"></i>
-                    </h5>
-                    <p class="card-text">Add your voice to the discussion.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-2 col-md-3 col-lg-3">
-            <div class="card index-card">
-                <div class="card-body">
-                    <h5 class="card-title d-flex justify-content-between align-items-center">
-                        TBR List
-                        <i class="fas fa-list-alt"></i>
-                    </h5>
-                    <p class="card-text">Add books to your to be read list.</p>
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+    <div class="col-sm-2 col-md-3 col-lg-3">
+      <div class="card index-card">
+        <div class="card-body">
+          <h5
+            class="card-title d-flex justify-content-between align-items-center"
+          >
+            Review
+            <i class="fas fa-keyboard"></i>
+          </h5>
+          <p class="card-text">Review a book and add a rating.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2 col-md-3 col-lg-3">
+      <div class="card index-card">
+        <div class="card-body">
+          <h5
+            class="card-title d-flex justify-content-between align-items-center"
+          >
+            Comment
+            <i class="fas fa-comments"></i>
+          </h5>
+          <p class="card-text">Add your voice to the discussion.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-2 col-md-3 col-lg-3">
+      <div class="card index-card">
+        <div class="card-body">
+          <h5
+            class="card-title d-flex justify-content-between align-items-center"
+          >
+            TBR List
+            <i class="fas fa-list-alt"></i>
+          </h5>
+          <p class="card-text">Add books to your to be read list.</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="h2"></div>
-<!-- LitRPG Description Section -->
+
+<div class="b-example-divider"></div>
+
 <!-- LitRPG Description Section -->
 <section class="litrpg-description">
-    <div class="container litrpg-container">
-        <div class="row">
-            <div class="col-md-6 mb-4">
-                <div class="card">
-                    <div class="card-body">
-                        <img src="{% static 'images/genres.png' %}" class="scale" alt="genres images">
-                    </div>
-                </div>
+  <div class="container litrpg-container">
+    <div class="row">
+      <!-- Text Column -->
+      <div class="col-md-6">
+        <div class="card">
+          <div
+            class="card-body flex-column align-items-center justify-content-center what-title"
+          >
+            <!-- Add flexbox here -->
+            <div>
+              <h2 class="card-title mb-3">What is LitRPG?</h2>
+              <p class="card-text m-4">
+                LitRPG (Literary Role Playing Game) incorporates the strategic
+                aspects of role-playing games into a narrative format. These
+                novels showcase game-like mechanics and reflect the
+                progression-driven characteristics typical of RPGs.
+              </p>
+              <p class="card-text m-4">
+                The types of LitRPG books are many and varied. From comfort
+                reads about setting up a cozy pub in a sleepy village to the
+                overpowered min-maxer set to dominate a dungeon boss, there is
+                something for everyone.
+              </p>
             </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-body flex-column align-items-center justify-content-center what-title"> <!-- Add flexbox here -->
-                        <div>
-                            <h2 class="card-title mb-3">What is LitRPG?</h2>
-                            <p class="card-text m-4">
-                                LitRPG (Literary Role Playing Game) incorporates the strategic aspects of role-playing games into a narrative format.
-                                These novels showcase game-like mechanics and reflect the progression-driven characteristics typical of RPGs.
-                            </p>
-                            <p class="card-text m-4">
-                                The types of LitRPG books are many and varied. From comfort reads about setting up a cozy pub in a sleepy village to
-                                the overpowered min-maxer set to dominate a dungeon boss, there is something for everyone.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
+      </div>
+      <!-- Image Column -->
+      <div class="col-md-6 mb-4">
+        <div class="card">
+          <div class="card-body">
+            <img
+              src="{% static 'images/genres.png' %}"
+              class="scale"
+              alt="genres images"
+            />
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </section>
 
 {% endblock %}

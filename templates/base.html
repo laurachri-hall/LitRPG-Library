@@ -6,7 +6,7 @@
 {% url 'account_logout' as logout_url %}
 
 <!DOCTYPE html>
-<html class="h-100" lang="en">
+<html lang="en">
 
 <head>
     <title>LitRPG Library</title>
@@ -35,74 +35,61 @@
 
 </head>
 
-<body class="d-flex flex-column h-100 main-bg">
+<body>
 
     <!-- Navigation -->
-    <nav class="navbar nav navbar-expand-md justify-content-center">
+    <nav class="navbar navbar-expand-md navbar-dark llnav">
         <div class="container-fluid">
-            <!-- Logo section -->
             <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="{% static 'images/logo.webp' %}" alt="LitRPG Library Logo" width="250" height="70">
+                <img src="{% static 'images/logo.webp' %}" alt="LitRPG Library Logo" width="190" height="60">
             </a>
-
-            <!-- Centered content wrapper -->
-            <div class="text-center w-100">
-                <button class="navbar-toggler mt-2" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbar-list-6" aria-controls="navbar-list-6" aria-expanded="false"
-                    aria-label="Toggle navigation">
-                    <span class="icon-bar top-bar"></span>
-                    <span class="icon-bar middle-bar"></span>
-                    <span class="icon-bar bottom-bar"></span>
-                </button>
-            </div>
-
-            <!-- Navigation items -->
-            <div class="collapse navbar-collapse justify-content-end" id="navbar-list-6">
-                <span class="navbar-text text-muted">
-                    {% if user.is_authenticated %}
-                    <p class="mx-3">Logged in as {{ user }}.</p>
-                    {% else %}
-                    <p class="text-end mx-3">Not logged in.</p>
-                    {% endif %}
-                </span>
-                <ul class="navbar-nav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExample04"
+                aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse" id="navbarsExample04">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link {% if request.path == home_url %}active{% endif %}" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'review_list' %}">Reviews</a>
+                        <a class="nav-link {% if request.path == 'review_list' %}active{% endif %}" href="{% url 'review_list' %}">Reviews</a>
                     </li>
                     {% if user.is_authenticated %}
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            User Menu
-                        </a>
+                            data-bs-toggle="dropdown" aria-expanded="false">User Menu</a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{% url 'add_book' %}">Add Book</a></li>
                             <li><a class="dropdown-item" href="{% url 'add_review' %}">Add Review</a></li>
                             <li><a class="dropdown-item" href="{% url 'tbr_list' %}">TBR List</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
+                            <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="{% url 'account_logout' %}">Log Out</a></li>
                         </ul>
                     </li>
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'account_signup' %}">Register</a>
+                        <a class="nav-link {% if request.path == signup_url %}active{% endif %}" href="{% url 'account_signup' %}">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" aria-current="page"
-                            href="{% url 'account_login' %}">Login</a>
+                        <a class="nav-link {% if request.path == login_url %}active{% endif %}" href="{% url 'account_login' %}">Login</a>
                     </li>
                     {% endif %}
                 </ul>
+                <span class="navbar-text m-2">
+                    {% if user.is_authenticated %}
+                    Logged in as {{ user }}
+                    {% else %}
+                    Not logged in
+                    {% endif %}
+                </span>
             </div>
         </div>
     </nav>
+    
     <!-- displaying Django messages -->
+
     <div class="container">
         <div class="row">
             <div class="col-md-8 offset-md-2">
@@ -117,7 +104,7 @@
         </div>
     </div>
 
-    <main class="flex-shrink-0 main-bg">
+    <main>
 
         {% block content %}
         <!-- Content Goes here -->
@@ -125,6 +112,8 @@
 
     </main>
 
+    <div class="b-example-divider"></div>
+    
     <!-- Footer -->
     <footer class="footer mt-auto py-3 main-bg">
         <p class="m-0 text-center">

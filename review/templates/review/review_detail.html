@@ -5,68 +5,67 @@
 {% load crispy_forms_tags %}
 {% load ratings %}
 
-<div class="masthead">
-  <div class="container">
+<div class="masthead rounded">
+  <div class="container mt-3">
     <div class="row g-0">
       <div class="col-md-6 masthead-text">
-        <!-- Post title goes in these h1 tags -->
-        <h1 class="post-title">{{ review.title }}</h1>
-        <!-- Post author goes before the | the post's created date goes after -->
-        <p class="post-subtitle">
+        <h1 class="post-title my-2 mx-2">{{ review.title }}</h1>
+        <p class="post-subtitle my-2 mx-2">
           {{ review.author }} | {{ review.created_on }}
         </p>
       </div>
       <div class="d-none d-md-block col-md-6 masthead-image">
-        {% if review.book.book_cover %}
-          {% cloudinary review.book.book_cover class="scale" alt=review.title %}
-        {% else %}
-          <img src="{% static 'images/default.jpg' %}" class="scale" alt="placeholder image">
-        {% endif %}
+        <!-- Optional image content for the masthead -->
       </div>
     </div>
   </div>
 </div>
 
 <div class="container">
-  <div class="row">
-    <div class="col card mb-4 mt-3 left top">
-      <div class="card-body">
-        <!-- Rating and Review content -->
-        {% if user.is_authenticated %}
-          <p>Rating:</p>
-          <div class="stars">
-            {% for i in "12345" %}
-              {% if forloop.counter <= review.rating %}
-                <i class="fas fa-star text-warning"></i>  <!-- Filled star -->
-              {% else %}
-                <i class="far fa-star text-warning"></i>  <!-- Empty star -->
-              {% endif %}
-            {% endfor %}
-          </div>
-        {% endif %}
-
-        <form action="{% url 'add_to_read_list' book.id %}" method="post">
-          {% csrf_token %}
-          <button type="submit">Add Book</button>
-        </form>
-
-        <p class="card-text">{{ review.content | safe }}</p>
-
-        {% if user == review.user %}
-          <a href="{% url 'review_edit' slug=review.slug %}" class="btn btn-secondary btn-sm">Edit</a>
-          <!-- Delete form for review, will trigger modal -->
-          <form method="post" action="{% url 'review_delete' slug=review.slug %}" style="display: inline" id="reviewDeleteForm">
-            {% csrf_token %}
-            <button type="button" class="btn btn-danger" data-slug="{{ review.slug }}" data-bs-toggle="modal" data-bs-target="#reviewDeleteModal">
-              Delete
-            </button>
-          </form>
-        {% endif %}
+  <!-- Main Row -->
+  <div class="row mt-4">
+    <div class="col-md-1"></div>
+    <!-- Placeholder Image or Book Cover -->
+    <div class="col-md-3 mt-3">
+      {% if review.book.book_cover %}
+        <img src="{{ review.book.book_cover.url }}" class="img-fluid rounded" alt="{{ review.title }}">
+      {% else %}
+        <img src="{% static 'images/default.jpg' %}" class="img-fluid rounded" alt="Placeholder">
+      {% endif %}
+    </div>
+    <!-- Review Content -->
+    <div class="col-md-7">
+      <div class="card mb-4 mt-3">
+        <div class="card-body">
+          {% if user.is_authenticated %}
+            <p><strong>Rating:</strong></p>
+            <div class="stars">
+              {% for i in "12345" %}
+                {% if forloop.counter <= review.rating %}
+                  <i class="fas fa-star text-warning"></i> <!-- Filled star -->
+                {% else %}
+                  <i class="far fa-star text-warning"></i> <!-- Empty star -->
+                {% endif %}
+              {% endfor %}
+            </div>
+          {% endif %}
+          <p class="mt-3">{{ review.content | safe }}</p>
+          {% if user == review.user %}
+            <a href="{% url 'review_edit' slug=review.slug %}" class="btn btn-edit">Edit</a>
+            <!-- Delete form -->
+            <form method="post" action="{% url 'review_delete' slug=review.slug %}" style="display: inline" id="reviewDeleteForm">
+              {% csrf_token %}
+              <button type="button" class="btn btn-delete" data-slug="{{ review.slug }}" data-bs-toggle="modal" data-bs-target="#reviewDeleteModal">
+                Delete
+              </button>
+            </form>
+          {% endif %}
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- Delete confirmation modal for the review -->
+  <!-- Delete Confirmation Modal for Review -->
   <div class="modal fade" id="reviewDeleteModal" tabindex="-1" aria-labelledby="reviewDeleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -79,21 +78,18 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <!-- This will trigger form submission -->
           <button type="button" class="btn btn-danger" id="confirmReviewDelete">Delete</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Displaying count of comments -->
+  <!-- Comments Section -->
   <div class="row">
     <div class="col-12">
       <strong class="text-secondary">
-        <i class="far fa-comments"></i> {{ comment_count }}
+        <i class="far fa-comments"></i> {{ comment_count }} Comments
       </strong>
-    </div>
-    <div class="col-12">
       <hr />
     </div>
   </div>
@@ -103,45 +99,38 @@
     <div class="col-md-8 card mb-4 mt-3">
       <h3>Comments:</h3>
       <div class="card-body">
-        <!-- Loop to iterate through each comment in comments -->
         {% for comment in comments %}
-          <div
-            class="p-2 comments {% if not comment.approved and comment.author == user %} faded{% elif not comment.approved %} d-none{% endif %}">
-            <p class="font-weight-bold">
-              {{ comment.user }}
-              <span class="font-weight-normal"> {{ comment.created_on }} </span> wrote:
+          <div class="p-2 comments {% if not comment.approved and comment.author == user %}faded{% elif not comment.approved %}d-none{% endif %}">
+            <p>
+              <strong>{{ comment.user }}</strong> 
+              <span>{{ comment.created_on }}</span> wrote:
             </p>
             <div id="comment{{ comment.id }}">
               {{ comment.content | linebreaks }}
             </div>
-            <p>Rating {{ comment.rating }} out of 5.</p>
+            <p>Rating: {{ comment.rating }} out of 5.</p>
             {% if not comment.approved and comment.user == user %}
               <p class="approval">This comment is awaiting approval</p>
             {% endif %}
             {% if user.is_authenticated and comment.user == user %}
-              <button class="btn btn-delete" comment_id="{{ comment.id }}">
-                Delete
-              </button>
-              <button class="btn btn-edit" comment_id="{{ comment.id }}">
-                Edit
-              </button>
+              <button class="btn btn-edit" data-slug="{{ review.slug }}" comment_id="{{ comment.id }}">Edit</button>
+              <button class="btn btn-delete" data-slug="{{ review.slug }}" comment_id="{{ comment.id }}">Delete</button>
             {% endif %}
           </div>
-          <!-- End of for loop -->
         {% endfor %}
       </div>
     </div>
 
-    <!-- Creating New Comments -->
+    <!-- New Comment Form -->
     <div class="col-md-4 card mb-4 mt-3">
       <div class="card-body">
         {% if user.is_authenticated %}
           <h3>Leave a comment:</h3>
           <p>Posting as: {{ user.username }}</p>
-          <form id="commentForm" method="post" style="margin-top: 1.3em">
+          <form id="commentForm" method="post">
             {{ comment_form | crispy }} 
             {% csrf_token %}
-            <button id="submitButton" type="submit" class="btn btn-signup btn-lg">Submit</button>
+            <button id="submitButton" type="submit" class="btn btn-edit btn-lg">Submit</button>
           </form>
         {% else %}
           <p>Log in to leave a comment</p>
@@ -150,7 +139,7 @@
     </div>
   </div>
 
-  <!-- Delete confirmation modal -->
+  <!-- Delete Confirmation Modal for Comments -->
   <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -168,6 +157,7 @@
       </div>
     </div>
   </div>
+</div>
 
 {% endblock %}
 
