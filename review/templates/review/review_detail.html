@@ -55,7 +55,7 @@
             <!-- Delete form -->
             <form method="post" action="{% url 'review_delete' slug=review.slug %}" style="display: inline" id="reviewDeleteForm">
               {% csrf_token %}
-              <button type="button" class="btn btn-delete" data-slug="{{ review.slug }}" data-bs-toggle="modal" data-bs-target="#reviewDeleteModal">
+              <button type="button" class="btn btn-review-delete" data-slug="{{ review.slug }}" data-bs-toggle="modal" data-bs-target="#reviewDeleteModal">
                 Delete
               </button>
             </form>
@@ -78,7 +78,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-danger" id="confirmReviewDelete">Delete</button>
+          <button type="button" class="btn btn-review-delete" id="confirmReviewDelete">Delete</button>
         </div>
       </div>
     </div>

@@ -413,6 +413,22 @@ footer .social-links li:active svg path {
     color: var(--bg-color);
 }
 
+.btn-review-delete {
+    color: var(--text-color);
+    border: 1px solid var(--accent-color);
+    background-color: var(--highlight-color);
+    font-weight: bold;
+}
+
+.btn-review-delete,
+.btn-review-delete {
+    background-color: var(--secondary-color);
+    border: 1px solid var(--accent-color);
+    color: var(--bg-color);
+}
+
+
+
 /* Centers navbar on small screens */
 @media (max-width: 991px) {
     .navbar .container-fluid {
