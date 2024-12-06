@@ -20,9 +20,16 @@ body {
     color:var(--text-color)
 }
 
-h1 {
-    color:var(--secondary-color)
+h1, h2, h3 {
+    color:var(--secondary-color);
+    font-family: 'Cabin', sans-serif;
+    letter-spacing: 1px;
 }
+
+p {
+    color: var(--text-color);
+}
+
 /* Navbar */
 
 .navbar {
@@ -91,10 +98,264 @@ h1 {
     box-shadow: 0 0 0 0.2rem rgba(255, 134, 149, 0.3);
 }
 
+/* General Alert Style */
+.alert {
+    font-family: 'Raleway', sans-serif;
+    border-radius: 8px;
+    margin-top: 15px;
+    padding: 15px 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color:var(--accent-color);
+}
+
+/* Hero */
+
+.hero-break {
+    width: 75%;
+    margin: 20px auto;
+    border: 2px solid var(--text-color);
+}
+
+/* Bootstrap divider */
+
+.b-example-divider {
+    width: 100%;
+    height: 2rem;
+    background-color: rgba(0, 0, 0, .1);
+    border: solid rgba(0, 0, 0, .15);
+    border-width: 1px 0;
+    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+  }
+
+/* Review Details Masthead */
+
+  .masthead {
+    margin-top: 10px;
+    border-radius: 30px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    height: 25vh;
+    width: 100%;
+}
+
+.masthead-text {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    position: relative;
+}
+
+.masthead h1 {
+    color: var(--bg-color);
+}
+
+.masthead-image {
+    position: relative;
+    overflow: hidden;
+}
+
+.masthead-image:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 90%;
+    height: 100%;
+    width: 150%;
+    background: var(--accent-color);
+    -webkit-transform: skew(15deg);
+    -moz-transform: skew(15deg);
+    transform: skew(15deg);
+    z-index: 100;
+}
+
+.review-content {
+    color: var(--text-color);
+    font-size: 1rem; /* Optional: Adjust font size */
+    line-height: 1.6; /* Optional: Improve readability with better line spacing */
+  }
+
+/* Cards */
+
+.card {
+    border: none;
+    background-color: transparent;
+}
+
+.card-title {
+    color: var(--secondary-color);
+}
+
+.card-text {
+    color:var(--text-color);
+}
+
+.index-card {
+    border: 2px solid var(--secondary-color);
+    /* Border Color */
+    border-radius: 10px;
+    /* Rounded Corners */
+    margin: 20px auto;
+    /* Margin Around Card */
+    padding: 20px;
+    /* Padding Inside the Card */
+    background-color: #292a33;
+    /* Card Background */
+    transition: all 0.3s ease;
+    /* Smooth Transition */
+    text-align: left;
+    /* Center Text in Cards */
+}
+
+.review-card {
+    border: 2px solid var(--secondary-color);
+    /* Border Color */
+    border-radius: 10px;
+    /* Rounded Corners */
+    background-color: #292a33;
+    /* Card Background */
+    transition: all 0.3s ease;
+    /* Smooth Transition */
+    text-align: left;
+    /* Center Text in Cards */
+}
+
+.review-card  a {
+    color:#e2e5f6;
+}
+
+.card-img-top {
+    width: 100%;
+    /* Make sure the image takes full width */
+    height: 200px;
+    /* Set a fixed height for consistency */
+    object-fit: cover;
+    /* Ensures the image covers the container without distortion */
+    border-top-left-radius: 0.25rem;
+    /* Match Bootstrap's rounded corners */
+    border-bottom-left-radius: 0.25rem;
+    /* Match Bootstrap's rounded corners */
+}
+
+/* Modal */
+.modal-content {
+    background-color: var(--bg-color); /* Match background color of the page */
+    border: none;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Add a shadow for depth */
+    color: var(--text-color); /* Match text color */
+}
+
+.modal-header {
+    background-color: var(--accent-color); /* Accent background for header */
+    color: var(--bg-color); /* Contrasting text color */
+    font-family: 'Cabin', sans-serif;
+    font-weight: bold;
+    border-bottom: 2px solid var(--secondary-color); /* Subtle border */
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.modal-title {
+    font-family: 'Raleway', sans-serif;
+    color: var(--bg-color);
+}
+
+.modal-body {
+    font-family: 'Raleway', sans-serif;
+    color: var(--text-color); /* Match the page text color */
+    background-color: transparent;
+}
+
+.modal-footer {
+    background-color: var(--bg-color); 
+    border-top: 1px solid var(--secondary-color); /* Divider */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.modal-footer .btn {
+    border-radius: 5px;
+    font-family: 'Raleway', sans-serif;
+    font-weight: bold;
+}
+
+.modal-footer .btn-secondary {
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+    border: none;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+.modal-footer .btn-danger {
+    background-color: var(--highlight-color);
+    color: var(--bg-color);
+    border: none;
+}
+
+.modal-footer .btn-danger:hover {
+    background-color: var(--accent-color);
+    color: var(--bg-color);
+}
+
+/* Modal Close Button */
+.modal-header .btn-close {
+    background-color:var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    opacity: 0.8;
+}
+
+.modal-header .btn-close:hover {
+    background-color: var(--secondary-color);
+    color: var(--bg-color);
+    opacity: 1;
+}
+
+
+/* Footer */
+
+footer .social-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    /* Adjust spacing as needed */
+}
+
+footer .social-links {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    /* Adjust spacing between icons */
+}
+
+footer .social-links li {
+    display: inline-block;
+}
+
+footer .social-links li svg path {
+    transition: fill 0.3s ease;
+}
+
+footer .social-links li:hover svg path,
+footer .social-links li:active svg path {
+    fill: var(--highlight-color);
+}
+
 
 
 /* Buttons */
 
+    /* Register */
 .btn-signup,
 .btn-edit {
     background-color: var(--highlight-color);
@@ -106,6 +367,49 @@ h1 {
 .btn-signup:hover,
 .btn-signup:active {
     background-color: var(--secondary-color);
+    color: var(--bg-color);
+}
+    /* Pagination */
+
+.btn-page {
+    color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+    background: var(--secondary-color);
+    font-weight: bold;
+}
+
+.btn-page:hover,
+.btn-page:active {
+    background-color: var(--highlight-color);
+    border: 1px solid var(--accent-color);
+    color: var(--bg-color);
+}
+
+.btn-edit {
+    color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+    background: var(--secondary-color);
+    font-weight: bold;
+}
+
+.btn-edit:hover,
+.btn-edit:active {
+    background-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: var(--bg-color);
+}
+
+.btn-delete {
+    color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+    background: var(--highlight-color);
+    font-weight: bold;
+}
+
+.btn-delete:hover,
+.btn-delete:active {
+    background-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
     color: var(--bg-color);
 }
 
@@ -153,3 +457,7 @@ h1 {
         color: var(--highlight-color);
     }
 }
+
+
+
+

@@ -39,9 +39,10 @@ document.addEventListener('DOMContentLoaded', () => {
       button.addEventListener("click", (e) => {
           let commentId = e.target.getAttribute("comment_id");
           let commentContent = document.getElementById(`comment${commentId}`).innerText;
+          let reviewSlug = e.target.getAttribute("data-slug");
           commentText.value = commentContent;  // Set the comment text in the form field
           submitButton.innerText = "Update";  // Change the button text to "Update"
-          commentForm.setAttribute("action", `/review/edit_comment/${commentId}/`);  // Dynamically set form action
+          commentForm.setAttribute("action", `/review/${reviewSlug}/edit_comment/${commentId}/`);  // Dynamically set form action
       });
   }
 

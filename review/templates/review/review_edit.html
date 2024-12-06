@@ -1,8 +1,43 @@
-<h2>Edit Review</h2>
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-</form>
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% load ratings %}
 
-<a href="{% url 'review_detail' slug=review.slug %}">Cancel</a>
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-6 my-5">
+      <h2>Edit Your Review</h2>
+      <p>Make changes to your review below.</p>
+      <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ form.as_p }}
+        </div>
+        <button class="btn btn-secondary" type="submit">Save Changes</button>
+        <a href="{% url 'review_detail' slug=review.slug %}" class="btn btn-light">Cancel</a>
+      </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+<!-- {% block extras %}
+<link rel="stylesheet" href="{% static 'django_summernote/summernote.css' %}">
+<script src="{% static 'django_summernote/summernote.js' %}"></script>
+<script>
+  $(document).ready(function () {
+    $('.summernote').summernote({
+      height: 300, // Set a fixed height
+      toolbar: [
+        ['style', ['bold', 'italic', 'underline', 'clear']],
+        ['para', ['ul', 'ol', 'paragraph']],
+        ['insert', ['link', 'picture']],
+        ['view', ['fullscreen', 'codeview']]
+      ]
+    });
+  });
+</script>
+{% endblock %} -->
