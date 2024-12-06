@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from django.views import generic
 from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
-from django.db.models import Q
+from django.db.models import Q, Avg
 from django.db import IntegrityError
 from .models import Review, Book, Comment
 from .forms import CommentForm, ReviewForm, BookForm
@@ -11,10 +11,18 @@ from . import views
 
 
 class HomePage(TemplateView):
-    """
-    Displays home page
-    """
-    template_name = 'index.html'
+    template_name = "index.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['featured_reviews'] = Review.objects.filter(featured=True)[:3]  # Featured reviews
+
+        # Aggregate average ratings for books based on related reviews
+        context['trending_books'] = Book.objects.annotate(
+            avg_rating=Avg('review__rating')
+        ).order_by('-avg_rating')[:4]  # Order by highest rating
+
+        return context
 
 class ReviewList(generic.ListView):
     """
@@ -204,5 +212,6 @@ def add_book(request):
             "book_form": book_form
         },
     )
+
 
 
