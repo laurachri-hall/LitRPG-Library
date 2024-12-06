@@ -133,7 +133,7 @@
           <h5 class="card-title">{{ review.title }}</h5>
           <p class="card-text">{{ review.excerpt|truncatewords:20 }}</p>
           <p class="card-text"><strong>Rating:</strong> {{ review.rating }} / 5</p>
-          <a href="{% url 'review_detail' slug=review.slug %}" class="btn btn-primary btn-sm">Read More</a>
+          <a href="{% url 'review_detail' slug=review.slug %}" class="btn  btn-sm btn-read-more">Read More</a>
         </div>
       </div>
     </div>
