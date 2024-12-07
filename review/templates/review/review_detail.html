@@ -120,7 +120,17 @@
             {{ comment.content | linebreaks }}
           </div>
           {% if comment.rating %}
-          <p>Rating: {{ comment.rating }} out of 5.</p>
+          <p>
+            Rating:
+            {% for i in 1|add:""|default_if_none:""|add:"2345" %}
+                {% if forloop.counter <= comment.rating %}
+                    <i class="fas fa-star" style="color: gold;"></i> <!-- Filled star -->
+                {% else %}
+                    <i class="far fa-star" style="color: gold;"></i> <!-- Empty star -->
+                {% endif %}
+            {% endfor %}
+        </p>
+        
           {% endif %}
           {% if not comment.approved and comment.user == user %}
           <p class="approval">This comment is awaiting approval</p>
