@@ -9,6 +9,12 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ('content', 'rating')
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        # Check if the instance exists and if the rating is null/blank
+        if 'instance' in kwargs and (kwargs['instance'].rating is None or kwargs['instance'].rating == ''):
+            self.fields.pop('rating')  # Remove the rating field if it's null or blank
+
 class ReviewForm(forms.ModelForm):
     class Meta:
         model = Review
@@ -18,7 +24,7 @@ class ReviewForm(forms.ModelForm):
             'content': SummernoteWidget(),
         }
 
-    def save(self, commit=True):  # Ensure this method is indented properly within the class
+    def save(self, commit=True):  
         # Create a new instance without saving to the database yet
         instance = super().save(commit=False)
 

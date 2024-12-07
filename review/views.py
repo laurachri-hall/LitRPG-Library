@@ -5,9 +5,13 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models import Q, Avg
 from django.db import IntegrityError
+from allauth.socialaccount.models import SocialApp
 from .models import Review, Book, Comment
 from .forms import CommentForm, ReviewForm, BookForm
 from . import views
+
+
+
 
 
 class HomePage(TemplateView):

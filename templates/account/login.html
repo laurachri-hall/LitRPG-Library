@@ -12,10 +12,13 @@
         <div class="col-md-8 mt-3 offset-md-2">
             <h3>{% trans "Sign In" %}</h3>
 
-            <p>{% blocktrans %}Welcome back to the code|star blog. To leave a comment or like a post, please log in. If
-                you
+            <p>
+                {% blocktrans %}
+                Welcome back to the code|star blog. To leave a comment or like a post, please log in. If you
                 have not created an account yet, then <a class="link" href="{{ signup_url }}">sign up</a>
-                first.{% endblocktrans %}</p>
+                first.
+                {% endblocktrans %}
+            </p>
         </div>
     </div>
     <div class="row">
@@ -28,7 +31,17 @@
                 {% endif %}
                 <button class="btn btn-signup right" type="submit">{% trans "Sign In" %}</button>
             </form>
+
+            <hr>
+
+            <!-- Google Login Button -->
+            <div class="text-center mt-3">
+                <a href="{% provider_login_url 'google' %}" class="btn btn-outline-primary">
+                    <i class="fab fa-google"></i> {% trans "Sign In with Google" %}
+                </a>
+            </div>
         </div>
     </div>
 </div>
+
 {% endblock %}
