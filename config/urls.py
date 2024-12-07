@@ -1,17 +1,18 @@
 from django.conf import settings
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 from django.views.static import serve
 from django.conf.urls.static import static
+
 
 
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
     path('admin/', admin.site.urls),
     path(
-        'google1234567890abcdef.html',
+        'googlef5fe0d793eafff13.html',
         serve,
-        {'document_root': settings.STATIC_ROOT, 'path': 'verification/google1234567890abcdef.html'}
+        {'document_root': settings.STATIC_ROOT, 'path': 'verification/googlef5fe0d793eafff13.html'}
     ),
     path('summernote/', include('django_summernote.urls')),
     path('ratings/', include('star_ratings.urls', namespace='ratings')),
