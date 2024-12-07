@@ -1,20 +1,108 @@
 {% extends "base.html" %}
 {% load static %}
-{% load cloudinary %}
 {% block content %}
 
 <h1>Your To Be Read List</h1>
-<ul>
-    {% for entry in tbr_books %}
-        <li>
-            {{ entry.book.book_title }} by {{ entry.book.book_author }}
-            <form action="{% url 'delete_from_tbr' entry.id %}" method="post" style="display:inline;">
-                {% csrf_token %}
-                <button type="submit">Remove</button>
-            </form>
-        </li>
-    {% empty %}
-        <li>No books in your TBR list.</li>
-    {% endfor %}
-</ul>
+<div class="container">
+    <div class="row row-cols-1 g-4">
+        {% for entry in page_obj %}
+        <div class="col">
+            <div class="card h-100 flex-row tbr-card">
+                <!-- Book Cover -->
+                <div class="col-md-4">
+                    {% if entry.book.book_cover %}
+                    <img src="{{ entry.book.book_cover.url }}" class="img-fluid rounded-start" alt="{{ entry.book.book_title }}">
+                    {% else %}
+                    <img src="{% static 'images/default.jpg' %}" class="img-fluid rounded-start" alt="Default Book Cover">
+                    {% endif %}
+                </div>
+                <!-- Book Info -->
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ entry.book.book_title }}</h5>
+                        <p class="card-text text-muted">by {{ entry.book.book_author }}</p>
+                        <!-- Link to Original Review -->
+                        <div class="d-flex justify-content-between align-items-center">
+                            {% if entry.book.review %}
+                            <a href="{% url 'review_detail' entry.book.review.slug %}" class="btn btn-sm btn-primary">View Review</a>
+                            {% else %}
+                            <span class="text-muted">No Review</span>
+                            {% endif %}
+                            <!-- Delete Button -->
+                            <form action="{% url 'delete_from_tbr' entry.id %}" method="post" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-sm btn-danger">Remove</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p>No books in your TBR list.</p>
+        {% endfor %}
+    </div>
+
+    <!-- Pagination Controls -->
+    <nav aria-label="Page navigation" class="mt-4">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li class="page-item">
+                <a class="page-link" href="?page=1" aria-label="First">
+                    <span aria-hidden="true">&laquo;&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.previous_page_number }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" aria-label="First">
+                    <span aria-hidden="true">&laquo;&laquo;</span>
+                </a>
+            </li>
+            <li class="page-item disabled">
+                <a class="page-link" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% endif %}
+
+            {% for num in page_obj.paginator.page_range %}
+            {% if page_obj.number == num %}
+            <li class="page-item active"><span class="page-link">{{ num }}</span></li>
+            {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+            <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+            {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.next_page_number }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}" aria-label="Last">
+                    <span aria-hidden="true">&raquo;&raquo;</span>
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item disabled">
+                <a class="page-link" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+            <li class="page-item disabled">
+                <a class="page-link" aria-label="Last">
+                    <span aria-hidden="true">&raquo;&raquo;</span>
+                </a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+</div>
+
 {% endblock content %}

@@ -1,3 +1,4 @@
+from django.core.paginator import Paginator
 from django.shortcuts import redirect, get_object_or_404, render, reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -15,10 +16,18 @@ def add_to_read_list(request, book_id):
         messages.info(request, f"'{book.book_title}' is already in your TBR list.")
     return redirect(reverse('review_detail', args=[review.slug]))
 
+
 @login_required
 def tbr_list(request):
-    tbr_books = ToBeRead.objects.filter(user=request.user)
-    return render(request, 'to_be_read/tbr_list.html', {'tbr_books': tbr_books})
+    # Get all books in the user's To Be Read list
+    tbr_books = ToBeRead.objects.filter(user=request.user).select_related('book')
+    paginator = Paginator(tbr_books, 6)  # Paginate with 6 items per page
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'to_be_read/tbr_list.html', {'page_obj': page_obj})
+
 
 @login_required
 def delete_from_tbr(request, entry_id):
