@@ -126,8 +126,9 @@ p {
 
 /* Hero */
 .hero-break {
-    width: 75%;
-    border: 2px solid var(--text-color);
+    margin: 20px auto; /* Center horizontally with equal spacing */
+    width: 80%; /* Restrict width to center visually */
+    border: 2px solid var(--text-color); /* Consistent styling */
 }
 
 .genres-img {
