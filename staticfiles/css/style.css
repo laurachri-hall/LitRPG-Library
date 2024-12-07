@@ -17,7 +17,8 @@
 body {
     background-color: var(--bg-color);
     padding-top: 110px;
-    color: var(--text-color)
+    color: var(--text-color);
+    font-size: large;
 }
 
 h1 {
@@ -351,6 +352,35 @@ p {
     opacity: 1;
 }
 
+/* TBR Page */
+
+.tbr-card {
+    display: flex;
+    flex-direction: row;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.tbr-card img {
+    object-fit: cover;
+    width: 100%;
+    max-height: 200px;
+    border-right: 1px solid #ddd;
+}
+
+.tbr-card .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.tbr-card .card-footer {
+    background-color: #f8f9fa;
+    border-top: 1px solid #ddd;
+}
+
 
 /* Footer */
 
@@ -399,6 +429,7 @@ footer .social-links li:active svg path {
 
 /* Register */
 .btn-signup,
+.btn-logout,
 .btn-edit {
     background-color: var(--highlight-color);
     color: var(--bg-color);
@@ -407,23 +438,28 @@ footer .social-links li:active svg path {
 }
 
 .btn-signup:hover,
-.btn-signup:active {
-    background-color: var(--secondary-color);
-    color: var(--bg-color);
+.btn-signup:active,
+.btn-logout:hover,
+.btn-logout:active {
+    background-color: var(--accent-color);
+    color: var(--text-color);
 }
 
-.btn-login {
+.btn-login,
+.btn-tbrlist {
     color: var(--bg-color);
     border: 1px solid var(--accent-color);
-    background: var(--secondary-color);
+    background-color: var(--secondary-color);
     font-weight: bold;
 }
 
 .btn-login:hover,
-.btn-login:active {
+.btn-login:active,
+.btn-tbrlist:hover,
+.btn-tbrlist:active {
     background-color: var(--accent-color);
     border: 1px solid var(--accent-color);
-    color: var(--bg-color);
+    color: var(--text-color);
 }
 
 /* Read More */
