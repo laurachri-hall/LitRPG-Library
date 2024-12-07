@@ -125,13 +125,10 @@ p {
 }
 
 /* Hero */
-
-
-
 .hero-break {
-    width: 75%;
-    margin: 20px auto;
-    border: 2px solid var(--text-color);
+    margin: 20px auto; /* Center horizontally with equal spacing */
+    width: 80%; /* Restrict width to center visually */
+    border: 2px solid var(--text-color); /* Consistent styling */
 }
 
 .genres-img {
@@ -149,45 +146,6 @@ p {
     position: relative;
     z-index: 2;
 }
-
-/* Large Screen Adjustment */
-@media (min-width: 1200px) {
-    .hero-section .container {
-        padding-left: 5%;
-        padding-right: 5%;
-    }
-}
-
-/* Medium Screen Adjustment */
-@media (min-width: 768px) and (max-width: 991px) {
-    .hero-section .d-md-flex {
-        justify-content: center !important;
-        flex-wrap: wrap;
-    }
-
-    .btn-signup, .btn-login {
-        margin: 10px auto; /* Ensure buttons have spacing */
-        width: 80%; /* Make buttons easier to interact with on touch devices */
-    }
-}
-
-/* Small Screen Adjustment */
-@media (max-width: 767px) {
-    .hero-section video {
-        width: 100%; /* Restrict video to container width */
-        max-height: 300px; /* Limit the height for better viewability */
-        object-fit: cover; /* Maintain aspect ratio */
-    }
-
-    .hero-section .text-center h1 {
-        font-size: 1.5rem; /* Adjust heading size for small screens */
-    }
-
-    .hero-section .lead {
-        font-size: 1rem; /* Adjust text size */
-    }
-}
-
 
 /* Bootstrap divider */
 
@@ -557,48 +515,5 @@ footer .social-links li:active svg path {
 
 
 
-/* Centers navbar on small screens */
-@media (max-width: 991px) {
-    .navbar .container-fluid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
 
-    .navbar .navbar-toggler {
-        margin-bottom: 10px;
-    }
-
-    .navbar .collapse {
-        text-align: center;
-        width: 100%;
-    }
-
-    .navbar-nav {
-        display: flex;
-        justify-content: center;
-        width: 100%;
-    }
-
-    .navbar-nav .nav-item {
-        margin: 5px 10px;
-    }
-
-    .navbar .dropdown-menu {
-        text-align: center;
-        padding: 0;
-        min-width: 200px;
-    }
-
-    .navbar .dropdown-item {
-        color: var(--secondary-color);
-    }
-
-    .navbar .dropdown-item:hover,
-    .navbar .dropdown-item:active {
-        background-color: var(--accent-color);
-        color: var(--highlight-color);
-    }
-}
 
