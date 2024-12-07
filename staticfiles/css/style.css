@@ -16,7 +16,7 @@
 
 body {
     background-color: var(--bg-color);
-    padding-top: 70px;
+    padding-top: 110px;
     color: var(--text-color)
 }
 
@@ -88,11 +88,11 @@ p {
 }
 
 .navbar-dark .navbar-toggler-icon {
-    background-image: url("{% static 'images/menu.svg' %}");
+    background-image: url("/static/images/menu.svg");
     background-size: contain;
     background-repeat: no-repeat;
-    width: 30px;
-    height: 30px; 
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
 }
 
 .navbar-dark .navbar-toggler:hover {
@@ -126,6 +126,8 @@ p {
 
 /* Hero */
 
+
+
 .hero-break {
     width: 75%;
     margin: 20px auto;
@@ -137,6 +139,55 @@ p {
     max-width: 100%;
     object-fit: contain;
 }
+
+.hero-section {
+    position: relative;
+    z-index: 1;
+}
+
+.hero-buttons {
+    position: relative;
+    z-index: 2;
+}
+
+/* Large Screen Adjustment */
+@media (min-width: 1200px) {
+    .hero-section .container {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+}
+
+/* Medium Screen Adjustment */
+@media (min-width: 768px) and (max-width: 991px) {
+    .hero-section .d-md-flex {
+        justify-content: center !important;
+        flex-wrap: wrap;
+    }
+
+    .btn-signup, .btn-login {
+        margin: 10px auto; /* Ensure buttons have spacing */
+        width: 80%; /* Make buttons easier to interact with on touch devices */
+    }
+}
+
+/* Small Screen Adjustment */
+@media (max-width: 767px) {
+    .hero-section video {
+        width: 100%; /* Restrict video to container width */
+        max-height: 300px; /* Limit the height for better viewability */
+        object-fit: cover; /* Maintain aspect ratio */
+    }
+
+    .hero-section .text-center h1 {
+        font-size: 1.5rem; /* Adjust heading size for small screens */
+    }
+
+    .hero-section .lead {
+        font-size: 1rem; /* Adjust text size */
+    }
+}
+
 
 /* Bootstrap divider */
 
@@ -345,6 +396,13 @@ p {
 
 /* Footer */
 
+footer .nav-link {
+    color: var(--secondary-color);
+    letter-spacing: 1px;
+    font-weight: 400;
+    transition: color 0.3s ease;
+}
+
 footer .social-border {
     display: flex;
     justify-content: center;
@@ -360,6 +418,7 @@ footer .social-links {
     display: flex;
     justify-content: center;
     gap: 15px;
+
     /* Adjust spacing between icons */
 }
 
@@ -407,6 +466,16 @@ footer .social-links li:active svg path {
     background-color: var(--accent-color);
     border: 1px solid var(--accent-color);
     color: var(--bg-color);
+}
+
+/* Read More */
+
+.btn-read-more {
+    color: var(--bg-color);
+    border: 1px solid var(--accent-color);
+    background-color: var(--secondary-color);
+    font-weight: bold;
+
 }
 
 /* Pagination */
@@ -532,3 +601,4 @@ footer .social-links li:active svg path {
         color: var(--highlight-color);
     }
 }
+

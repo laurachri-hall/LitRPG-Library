@@ -125,10 +125,8 @@ p {
 }
 
 /* Hero */
-
 .hero-break {
     width: 75%;
-    margin: 20px auto;
     border: 2px solid var(--text-color);
 }
 
@@ -560,3 +558,4 @@ footer .social-links li:active svg path {
         color: var(--highlight-color);
     }
 }
+
