@@ -1,28 +1,39 @@
+{% extends "base.html" %}
 {% load static %}
+{% block content %}
 
-{% url 'home' as home_url %}
-{% url 'account_login' as login_url %}
-{% url 'account_signup' as signup_url %}
-{% url 'account_logout' as logout_url %}
+<div class="container my-5 p-4 rounded">
+    <h1 class="text-center">Terms of Service</h1>
+    <p class="text-center fst-italic">Effective Date: 7 Dec 2024</p>
 
-    <h1>Terms of Service</h1>
-    <p>Effective Date: [Insert Date]</p>
+    <p class="text-center mb-4">
+        Welcome to our application ("App"). By accessing or using the App, you agree to these Terms of Service ("Terms"). If you do not agree, you may not use the App.
+    </p>
 
-    <p>Welcome to our application ("App"). By accessing or using the App, you agree to these Terms of Service ("Terms"). If you do not agree, you may not use the App.</p>
+    <div class="mb-4">
+        <h2>Educational Purpose</h2>
+        <p>This App is developed as part of an educational project and is provided for demonstration purposes only. It is not intended for production use.</p>
+    </div>
 
-    <h2>Educational Purpose</h2>
-    <p>This App is developed as part of an educational project and is provided for demonstration purposes only. It is not intended for production use.</p>
+    <div class="mb-4">
+        <h2>Use of the App</h2>
+        <p>You may use the App for its intended purpose only and in accordance with these Terms. We are not liable for any issues or damages arising from your use of the App.</p>
+    </div>
 
-    <h2>Use of the App</h2>
-    <p>You may use the App for its intended purpose only and in accordance with these Terms. We are not liable for any issues or damages arising from your use of the App.</p>
+    <div class="mb-4">
+        <h2>Third-Party Services</h2>
+        <p>The App uses third-party authentication services (e.g., Google Login). We are not responsible for the functionality or data handling of these services.</p>
+    </div>
 
-    <h2>Third-Party Services</h2>
-    <p>The App uses third-party authentication services (e.g., Google Login). We are not responsible for the functionality or data handling of these services.</p>
+    <div class="mb-4">
+        <h2>Disclaimer of Warranties</h2>
+        <p>The App is provided "as is" without warranties of any kind. We do not guarantee that the App will function error-free or without interruption.</p>
+    </div>
 
-    <h2>Disclaimer of Warranties</h2>
-    <p>The App is provided "as is" without warranties of any kind. We do not guarantee that the App will function error-free or without interruption.</p>
+    <div class="mb-4">
+        <h2>Contact Us</h2>
+        <p>If you have any questions about these Terms, please contact us at <a href="mailto:nyxo59bt@students.codeinstitute.net">nyxo59bt@students.codeinstitute.net</a>.</p>
+    </div>
+</div>
 
-    <h2>Contact Us</h2>
-    <p>If you have any questions about these Terms, please contact us at nyxo59bt@students.codeinstitute.net.</p>
-
-    {% endblock %}
+{% endblock %}

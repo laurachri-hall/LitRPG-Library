@@ -1,27 +1,34 @@
+{% extends "base.html" %}
 {% load static %}
+{% block content %}
 
-{% url 'home' as home_url %}
-{% url 'account_login' as login_url %}
-{% url 'account_signup' as signup_url %}
-{% url 'account_logout' as logout_url %}
+<div class="container my-5 p-4 rounded">
+    <h1 class="text-center">Privacy Policy</h1>
+    <p class="text-center fst-italic">Effective Date: 7 Dec 2024</p>
 
-    <h1>Privacy Policy</h1>
-    <p>Effective Date: 7 Dec 2024</p>
+    <p class="text-center mb-4">
+        This Privacy Policy outlines how we handle user information in our application ("App").
+    </p>
 
-    <p>This Privacy Policy outlines how we handle user information in our application ("App").</p>
+    <div class="mb-4">
+        <h2>What Data We Collect</h2>
+        <p>We do not collect or store any personal data directly. However, our App uses third-party services (e.g., Google) for authentication, which may process your information as part of the login process.</p>
+    </div>
 
-    <h2>What Data We Collect</h2>
-    <p>We do not collect or store any personal data directly. However, our App uses third-party services (e.g., Google) for authentication, which may process your information as part of the login process.</p>
+    <div class="mb-4">
+        <h2>Third-Party Services</h2>
+        <p>When using Google Login or other third-party authentication providers, your data (such as name and email) is processed by those providers. We do not store or share this information.</p>
+    </div>
 
-    <h2>Third-Party Services</h2>
-    <p>When using Google Login or other third-party authentication providers, your data (such as name and email) is processed by those providers. We do not store or share this information.</p>
+    <div class="mb-4">
+        <h2>Data Retention</h2>
+        <p>Since we do not collect or store personal data, there is no data retention policy.</p>
+    </div>
 
-    <h2>Data Retention</h2>
-    <p>Since we do not collect or store personal data, there is no data retention policy.</p>
-
-    <h2>Contact Us</h2>
-    <p>If you have any questions about this Privacy Policy, please contact us at nyxo59bt@students.codeinstitute.net.</p>
-</body>
-</html>
+    <div class="mb-4">
+        <h2>Contact Us</h2>
+        <p>If you have any questions about this Privacy Policy, please contact us at <a href="mailto:nyxo59bt@students.codeinstitute.net">nyxo59bt@students.codeinstitute.net</a>.</p>
+    </div>
+</div>
 
 {% endblock %}
