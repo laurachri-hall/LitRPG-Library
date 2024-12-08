@@ -96,9 +96,9 @@
 <!-- LitRPG Description Section -->
 <section class="litrpg-description">
   <div class="container litrpg-container">
-    <div class="row align-items-center"> <!-- Ensures vertical alignment -->
+    <div class="row align-items-center justify-content-center"> 
       <!-- Text Column -->
-      <div class="col-md-6 order-md-1 order-2"> <!-- Reverse on small screens -->
+      <div class="col-md-6 order-md-1 col-lg-5 order-2"> <!-- Reverse on small screens -->
         <div class="card border-0">
           <div class="card-body">
             <h2 class="card-title mb-3">What is LitRPG?</h2>
@@ -118,7 +118,7 @@
         </div>
       </div>
       <!-- Image Column -->
-      <div class="col-md-6 order-md-2 order-1 mb-4"> <!-- Reverse on small screens -->
+      <div class="col-md-6 order-md-2 order-1 col-lg-5 mb-4"> <!-- Reverse on small screens -->
         <div class="card border-0">
           <div class="card-body text-center">
             <img
@@ -194,7 +194,7 @@
             <h2>Join Our LitRPG Community!</h2>
             <p>Register now to discover, review, and discuss your favorite LitRPG books.</p>
             <a href="{% url 'account_signup' %}" class="btn btn-signup btn-lg">Sign Up</a>
-            <a href="{% url 'account_login' %}" class="btn btn-outline-primary btn-lg">Log In</a>
+            <a href="{% url 'account_login' %}" class="btn btn-login btn-lg">Log In</a>
         </div>
     {% endif %}
   </div>
