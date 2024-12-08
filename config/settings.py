@@ -205,4 +205,4 @@ CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-APPEND_SLASH = True
+APPEND_SLASH = False
