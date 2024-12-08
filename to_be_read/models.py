@@ -1,9 +1,11 @@
 from django.db import models
 from django.contrib.auth.models import User
-from review.models import Book  
+from review.models import Book
+
 
 class ToBeRead(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='to_be_read_list')
+    user = models.ForeignKey(
+        User, on_delete=models.CASCADE, related_name='to_be_read_list')
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
 
     class Meta:

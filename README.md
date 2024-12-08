@@ -1,6 +1,8 @@
 # LitRPG Library
 =======
-![Responsive ScreenShot Goes Here](link goes here)
+<p align="center">
+  <img src="documentation/screenshots/home.png">
+</p>
 
 ## Introduction
 
@@ -68,26 +70,67 @@ For Admin access with relevant sign-in information: [LitRPG Admin](link goes her
 LitRPG Library is a book review and ‘to be read’ book tracking app for all readers of the LitRPG and adjacent genres. Users are invited to:
 
 - Join the LitRPG community
-- Create their own profiles
-- Write, comment on and like book reviews
+- Add a book they want to review
+- Write and comment on book reviews
 - Add books reviewed on the site to a ‘To Be Read’ list
-- Move read books to a ‘Read’ list
 
-LitRPG is accessible via all browsers with full responsiveness on different screen sizes. Its aim is to simplify the process of selecting books, foster a vibrant community centred around LitRPG and related genres, create a 'To Be Read' (TBR) wishlist, and maintain a comprehensive record of books that users have read. I have created this site to meet the needs of LitRPG readers. While, there are other book review and tracking sites out there most do no handle the different nuances of the LitRPG genre well. LitRPG aims to offer a more tailored experience for those who love Progression Fantasy, GameLit, Wuxia and LitRPG. In future developments of this this project, I hope to offer users an upgraded tracking system (select which books in a series to add to TBR or read list as the number of books in a LitRPG series can be quite large). 
+LitRPG is accessible via all browsers with full responsiveness on different screen sizes. Its aim is to simplify the process of selecting books, foster a vibrant community centred around LitRPG and related genres and create a 'To Be Read' (TBR) wishlist. I have created this site to meet the needs of LitRPG readers. While, there are other book review and tracking sites out there most do no handle the different nuances of the LitRPG genre well. LitRPG aims to offer a more tailored experience for those who love Progression Fantasy, GameLit, Wuxia and LitRPG. In future developments of this this project, I hope to offer users an upgraded tracking system (select which books in a series to add to TBR or read list as the number of books in a LitRPG series can be quite large). A full list of all books added to the library and the ability to search the reviews and books. I'd also like to add the ability to move books to a read list from the tbr list and add categories and tags to help organise the books.
 
 
 
 # UX - User Experience
 
 ## Design Inspiration
+
+The design of my LitRPG review website evolved gradually as I navigated the learning curve of Django. Initially, I found myself overwhelmed by the framework's complexities, which left little room for creative expression. However, as I began to piece together the foundational elements of the site, I discovered more about my vision for the project and how it aligned with my growing capabilities.
+Throughout this process, I drew inspiration from various sources, particularly book tracking websites like [hardcover.app](https://hardcover.app/). Their clean and intuitive interfaces highlighted the importance of user experience, motivating me to create a space where readers could easily navigate through reviews and track their reading progress.
+
 ### Colour Scheme
+
+As mentioned above, the colour scheme and logo drove the design of the website. I wanted to create a 'fun' environment for the user to create the connection with the enjoyment that they would have with their dog at the park. The colours represent different sections/features of the website. I balanced the vibrant shades with a classic, ```#fff``` white background and an off-black shade of ```#0d0d0d```, as I felt that it yielded a slightly more matte effect that ```#000``` black. This combination also yielded a high contrast ratio of 19.44 for accessibility, with my colour scheme also passing a Colour Blind Safe check via [Adobe Color](https://color.adobe.com/create/color-wheel). This check was important for accessibility as the colours would form the base for my page and feature icons. Each colour in the scheme was also contrast checked with black ```#0d0d0d``` to ensure no contrast issue, all passed.
+
+The corresponding sections and colours and identifying CSS variables are:
+
+- Authentication: ```#AC44F2``` '--purple'
+- Gallery: ```#3BD952``` '--green'
+- User Profile: ```#F29F05``` '--orange'
+- Visiting Information: ```#F25C5C``` '--coral'
+- Booking: ```#4CE0C3``` '--blue'
+
+For the Login/Logout icon, a grey ```#a6a6a6``` was used as a base colour. I felt this grey helped to balance the colours and prevent the icons from 'popping' too much for the eye in the navigation bar.
+
+![balancing colours for website text,background and Login/Logout icon](documentation/final_views/safe_colours.png)  
+*Black, white and grey used for backgrounds, text and Login/Logout icon*
+
+![screenshot of colour scheme](documentation/final_views/color_small.png)  
+*Colour Scheme for FreeFido website*
+
+![colour blind safe colour swatch](documentation/final_views/color_blind_safe.png)  
+*Accessibility check for colour scheme*
+
 ### Font
 
-# Project Planning
+Using [Google Fonts](https://fonts.google.com/), I imported 'Outfit' and 'Montserrat' as a complementary font to my CSS file. Outfit is a playful, clear sans-serif which I felt worked well in designing my logo and for headers in my project. For future use, I envisoned merchandise bearing the logo for the FreeFido stall at the dog park. Montserrat was chosen as it gave more structure to the paragraph sections.
 
+![outfit font design sheet](documentation/final_views/outfit.png)  
+*Outfit, a Google Font designed by Rodrigo Fuenzalida*
+
+In development, 'Outfit' was identified by variable ```--title```, whilst 'Montserrat' was set as ```--main-font``` within the CSS file. Similar to my setup for the project's colours, using variables helped to speed up the frontend process.
+  
+# Project Planning  
+ 
 ## Strategy Plane
-## Site Goals
-## Agile Methodologies - Project Management
+
+The project goal was to build a simple booking app for a service. The 'product' was a one hour slot in a private, secure dog park and the 'users' were dog owners, trainers and walkers. As the service itself was uncomplicated, I aimed to create an easy, uncomplicated booking system for the user. Through planning and design prep work, I realised that there was an opportunity to treat this service like a 'brand' and develop the idea further. A social element was born from this with an idea for dog owners to be able to share advice and images of their furry friends on the website. This would hopefully help to create a happy group of park users who would recommend the park to others, share articles outside of the core group, and attract more users to sign up. Following common social-media design trends, I planned to use icons, high-quality, photographic images and an attractive, connected colour scheme.
+
+### Site Goals
+
+- Create a safe, happy environment for dog owners
+- Use of playful colour to identify connected features of the website, plenty of white space to keep it fresh and to-the-point
+- Commonly-used, identifiable icons with some redesigns to fit the theme
+- Easy UI for quick fulfillment of feature CRUD functionalities
+- UX remains the same whether on mobile, tablet or desktop
+- Scalable idea, for addition of future features to easily grow the business
 ### MoSCoW Prioritization
 
 I chose to follow the MoSCoW Prioritization method for LitRPG Library, identifying and labelling my:

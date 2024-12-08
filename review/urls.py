@@ -11,8 +11,14 @@ urlpatterns = [
     path('review_list/', views.ReviewList.as_view(), name='review_list'),
     path('review/<slug:slug>/', views.review_detail, name='review_detail'),
     path('review/<slug:slug>/edit/', views.review_edit, name='review_edit'),
-    path('review/<slug:slug>/delete/', views.review_delete, name='review_delete'), 
-    path('review/<slug:slug>/edit_comment/<int:comment_id>/', views.comment_edit, name='comment_edit'),
-    path('review/<slug:slug>/delete_comment/<int:comment_id>/', views.comment_delete, name='comment_delete'),
+    path(
+        'review/<slug:slug>/delete/',
+        views.review_delete, name='review_delete'),
+    path(
+        'review/<slug:slug>/edit_comment/<int:comment_id>/',
+        views.comment_edit, name='comment_edit'),
+    path(
+        'review/<slug:slug>/delete_comment/<int:comment_id>/',
+        views.comment_delete, name='comment_delete'),
     path('ratings/', include(star_ratings_urls)),
 ]

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404,reverse, redirect
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views.generic import TemplateView, ListView
 from django.views import generic
 from django.contrib import messages
@@ -12,9 +12,6 @@ from .forms import CommentForm, ReviewForm, BookForm
 from . import views
 
 
-
-
-
 class HomePage(TemplateView):
     template_name = "index.html"
 
@@ -26,9 +23,11 @@ class HomePage(TemplateView):
 
         if self.request.user.is_authenticated:
             # Fetch all reviews or the latest review for the logged-in user
-            context['user_reviews'] = Review.objects.filter(user=self.request.user).order_by('-created_on')[:3]
+            context['user_reviews'] = Review.objects.filter(
+                user=self.request.user).order_by('-created_on')[:3]
 
         return context
+
 
 class ReviewList(generic.ListView):
     """
@@ -49,9 +48,9 @@ class UserReviewsView(LoginRequiredMixin, ListView):
 
     def get_queryset(self):
         # Return reviews belonging to the logged-in user
-        return Review.objects.filter(user=self.request.user).order_by('-created_on')
+        return Review.objects.filter(
+            user=self.request.user).order_by('-created_on')
 
-   
 
 def review_detail(request, slug):
     """
@@ -71,9 +70,8 @@ def review_detail(request, slug):
         comment.review = review
         comment.save()
         messages.add_message(
-        request, messages.SUCCESS,
-        'Comment submitted and awaiting approval'
-    )
+            request,
+            messages.SUCCESS, 'Comment submitted and awaiting approval')
 
     return render(
         request,
@@ -86,38 +84,51 @@ def review_detail(request, slug):
             "comment_form": comment_form,
         },
     )
+
+
 def add_review(request):
     """
     Add Review
     """
     if request.method == 'POST':
-        review_form = ReviewForm(request.POST, request.FILES)  # Include files if using file uploads
+        # Include files if using file uploads
+        review_form = ReviewForm(request.POST, request.FILES)
         if review_form.is_valid():
             book = review_form.cleaned_data['book']
-            
+
             # Check if a review for this book already exists
             existing_review = Review.objects.filter(book=book).first()
-            print(f"Existing review for book {book.id}: {existing_review}") 
+            print(
+                f"Existing review for book {book.id}: {existing_review}")
             if existing_review:
-                return HttpResponse("A review for this book already exists.", status=400)
+                return HttpResponse(
+                    "A review for this book already exists.", status=400)
 
             try:
                 # Save the review with slug generation
                 review = review_form.save(commit=False)
-                review.user = request.user  # Associate the review with the logged-in user
+                # Associate the review with the logged-in user
+                review.user = request.user
 
                 # Automatically generate slug if it's empty
                 if not review.slug:
                     review.slug = slugify(review.title)
 
-                review.save()  # This is where the IntegrityError could occur due to the slug constraint
+                review.save()
 
-                messages.success(request, f'Your review for "{book.book_title}" has been added successfully.')
+                messages.success(
+                    request,
+                    f'Your review for "{book.book_title}" has'
+                    'been added successfully.')
                 return redirect('home')
-            
+
             except IntegrityError as e:
-                # Handle the error if there's an issue with the slug or any other unique constraint
-                return HttpResponse("An error occurred while saving your review. Please try again later.", status=500)
+                # Handle the error if an issue
+                return HttpResponse(
+                    "An error occurred while saving your review."
+                    "Please try again "
+                    "later.",
+                    status=500)
     else:
         review_form = ReviewForm()
 
@@ -129,12 +140,12 @@ def add_review(request):
         },
     )
 
+
 def review_edit(request, slug):
     """
     Edit Review
     """
     review = get_object_or_404(Review, slug=slug)
-    
     if request.method == 'POST':
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
@@ -142,19 +153,21 @@ def review_edit(request, slug):
             return redirect('review_detail', slug=review.slug)
     else:
         form = ReviewForm(instance=review)
-    
-    return render(request, 'review/review_edit.html', {'form': form, 'review': review})
+
+    return render(
+        request, 'review/review_edit.html', {'form': form, 'review': review})
 
 
 def review_delete(request, slug):
     """
     Delete Review
     """
-    review = get_object_or_404(Review, slug=slug)  # Use slug to fetch the review
-
+    # Use slug to fetch the review
+    review = get_object_or_404(Review, slug=slug)
     # Check if the logged-in user is the owner of the review
     if request.user != review.user:
-        return HttpResponseForbidden("You are not allowed to delete this review.")
+        return HttpResponseForbidden(
+                "You are not allowed to delete this review.")
 
     # If the request method is POST, delete the review
     if request.method == 'POST':
@@ -181,9 +194,11 @@ def comment_edit(request, slug, comment_id):
             comment.save()
             messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
         else:
-            messages.add_message(request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(
+                request, messages.ERROR, 'Error updating comment!')
 
     return HttpResponseRedirect(reverse('review_detail', args=[slug]))
+
 
 def comment_delete(request, slug, comment_id):
     """
@@ -197,9 +212,12 @@ def comment_delete(request, slug, comment_id):
         comment.delete()
         messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
     else:
-        messages.add_message(request, messages.ERROR, 'You can only delete your own comments!')
+        messages.add_message(
+                request,
+                messages.ERROR, 'You can only delete your own comments!')
 
     return HttpResponseRedirect(reverse('review_detail', args=[slug]))
+
 
 def add_book(request):
     """
@@ -210,18 +228,21 @@ def add_book(request):
         if book_form.is_valid():
             title = book_form.cleaned_data['book_title']
             author = book_form.cleaned_data['book_author']
-            
+
             # Check for existing books with the same title and author
             existing_book = Book.objects.filter(
                 Q(book_title__iexact=title) & Q(book_author__iexact=author)
             ).first()
-            
+
             if existing_book:
-                messages.warning(request, f'A book titled "{title}" by {author} already exists.')
+                messages.warning(
+                        request,
+                        f'A book titled "{title}" by {author} already exists.')
             else:
                 book_form.save()
-                messages.success(request, f'Successfully added "{title}" by {author}.')
-                return redirect('home') 
+                messages.success(
+                        request, f'Successfully added "{title}" by {author}.')
+                return redirect('home')
     else:
         book_form = BookForm()
 
@@ -232,8 +253,3 @@ def add_book(request):
             "book_form": book_form
         },
     )
-
-
-
-
-
