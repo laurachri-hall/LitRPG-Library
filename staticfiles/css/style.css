@@ -148,6 +148,20 @@ p {
     z-index: 2;
 }
 
+
+.list-group-item {
+    background-color: #292a33;;
+    text-decoration: none;
+}
+
+.custom-link {
+    color:var(--accent-color);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+
+
 /* Bootstrap divider */
 
 .b-example-divider {
@@ -266,6 +280,8 @@ p {
 }
 /* Hover effect on the card */
 .review-card:hover,
+.btn:hover,
+.list-group-item:hover,
 .index-card:hover {
     transform: scale(1.03); /* Slightly scale up the card */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
@@ -470,12 +486,13 @@ footer .social-links li:active svg path {
 .btn-signup:hover,
 .btn-signup:active,
 .btn-logout:hover,
-.btn-logout:active {
+.btn-logout:active  {
     background-color: var(--accent-color);
     color: var(--text-color);
 }
 
 .btn-login,
+.btn-see-my,
 .btn-tbrlist {
     color: var(--bg-color);
     border: 1px solid var(--accent-color);
@@ -486,21 +503,14 @@ footer .social-links li:active svg path {
 .btn-login:hover,
 .btn-login:active,
 .btn-tbrlist:hover,
-.btn-tbrlist:active {
+.btn-tbrlist:active,
+.btn-see-my:hover,
+.btn-see-my:active {
     background-color: var(--accent-color);
     border: 1px solid var(--accent-color);
     color: var(--text-color);
 }
 
-/* Read More */
-
-.btn-read-more {
-    color: var(--bg-color);
-    border: 1px solid var(--accent-color);
-    background-color: var(--secondary-color);
-    font-weight: bold;
-
-}
 
 /* Google Button */
 .gsi-material-button {
