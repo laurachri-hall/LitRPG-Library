@@ -35,6 +35,7 @@
   <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 justify-content-center g-4 mb-4">
     <!-- Card 1 -->
     <div class="col">
+      <a href="{% url 'add_book' %}" class="text-decoration-none">
       <div class="card index-card h-100">
         <div class="card-body text-center">
           <h5 class="card-title d-flex justify-content-between align-items-center">
@@ -43,31 +44,37 @@
           <p class="card-text">Add a book to the LitRPG Library.</p>
         </div>
       </div>
+    </a>
     </div>
     <!-- Card 2 -->
     <div class="col">
+      <a href="{% url 'add_review' %}" class="text-decoration-none">
       <div class="card index-card h-100">
         <div class="card-body text-center">
           <h5 class="card-title d-flex justify-content-between align-items-center">
-            Review <i class="fas fa-keyboard"></i>
+            Write <i class="fas fa-keyboard"></i>
           </h5>
-          <p class="card-text">Review a book and add a rating.</p>
+          <p class="card-text">Write a review of the book and add a rating.</p>
         </div>
       </div>
+    </a>
     </div>
     <!-- Card 3 -->
     <div class="col">
+      <a href="{% url 'review_list' %}" class="text-decoration-none">
       <div class="card index-card h-100">
         <div class="card-body text-center">
           <h5 class="card-title d-flex justify-content-between align-items-center">
-            Comment <i class="fas fa-comments"></i>
+            Discuss<i class="fas fa-comments"></i>
           </h5>
-          <p class="card-text">Add your voice to the discussion.</p>
+          <p class="card-text">Add your voice to the discussion by commenting on other reviews.</p>
         </div>
       </div>
+    </a>
     </div>
     <!-- Card 4 -->
     <div class="col">
+      <a href="{% url 'tbr_list' %}" class="text-decoration-none">
       <div class="card index-card h-100">
         <div class="card-body text-center">
           <h5 class="card-title d-flex justify-content-between align-items-center">
@@ -78,6 +85,7 @@
       </div>
     </div>
   </div>
+</a>
 </div>
 
 
@@ -129,11 +137,12 @@
 <hr class="solid hero-break">
 
 <!-- Featured Reviews Section -->
-<div class="container mt-5">
+<div class="container mt-3">
   <h2 class="text-center">Featured Reviews</h2>
-  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 justify-content-center">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 justify-content-center mt-2">
     {% for review in featured_reviews %}
     <div class="col">
+      <a href="{% url 'review_detail' review.slug %}" class="text-decoration-none">
       <div class="card review-card h-100">
         {% if review.book.book_cover %}
         <img src="{{ review.book.book_cover.url }}" class="card-img-top" alt="{{ review.book.book_title }}" style="height: 200px; object-fit: cover;">
@@ -142,9 +151,9 @@
           <h5 class="card-title">{{ review.title }}</h5>
           <p class="card-text">{{ review.excerpt|truncatewords:20 }}</p>
           <p class="card-text"><strong>Rating:</strong> {{ review.rating }} / 5</p>
-          <a href="{% url 'review_detail' slug=review.slug %}" class="btn  btn-sm btn-read-more">Read More</a>
         </div>
       </div>
+    </a>
     </div>
     {% endfor %}
   </div>
@@ -153,15 +162,48 @@
 
 <div class="b-example-divider mt-5"></div>
 
-<!-- Call to Action -->
+
+<!-- Call to Action / Your Reviews -->
 <div class="container text-center py-5">
-  <h2>Join Our LitRPG Community!</h2>
-  <p>Register now to discover, review, and discuss your favorite LitRPG books.</p>
-  <a href="{% url 'account_signup' %}" class="btn btn-signup btn-lg">Sign Up</a>
+  <div class="row justify-content-center">
+    {% if user.is_authenticated %}
+        <div class="col-md-8"> <!-- Constrain width of the content -->
+            <h2>Welcome Back, {{ user.username }}!</h2>
+            <p>We're glad to have you as part of our LitRPG community. Explore new reviews, share your thoughts, or dive into featured books today!</p>
+            
+            {% if user_reviews %}
+                <h3>Your Recent Reviews</h3>
+                <div class="row justify-content-center">
+                  <div class="col-md-5">
+                <ul class="list-group">
+                    {% for review in user_reviews %}
+                        <li class="list-group-item">
+                            <a href="{% url 'review_detail' review.slug %}" class="custom-link">{{ review.title }}</a>
+                            <p class="small">Posted on {{ review.created_on|date:"F j, Y" }}</p>
+                        </li>
+                    {% endfor %}
+                </ul>
+              </div>
+            </div>
+            {% else %}
+                <p>You haven't written any reviews yet. <a href="/add-review/">Write your first review</a>!</p>
+            {% endif %}
+        </div>
+    {% else %}
+        <div class="col-md-6"> <!-- Constrain width for guest content -->
+            <h2>Join Our LitRPG Community!</h2>
+            <p>Register now to discover, review, and discuss your favorite LitRPG books.</p>
+            <a href="{% url 'account_signup' %}" class="btn btn-signup btn-lg">Sign Up</a>
+            <a href="{% url 'account_login' %}" class="btn btn-outline-primary btn-lg">Log In</a>
+        </div>
+    {% endif %}
+  </div>
 </div>
 
-{% endblock %}
 
+
+
+{% endblock%}
 
 {% block extras %}
 <script src="{% static 'js/pause.js' %}"></script>

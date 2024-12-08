@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404,reverse, redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 from django.views import generic
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect, HttpResponse
 from django.db.models import Q, Avg
 from django.db import IntegrityError
@@ -19,12 +20,13 @@ class HomePage(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['featured_reviews'] = Review.objects.filter(featured=True)[:3]  # Featured reviews
 
-        # Aggregate average ratings for books based on related reviews
-        context['trending_books'] = Book.objects.annotate(
-            avg_rating=Avg('review__rating')
-        ).order_by('-avg_rating')[:4]  # Order by highest rating
+        # Featured reviews (as already implemented)
+        context['featured_reviews'] = Review.objects.filter(featured=True)[:3]
+
+        if self.request.user.is_authenticated:
+            # Fetch all reviews or the latest review for the logged-in user
+            context['user_reviews'] = Review.objects.filter(user=self.request.user).order_by('-created_on')[:3]
 
         return context
 
@@ -36,11 +38,25 @@ class ReviewList(generic.ListView):
     template_name = "review_list.html"
     paginate_by = 6
 
+
+class UserReviewsView(LoginRequiredMixin, ListView):
+    """
+    lists a users reviews
+    """
+    model = Review
+    template_name = "user_reviews.html"
+    context_object_name = "reviews"
+
+    def get_queryset(self):
+        # Return reviews belonging to the logged-in user
+        return Review.objects.filter(user=self.request.user).order_by('-created_on')
+
+   
+
+def review_detail(request, slug):
     """
     Displays individual review
     """
-
-def review_detail(request, slug):
     queryset = Review.objects.filter(status=1)
     review = get_object_or_404(queryset, slug=slug)
     book = review.book
@@ -216,6 +232,8 @@ def add_book(request):
             "book_form": book_form
         },
     )
+
+
 
 
 

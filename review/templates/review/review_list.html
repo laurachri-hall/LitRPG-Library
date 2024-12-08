@@ -4,7 +4,7 @@
 {% block content %}
 
 <div class="container-fluid">
-    <div class="row row-cols-1 row-cols-md-3 g-4 mx-4 my-4"> <!-- Bootstrap responsive grid -->
+    <div class="row row-cols-1 row-cols-md-3 g-4 mx-4 my-4"> 
         {% for review in review_list %}
         <div class="col"> <!-- Each column for a card -->
             <a href="{% url 'review_detail' review.slug %}" class="text-decoration-none"> <!-- Anchor link wrapping the card -->
@@ -15,6 +15,9 @@
                         <img src="{% static 'images/default.jpg' %}" class="card-img-top" alt="Default book cover">
                     {% endif %}
                     <div class="card-body">
+                        <div class="image-flash">
+                            <p class="author">Author: {{ review.user }}</p>
+                        </div>
                         <h5 class="card-title">{{ review.title }}</h5>
                         <p class="card-text">{{ review.excerpt }}</p>
                     </div>
