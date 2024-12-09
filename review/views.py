@@ -71,7 +71,7 @@ def review_detail(request, slug):
         comment.save()
         messages.add_message(
             request,
-            messages.SUCCESS, 'Comment submitted and awaiting approval')
+            messages.SUCCESS, 'Comment submitted and awaiting approval.')
 
     return render(
         request,
@@ -119,7 +119,7 @@ def add_review(request):
                 messages.success(
                     request,
                     f'Your review for "{book.book_title}" has'
-                    'been added successfully.')
+                    'been added successfully and is awaiting approval.')
                 return redirect('home')
 
             except IntegrityError as e:
@@ -150,6 +150,10 @@ def review_edit(request, slug):
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
+            messages.success(
+                    request,
+                    f'Your review for "{book.book_title}" has'
+                    'been updated successfully!')
             return redirect('review_detail', slug=review.slug)
     else:
         form = ReviewForm(instance=review)

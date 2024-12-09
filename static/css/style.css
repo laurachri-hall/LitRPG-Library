@@ -427,6 +427,12 @@ p {
     border-top: 1px solid #ddd;
 }
 
+.or-text {
+    color:var(--secondary-color);
+    font-weight: 900;
+    font-size: x-large;
+}
+
 
 /* Footer */
 
