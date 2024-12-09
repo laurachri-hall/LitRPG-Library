@@ -147,6 +147,7 @@ def review_edit(request, slug):
     """
     review = get_object_or_404(Review, slug=slug)
     if request.method == 'POST':
+        book = review.book
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
