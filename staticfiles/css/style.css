@@ -221,9 +221,10 @@ p {
     line-height: 1.6;
     /* Optional: Improve readability with better line spacing */
 }
+
 .to-be-read-banner{
     border: 2px solid var(--secondary-color);
-    max-height: 90%;
+    max-height: 70%;
     max-width:auto;
 }
 /* Cards */
@@ -262,6 +263,15 @@ p {
     background-color: #292a33;
     transition: all 0.3s ease;
     text-align: left;
+}
+
+.tbr-card {
+    max-width: 80%;
+    max-height:auto;
+}
+
+.tbr-book-cover {
+    border: 1px solid var(--text-color);
 }
 
 .image-flash {
@@ -701,10 +711,16 @@ footer .social-links li:active svg path {
 /* likes */
 
 .btn-outline-primary,
+.btn-outline-secondary {
+    color:var(--accent-color);
+}
+
 .like-review-btn,
 .like-comment-btn {
+    background-color: transparent;
     color: var(--secondary-color);
     border:none;
+    
 }
 
 
@@ -713,9 +729,6 @@ footer .social-links li:active svg path {
 .like-comment-btn:hover,
 .like-comment-btn:active{
     background-color: transparent;
-    transform: scale(1.03); /* Slightly scale up the card */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 
 }
 

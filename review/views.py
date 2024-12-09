@@ -260,20 +260,27 @@ def add_book(request):
 
 
 def like_review(request, pk):
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': 'User not authenticated'}, status=403)
+
     review = get_object_or_404(Review, pk=pk)
+
     if review.likes.filter(id=request.user.id).exists():
-        review.likes.remove(request.user)
+        review.likes.remove(request.user)  # Unlike
         liked = False
     else:
-        review.likes.add(request.user)
+        review.likes.add(request.user)  # Like
         liked = True
 
-    return JsonResponse({'liked': liked, 'total_likes': review.total_likes()})
+    return JsonResponse({'liked': liked, 'total_likes': review.likes.count()})
 
 
 def like_comment(request, pk):
+    if not request.user.is_authenticated:
+        return JsonResponse({'error': 'Authentication required.'}, status=403)
+
     comment = get_object_or_404(Comment, pk=pk)
-    if comment.likes.filter(id=request.user.id).exists():
+    if request.user in comment.likes.all():
         comment.likes.remove(request.user)
         liked = False
     else:

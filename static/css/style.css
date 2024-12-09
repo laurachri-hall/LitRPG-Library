@@ -711,10 +711,16 @@ footer .social-links li:active svg path {
 /* likes */
 
 .btn-outline-primary,
+.btn-outline-secondary {
+    color:var(--accent-color);
+}
+
 .like-review-btn,
 .like-comment-btn {
+    background-color: transparent;
     color: var(--secondary-color);
     border:none;
+    
 }
 
 
@@ -723,9 +729,6 @@ footer .social-links li:active svg path {
 .like-comment-btn:hover,
 .like-comment-btn:active{
     background-color: transparent;
-    transform: scale(1.03); /* Slightly scale up the card */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
 
 }
 
