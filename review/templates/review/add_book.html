@@ -4,20 +4,33 @@
 
 {% block content %}
 <div class="container mt-5">
-    <div class="row">
-    </div>
     <div class="row justify-content-center">
-        <div class="col-12 col-md-6 my-5">
+        <div class="col-12 col-md-8 my-5">
             {% if user.is_authenticated %}
             <h2>Add a book!</h2>
             <p>Add a book to the LitRPG Library.</p>
-            <form method="post" enctype="multipart/form-data">
-                {{ book_form | crispy }}
-                {% csrf_token %}
-                
-                <!-- Submit Button -->
-                <button class="btn btn-secondary" type="submit">Submit</button>
-            </form>
+            <div class="row">
+                <!-- Image Preview -->
+                <div class="col-md-4 text-center">
+                    <img id="imagePreview" src="{% static 'images/cover_placeholder.png' %}" 
+                         alt="Image Preview" 
+                         class="img-fluid rounded border"
+                         style="max-height: 200px; object-fit: cover; display: none;">
+                </div>
+                <!-- Form -->
+                <div class="col-md-8">
+                    <form method="post" enctype="multipart/form-data">
+                        {{ book_form | crispy }}
+                        {% csrf_token %}
+                        
+                        <!-- File Input -->
+                        <input type="file" name="cover_image" id="coverImageInput" class="form-control">
+                        
+                        <!-- Submit Button -->
+                        <button class="btn btn-signup" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
             {% else %}
             <p>Log in to add a book.</p>
             {% endif %}
@@ -25,3 +38,4 @@
     </div>
 </div>
 {% endblock content %}
+

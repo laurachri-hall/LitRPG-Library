@@ -15,7 +15,7 @@
       <form method="post">
         {{ review_form | crispy }}
         {% csrf_token %}
-        <button class="btn btn-secondary" type="submit">Submit</button>
+        <button class="btn btn-signup" type="submit">Submit</button>
       </form>
       {% else %}
       <p>Log in to write a review.</p>

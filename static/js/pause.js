@@ -5,6 +5,6 @@ const gifToggle = document.getElementById('gif-toggle');
 gifToggle.addEventListener('click', () => {
   // Toggle between the static and animated sources
   const isAnimated = gifToggle.src.includes('hero.gif');
-  gifToggle.src = isAnimated ? '/static/images/hero.png' // Switch to the static image
+  gifToggle.src = isAnimated ? '/static/images/hero2.png' // Switch to the static image
 : '/static/images/hero.gif'; // Switch back to the animated GIF
 });

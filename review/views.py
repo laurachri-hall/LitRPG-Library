@@ -118,7 +118,7 @@ def add_review(request):
 
                 messages.success(
                     request,
-                    f'Your review for "{book.book_title}" has'
+                    f'Your review for "{book.book_title}" has '
                     'been added successfully and is awaiting approval.')
                 return redirect('home')
 
@@ -152,7 +152,7 @@ def review_edit(request, slug):
             form.save()
             messages.success(
                     request,
-                    f'Your review for "{book.book_title}" has'
+                    f'Your review for "{book.book_title}" has '
                     'been updated successfully!')
             return redirect('review_detail', slug=review.slug)
     else:
