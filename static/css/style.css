@@ -222,6 +222,11 @@ p {
     /* Optional: Improve readability with better line spacing */
 }
 
+.to-be-read-banner{
+    border: 2px solid var(--secondary-color);
+    max-height: 70%;
+    max-width:auto;
+}
 /* Cards */
 
 .card {
@@ -258,6 +263,15 @@ p {
     background-color: #292a33;
     transition: all 0.3s ease;
     text-align: left;
+}
+
+.tbr-card {
+    max-width: 80%;
+    max-height:auto;
+}
+
+.tbr-book-cover {
+    border: 1px solid var(--text-color);
 }
 
 .image-flash {

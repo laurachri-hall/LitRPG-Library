@@ -30,7 +30,7 @@ def tbr_list(request):
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
 
-    return render(request, 'to_be_read/tbr_list.html', {'page_obj': page_obj})
+    return render(request, 'to_be_read/tbr_list.html', {'tbr_books': tbr_books})
 
 
 @login_required
