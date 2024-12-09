@@ -3,7 +3,7 @@ from django.views.generic import TemplateView, ListView
 from django.views import generic
 from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect, HttpResponse, JsonResponse
 from django.db.models import Q, Avg
 from django.db import IntegrityError
 from allauth.socialaccount.models import SocialApp
@@ -257,3 +257,28 @@ def add_book(request):
             "book_form": book_form
         },
     )
+
+
+def like_review(request, pk):
+    review = get_object_or_404(Review, pk=pk)
+    if review.likes.filter(id=request.user.id).exists():
+        review.likes.remove(request.user)
+        liked = False
+    else:
+        review.likes.add(request.user)
+        liked = True
+
+    return JsonResponse({'liked': liked, 'total_likes': review.total_likes()})
+
+
+def like_comment(request, pk):
+    comment = get_object_or_404(Comment, pk=pk)
+    if comment.likes.filter(id=request.user.id).exists():
+        comment.likes.remove(request.user)
+        liked = False
+    else:
+        comment.likes.add(request.user)
+        liked = True
+
+    return JsonResponse({'liked': liked, 'total_likes': comment.total_likes()})
+

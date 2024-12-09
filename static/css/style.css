@@ -481,7 +481,7 @@ footer .social-links li:active svg path {
 
 
 
-/* Buttons */
+/* ---------Buttons----------- */
 
 /* Register */
 .btn-signup,
@@ -503,7 +503,8 @@ footer .social-links li:active svg path {
 
 .btn-login,
 .btn-see-my,
-.btn-tbrlist {
+.btn-tbrlist,
+.btn-book-add {
     color: var(--bg-color);
     border: 1px solid var(--accent-color);
     background-color: var(--secondary-color);
@@ -515,7 +516,9 @@ footer .social-links li:active svg path {
 .btn-tbrlist:hover,
 .btn-tbrlist:active,
 .btn-see-my:hover,
-.btn-see-my:active {
+.btn-see-my:active,
+.btn-book-add:hover,
+.btn-book-add:active  {
     background-color: var(--accent-color);
     border: 1px solid var(--accent-color);
     color: var(--text-color);
@@ -689,6 +692,27 @@ footer .social-links li:active svg path {
     background-color: var(--secondary-color);
     border: 1px solid var(--accent-color);
     color: var(--bg-color);
+}
+
+/* likes */
+
+.btn-outline-primary,
+.like-review-btn,
+.like-comment-btn {
+    color: var(--secondary-color);
+    border:none;
+}
+
+
+.like-review-btn:hover,
+.like-review-btn:active,
+.like-comment-btn:hover,
+.like-comment-btn:active{
+    background-color: transparent;
+    transform: scale(1.03); /* Slightly scale up the card */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition */
+
 }
 
 

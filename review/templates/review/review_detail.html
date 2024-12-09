@@ -13,9 +13,9 @@
         <p class="review-subtitle my-2 mx-2">
           {{ review.user }} |
           {% if review.updated_on > review.created_on %}
-            Updated on {{ review.updated_on|date:"F j, Y, g:i a" }}
+          Updated on {{ review.updated_on|date:"F j, Y, g:i a" }}
           {% else %}
-            Created on {{ review.created_on|date:"F j, Y, g:i a" }}
+          Created on {{ review.created_on|date:"F j, Y, g:i a" }}
           {% endif %}
         </p>
       </div>
@@ -54,11 +54,18 @@
             {% endfor %}
           </div>
           <!-- Add Book Button -->
+           <div>
           <form action="{% url 'add_to_read_list' book.id %}" method="post">
             {% csrf_token %}
             <button type="submit" class="btn btn-book-add">Add to TBR</button>
+             <!-- Like Review Button -->
+            <button class="btn btn-outline-primary btn-sm like-review-btn" data-review-id="{{ review.id }}">
+              <i class="fas {% if user in review.likes.all %}fa-thumbs-up{% else %}fa-thumbs-o-up{% endif %}"></i> 
+            </button><span id="review-likes-{{ review.id }}">  {{ review.total_likes }}  </span>
           </form>
           {% endif %}
+       
+        </div>
           <hr>
           <!-- Review Content -->
           <p class="mt-3">{{ review.content | safe }}</p>
@@ -74,26 +81,6 @@
             </button>
           </form>
           {% endif %}
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Delete Confirmation Modal for Review -->
-  <div class="modal fade" id="reviewDeleteModal" tabindex="-1" aria-labelledby="reviewDeleteModalLabel"
-    aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="reviewDeleteModalLabel">Delete review?</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to delete this review? This action cannot be undone.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-review-delete" id="confirmReviewDelete">Delete</button>
         </div>
       </div>
     </div>
@@ -115,8 +102,7 @@
       <h3>Comments:</h3>
       <div class="card-body">
         {% for comment in comments %}
-        <div
-          class="p-2 comments {% if not comment.approved and comment.author == user %}faded{% elif not comment.approved %}d-none{% endif %}">
+        <div class="p-2 comments">
           <p>
             <strong>{{ comment.user }}</strong>
             <span>{{ comment.created_on }}</span> wrote:
@@ -127,23 +113,20 @@
           {% if comment.rating %}
           <p>
             Rating:
-            {% for i in 1|add:""|default_if_none:""|add:"2345" %}
-                {% if forloop.counter <= comment.rating %}
-                    <i class="fas fa-star" style="color: gold;"></i> <!-- Filled star -->
-                {% else %}
-                    <i class="far fa-star" style="color: gold;"></i> <!-- Empty star -->
-                {% endif %}
+            {% for i in "12345" %}
+            {% if forloop.counter <= comment.rating %}
+            <i class="fas fa-star text-warning"></i> <!-- Filled star -->
+            {% else %}
+            <i class="far fa-star text-warning"></i> <!-- Empty star -->
+            {% endif %}
             {% endfor %}
-        </p>
-        
+          </p>
           {% endif %}
-          {% if not comment.approved and comment.user == user %}
-          <p class="approval">This comment is awaiting approval</p>
-          {% endif %}
-          {% if user.is_authenticated and comment.user == user %}
-          <button class="btn btn-edit" data-slug="{{ review.slug }}" comment_id="{{ comment.id }}">Edit</button>
-          <button class="btn btn-delete" data-slug="{{ review.slug }}" comment_id="{{ comment.id }}">Delete</button>
-          {% endif %}
+          <!-- Like Comment Button -->
+          <button class="btn btn-outline-secondary btn-sm like-comment-btn" data-comment-id="{{ comment.id }}">
+            <i class="fas {% if user in comment.likes.all %}fa-thumbs-up{% else %}fa-thumbs-o-up{% endif %}"></i>
+          </button>
+          <span id="comment-likes-{{ comment.id }}">{{ comment.total_likes }}</span>
         </div>
         {% endfor %}
       </div>
@@ -166,29 +149,11 @@
       </div>
     </div>
   </div>
-
-  <!-- Delete Confirmation Modal for Comments -->
-  <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel">Delete comment?</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Are you sure you want to delete your comment? This action cannot be undone.
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <a id="deleteConfirm" href="#" class="btn btn-danger">Delete</a>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 
 {% endblock %}
 
 {% block extras %}
 <script src="{% static 'js/edit_delete.js' %}"></script>
+<script src="{% static 'js/likes.js' %}"></script>
 {% endblock %}
