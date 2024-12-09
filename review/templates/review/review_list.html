@@ -22,7 +22,13 @@
                         <p class="card-text">{{ review.excerpt }}</p>
                     </div>
                     <div class="card-footer">
-                        <small class="text-muted">{{ review.created_on }}</small>
+                        <small class="text-muted">
+                            {% if review.updated_on > review.created_on %}
+                                Updated on {{ review.updated_on|date:"F j, Y, g:i a" }}
+                            {% else %}
+                                Created on {{ review.created_on|date:"F j, Y, g:i a" }}
+                            {% endif %}
+                        </small>
                     </div>
                 </div>
             </a>

@@ -37,6 +37,7 @@ class Review(models.Model):
     rating = models.PositiveIntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)])
     created_on = models.DateTimeField(auto_now_add=True)
+    updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
     excerpt = models.TextField(blank=True)
     featured = models.BooleanField(default=False)

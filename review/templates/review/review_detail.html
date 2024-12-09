@@ -9,9 +9,14 @@
   <div class="container mt-3">
     <div class="row g-0">
       <div class="col-md-6 masthead-text">
-        <h1 class="post-title my-2 mx-2">{{ review.title }}</h1>
-        <p class="post-subtitle my-2 mx-2">
-          {{ review.author }} | {{ review.created_on }}
+        <h1 class="post-title my-2 mx-2">{{ review.title }}: by {{book.book_author}}</h1>
+        <p class="review-subtitle my-2 mx-2">
+          {{ review.user }} |
+          {% if review.updated_on > review.created_on %}
+            Updated on {{ review.updated_on|date:"F j, Y, g:i a" }}
+          {% else %}
+            Created on {{ review.created_on|date:"F j, Y, g:i a" }}
+          {% endif %}
         </p>
       </div>
       <div class="d-none d-md-block col-md-6 masthead-image">

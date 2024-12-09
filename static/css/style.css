@@ -398,6 +398,10 @@ p {
     opacity: 1;
 }
 
+.review-subtitle {
+    color:var(--bg-color);
+}
+
 /* TBR Page */
 
 .tbr-card {
@@ -654,7 +658,8 @@ footer .social-links li:active svg path {
     color: var(--bg-color);
 }
 
-.btn-delete {
+.btn-delete,
+.btn-review-delete  {
     color: var(--bg-color);
     border: 1px solid var(--accent-color);
     background: var(--highlight-color);
@@ -662,22 +667,10 @@ footer .social-links li:active svg path {
 }
 
 .btn-delete:hover,
-.btn-delete:active {
-    background-color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-    color: var(--bg-color);
-}
-
-.btn-review-delete {
-    color: var(--text-color);
-    border: 1px solid var(--accent-color);
-    background-color: var(--highlight-color);
-    font-weight: bold;
-}
-
+.btn-delete:active,
 .btn-review-delete:hover,
 .btn-review-delete:active {
-    background-color: var(--secondary-color);
+    background-color: var(--accent-color);
     border: 1px solid var(--accent-color);
     color: var(--bg-color);
 }
