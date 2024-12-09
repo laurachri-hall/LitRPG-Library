@@ -206,3 +206,8 @@ CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 APPEND_SLASH = False
+
+GRAPH_MODELS = {
+  'all_applications': True,
+  'group_models': True,
+}

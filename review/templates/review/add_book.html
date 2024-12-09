@@ -12,23 +12,16 @@
             <div class="row">
                 <!-- Image Preview -->
                 <div class="col-md-4 text-center">
-                    <img id="imagePreview" src="{% static 'images/cover_placeholder.png' %}" 
-                         alt="Image Preview" 
-                         class="img-fluid rounded border"
-                         style="max-height: 200px; object-fit: cover; display: none;">
+                    <img id="imagePreview" src="{% static 'images/cover_placeholder.png' %}" alt="Image Preview"
+                        class="img-fluid rounded border" style="max-height: 200px; object-fit: cover;">
                 </div>
                 <!-- Form -->
                 <div class="col-md-8">
                     <form method="post" enctype="multipart/form-data">
                         {{ book_form | crispy }}
                         {% csrf_token %}
-                        
-                        <!-- File Input -->
-                        <input type="file" name="cover_image" id="coverImageInput" class="form-control">
-                        
-                        <!-- Submit Button -->
-                        <button class="btn btn-signup" type="submit">Submit</button>
-                    </form>
+                        <button class="btn btn-signup mt-3" type="submit">Submit</button>
+                    </form>                    
                 </div>
             </div>
             {% else %}
@@ -39,3 +32,6 @@
 </div>
 {% endblock content %}
 
+{% block extras %}
+<script src="{% static 'js/cover_preview.js' %}"></script>
+{% endblock %}
