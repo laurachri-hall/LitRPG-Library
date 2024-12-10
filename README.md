@@ -715,3 +715,28 @@ To start the deployment process, please follow the below steps:
 9.  Choose from '**Automatic**' or '**Manual**' deployment options, I chose the 'Manual' deployment method. Click '**Deploy Branch**'.
 10. Once the waiting period for the app to build has finished, click the '**View**' link to bring you to your newly deployed site. If you receive any errors, Heroku will display a reason in the app build log for you to investigate. **DISABLE_COLLECTSTATIC**  may be removed from the Config Vars once you have saved and pushed an image within your project.
 11. Double check that your dynos are on and configured correctly in **Overview**. If you need to change the type of dynos being used or turn them on go to **Resources**.
+
+# Credits
+
+## Code
+
+- [Code Institute's](learn.codeinstitute.net) Learning Content and supporting documents, especially the  'I Think Therefore I Blog' section and Django Deployment Guidelines PDF.
+- [Perplexity AI](https://www.perplexity.ai/) for breaking down Python concepts and Django documentation into something more understandable, helping problem solve coding issues.
+- [Chat GPT](https://chatgpt.com/) As above.
+- [Bootstrap 5](https://getbootstrap.com/docs/4.1/getting-started/introduction/) for many of the project's features.
+
+
+
+## Media
+**Book Covers**
+Book covers used on this site are copyrighted by their respective publishers and/or authors. They are displayed under fair use for review and educational purposes.
+
+Most cover images were obtained from the following sources:
+- [Amazon](amazon.co.uk)
+
+## Acknowledgements
+
+- Many thanks to my family for all their support, especially Dad who did a lot of testing for me. 
+- Thank you to my course facilitator Amy Richardson for her amazingly positive support, guidance and advice. Her ability to handle all situations in a calm manner is inspiring. 
+- Good wishes and thanks to all the members of my bootstrap course. They are an amazing group of individuals and it has a pleasure working with them all. 
+- Immense gratitude to go to all the members of the Coding Coach Slack channel, especially Roo and John. I wouldn't have made it through without their help!
