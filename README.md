@@ -284,52 +284,59 @@ Most of the readable content is available to an unregistered user. Posting, edit
 | Review List  | Visible | Visable  |
 | Review Detail | Review and comments visable - no interactions/ 'Add to TBR' button not visable| Visable and full feature interaction available depending on authorship|
 | TBR List   | Not Visable | Visable and full feature interaction available |
-| Gallery   | Visable but no option to 'Add Photo' | Visable and full feature interaction available |
-| Visit Us  | Visable and map interaction available | Visible and map interaction available |
-<!-- 
-
-
-
-It was important to me from the beginning that FreeFido be accessible to an unregistered user, in some capacitites. I wanted the website to sell the product to a new user quickly by immediately inviting them into the community through the park's information, articles and gallery sections. The following is a breakdown of the site's accessibility for registered/unregistered users:
-
-
-
 
 ## CRUD Functionality
 
-Users are able to Create, Read, Update and Delete their shared information on FreeFido. Some features make full CRUD functionality available, whilst others present the necessary options only. Here is my CRUD breakdown for FreeFido:
+Users are able to Create, Read, Update and Delete their shared information on LitRPG Library. Some features make full CRUD functionality available, whilst others present the necessary options only. Here is my CRUD breakdown for FreeFido:
 
 | Feature | Create | Read | Update | Delete |
 |---------|--------|------|--------|--------|
-| Profile | Created upon registration | Yes | Yes | Full Profile deletion is currently only available to Admin upon User Account deletion, the profile dashboard clears automatically if a user removes all of their articles or bookings |
-| Articles | Yes | Yes | Yes | Yes |
-| Bookings | Yes | Yes | Yes | Yes |
-| Gallery | Yes | Yes | No - this feature felt unneccessary as it's intention is a 'quick-sharing' of a photo, a minimal amount of information is required and users are able to delete the image if they wish | Yes |
+| Reviews | Yes | Yes | Yes | Yes |
+| Comments | Yes | Yes | Yes | Yes |
+| Add Book | Yes| Used in Reviews and TBR List | No - they cannot update book information (yet - future feature maybe) | No |
+| TBR List | Uses Book from Add Book | Yes | No - they cannot update book information (yet - future feature maybe) | Yes |
 
 ## Feature Showcase 
-  
+
 **Header/Navigation & Footer**
 
-*For features showcase, screenshots of the features in use were taken on Laptop/iPad Pro/iPhone 12 Pro*
-
 <details open>
-    <summary>Header & Navigation - All Users (Profile Icon only visible to Registered, Logged-In Users)</summary>  
-    <img src="documentation/final_views/nav.png">  
+    <summary>Header & Navigation - All Users </summary>  
+    <img src="documentation/screenshots/home.png">  
+</details>
+<details open>
+    <summary>Header & Navigation - Registered Users </summary>  
+    <img src="documentation/screenshots/registered_nav.png">  
+</details>
+<details open>
+    <summary>Footer - All Users</summary>  
+    <img src="documentation/screenshots/footer.png">  
+</details>
+<details open>
+    <summary>Footer - Registered Users</summary>  
+    <img src="documentation/screenshots/registered_footer.png">  
 </details>
 
-![Profile Icon](documentation/final_views/profileicon_nav.png)  
-*Registered, Logged In view with Profile Icon*  
-  
-As mentioned in the [Structural Plane](#structural-plane) section above, the icon navigation bar allows the user to make their way around the FreeFido site. The icons have a small amount of animation when hovered/clicked on and to reinforce the icon meaning, have tooltips on hover/touch (on mobile) that display their intention.
-  
-The 'header.html' has been created as a separate template and using Jinja templating language, called into the 'base.html' using ```{% include 'includes/header.html' %}```. The templating format and file setup took a little while to get used to when putting it together at first but felt very powerful once I became acclimatised to it. 
+**Home Page**
+
+The hero image has call to action buttons which changed depending on a users satus. 'SignUp/SignIn' buttons change to 'Log Out/TBR List'. 
+
+The hero image itself is a gif. I went through many iterations of this image as I wanted the animation. I tried webm and mp4 but none of them were as friendly to styling as the gif, which I ultimately stuck with. I do know that animations and movement on a webpage can be an irritation (they normally are for me!) so the image will 'stop' if the user clicks/taps on it. 
 
 <details open>
-    <summary>Footer - Visible to all Users</summary>  
-    <img src="documentation/final_views/footer.png">  
+    <summary>Header & Navigation - All Users </summary>  
+    <img src="documentation/screenshots/home.png">  
 </details>
 
-The FreeFido footer has been created with a 'wave' background in grey, to complement the whitespace. The social-media icons, from [Flaticon](https://www.flaticon.com), open in a new tab when clicked. Tooltips are again used for those who may not be familiar with the icons. FreeFido does not have any active social media currently so the Facebook link only brings the user to the Facebook sign up page. Twitter, LinkedIn and GitHub bring the user to my own personal accounts connected to the production of this project.
+<details open>
+    <summary>Home Page - Registered Users</summary>  
+    <img src="documentation/screenshots/hero_registered.png">  
+</details>
+
+In the Home Page 'Hero' section, when a user is not registered they will see a 'Sign Up' button under the section text, which will bring them to the Sign Up page. When logged in, they will see 'Book Today!' which will bring them to the booking page.
+
+
+<!-- 
 
 **Home Page**
 
