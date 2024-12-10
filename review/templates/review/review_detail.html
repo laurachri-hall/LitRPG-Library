@@ -9,10 +9,17 @@
   <div class="container mt-3">
     <div class="row g-0">
       <div class="col-md-6 masthead-text">
-        <h1 class="post-title my-2 mx-2">{{ review.title }}: by {{book.book_author}}</h1>
+        <h1 class="post-title my-2 mx-2">{{ review.title }}: by {{ book.book_author }}</h1>
+        <p class="my-2 mx-2">
+          Review by: {{review.user}} |
+          {% if review.updated_on and review.updated_on != review.created_on %}
+          Updated on: {{ review.updated_on|date:"F j, Y" }}
+          {% else %}
+          Created on: {{ review.created_on|date:"F j, Y" }}
+          {% endif %}
+        </p>
       </div>
       <div class="d-none d-md-block col-md-6 masthead-image">
-        <!-- Optional image content for the masthead -->
       </div>
     </div>
   </div>

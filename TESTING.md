@@ -47,12 +47,15 @@ Return back to the [README.md](README.md) file.
 
 ### JavaScript Validation
 
-<!-- [JSHint](https://jshint.com/) was used to validate the small amount of JavaScript code added to the project. External JS, for Bootstrap purposes, obtained via [CDN](https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js) was not validated through JSHint
+[JSHint](https://jshint.com/) was used to validate the JavaScript code added to the project. External JS, for Bootstrap purposes, obtained via [CDN](https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.min.js) was not validated through JSHint.
 
-| Page | Screenshot | Errors | Warnings |
+| JS File | Screenshot | Errors | Warnings |
 | ---- | ---------- | ------ | -------- |
-| base.html | ![js from base.html](screenshot) | none | none |
-| gallery.html | ![js from review_detail.html](screenshot) | none | none | -->
+| cover_preview.js | ![cover_previews.js](documentation/testing/image_preview.png) | none | none |
+| edit_delete.js| ![js from edit_delete.js](documentation/testing/edit_delete.png) | none | none |
+| likes.js| ![js from likes.js](documentation/testing/likes.png) | none | none |
+| pause.js| ![js from pause.js](documentation/testing/pause.png) | none | none |
+| summernote.js| ![js from summernote.js](documentation/testing/summernote.png) | none | none |
 
 
 <hr>
