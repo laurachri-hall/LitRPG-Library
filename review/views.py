@@ -84,6 +84,7 @@ def review_detail(request, slug):
             "comments": comments,
             "comment_count": comment_count,
             "comment_form": comment_form,
+            "star_range": range(1, 6),  # Add star_range to the context
         },
     )
 

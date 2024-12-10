@@ -265,15 +265,6 @@ p {
     text-align: left;
 }
 
-.tbr-card {
-    max-width: 80%;
-    max-height:auto;
-}
-
-.tbr-book-cover {
-    border: 1px solid var(--text-color);
-}
-
 .image-flash {
     position: absolute;
     bottom: 75%;
@@ -423,8 +414,15 @@ p {
     flex-direction: row;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    max-width: 80%;
+    max-height:auto;
+    box-shadow: none;
+}
+
+.tbr-book-cover {
+    border: 1px solid var(--text-color);
+    box-shadow: none;
 }
 
 .tbr-card img {
@@ -438,6 +436,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 
 .tbr-card .card-footer {
@@ -466,7 +465,6 @@ footer .social-border {
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-    /* Adjust spacing as needed */
 }
 
 footer .social-links {

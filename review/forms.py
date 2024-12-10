@@ -11,12 +11,10 @@ class CommentForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        # Check if the instance exists and if the rating is null/blank
-        if "instance" in kwargs and (
-            kwargs["instance"].rating is None or kwargs["instance"].rating == ""
-        ):
-            # Remove the rating field if it's null or blank
-            self.fields.pop("rating")
+        # Set the rating field as optional
+        self.fields["rating"].required = False
+        self.fields["rating"].widget.attrs.update({"placeholder": " "})
+
 
 
 class ReviewForm(forms.ModelForm):

@@ -318,6 +318,7 @@ Nav and footer links change depending on users status. For the mobile view I cha
     <img src="documentation/screenshots/registered_footer.png">  
 </details>
 <br>
+<hr>
 
 **Home Page**
 
@@ -335,6 +336,7 @@ The hero image itself is a gif. I went through many iterations of this image as 
     <img src="documentation/screenshots/hero_registered.png">  
 </details>
 <br>
+<hr>
 
 **Home Page - Instruction cards**
 
@@ -345,6 +347,7 @@ When I was testing, users stated they were initially a bit confused about what t
     <img src="documentation/screenshots/instruction_cards.png">  
 </details>
 <br>
+<hr>
 
 **Home Page - What is LitRPGs**
 Since my site is dedicated to particular kind of book I thought a definition was in order. This gives a basic overview of the genre and the image displays some types of LitRPG Books.
@@ -354,6 +357,7 @@ Since my site is dedicated to particular kind of book I thought a definition was
     <img src="documentation/screenshots/definition.png">  
 </details>
 <br>
+<hr>
 
 **Home Page - Featured Books**
 Mostly for balance at this point, but I wanted to add some other features to the homepage. I decided on featured books as this seemed useful as well as asthetically pleasing. Three books can be featured at one time.
@@ -363,6 +367,7 @@ Mostly for balance at this point, but I wanted to add some other features to the
     <img src="documentation/screenshots/featured.png">  
 </details>
 <br>
+<hr>
 
 **Home Page - Call to Action/Recent Reviews**
 Thinking of mobile users, I wanted one more call to action at the bottom of the page to make it easy to register if they scrolled all the way down. If already registered and signed in, this section appears as a welcome back greeting along with recent reviews the user may have written.
@@ -372,11 +377,13 @@ Thinking of mobile users, I wanted one more call to action at the bottom of the 
     <img src="documentation/screenshots/footer_cta.png">  
 </details>
 <br>
+<hr>
 
 <details open>
     <summary>Home Page - Call to Action/Recent Reviews - Registered</summary> 
     <img src="documentation/screenshots/recent_reviews.png">  
 </details>
+<br>
 <hr>
 
 **Reviews Page**
@@ -388,352 +395,137 @@ A list of all the reviews. There is pagination at the bottom breaking it up in t
     <img src="documentation/screenshots/reviews.png">  
 </details>  
 
+<br>
 <hr>
 
-<!-- 
+**Review Details Page Example**
 
+This is the way each individual review displays. There are a lot changes on this page based on if you are a unregistered, registered, or the author of the post. Only the unregistered and author views are provided here. The ratings and likes gave me a lot of trouble but I seem to have worked out all the bugs. There is defensive programming in the form of modals when a user goes to delete a review or a comment.
 
+<details>
+    <summary>Reviews Page - Visible to all users - top</summary>  
+    <img src="documentation/screenshots/noreg_top.png">  
+</details> 
 
+<details>
+    <summary>Reviews Page - Visible to all users - bottom</summary>  
+    <img src="documentation/screenshots/noreg_bottom.png">  
+</details> 
 
+<details>
+    <summary>Reviews Page - Visible to registered and author of post - top</summary>  
+    <img src="documentation/screenshots/reg_top.png">  
+</details> 
+<details>
+    <summary>Reviews Page - Visible to registered and author of post - bottom</summary>  
+    <img src="documentation/screenshots/reg_bottom.png">  
+</details> 
+<details>
+    <summary>Delete Modal</summary>  
+    <img src="documentation/screenshots/delete_modal.png">  
+</details> 
+<br>
+<hr>
 
+**Edit a Review Page**
+The page where you can edit your review.
 
-**Registration/SignUp**
+<details>
+    <summary>Delete Modal</summary>  
+    <img src="documentation/screenshots/edit_review.png">  
+</details> 
+<br>
+<hr>
 
-<details open>
-    <summary>Sign Up Page</summary>  
-    <img src="documentation/final_views/signup.png">  
-</details>
-  
-Users are required to add their Email, Username and Password twice, to ensure the correct one is saved. If any field is not filled in appropriately then a display message is used to inform the user with how to procede to complete the form. The Sign up and Sign in pages are created with default templates available with the AllAuth package. These templates are combined with the power of Bootstraps Crispy Forms pack to give extra control over the forms' appearance.
+**TBR List Page**
+This is where a registered user can track books they want to read. They add books by clicking the 'add to tbr' button on a review's page and then it will display here. They also have the option to delete the book or go to the book's review page.
+
+<details>
+    <summary>To Be Read List - Registered Users Only</summary>  
+    <img src="documentation/screenshots/toberead.png">  
+</details> 
+<br>
+<hr>
+
+**Add Book Page**
+Here a registered user can add a book they want to review. When they upload an image a preview appears on the left handside (tester insisted this was necessary). I've included the series name and series volume for use in future features.
+
+<details>
+    <summary>Add Book Page</summary>  
+    <img src="documentation/screenshots/add_book.png">  
+</details> 
+<br>
+<hr>
+
+**Add Review Page**
+Here a registered user can add a book they want to review. When they upload an image a preview appears on the left handside (tester insisted this was necessary). I've included the series name and series volume for use in future features.
+
+<details>
+    <summary>Add Review Page</summary>  
+    <img src="documentation/screenshots/add_review.png">  
+</details> 
+<br>
+<hr>
+
+**Register Page**
+Originally I was not going to use any social accounts to sign in, but my brain decided differently at 3:30 one Saturday morning and it urgently needed to know how it would work. So, I have the basic signup using Django AllAuth and the ability to sign up with your Google account. Consequently, this was added in as user story a bit later in the process. I'm glad I did it because it was a great learning experience and it's a really important feature for me as a user, I much prefer to use Google Sign In than register for every little thing. 
+
+<details>
+    <summary>Register Page</summary>  
+    <img src="documentation/screenshots/signup.png">  
+</details> 
+<br>
+<hr>
 
 **Sign In**
+Same as above with registering but with only the user name and password fields for the basic sign in.
 
-<details open>
+<details>
     <summary>Sign In Page</summary>  
-    <img src="documentation/final_views/login.png">  
-</details>
-
-On successful Sign In, the user is greeted with feedback through a message which confirms sign in. The 'open padlock' Log In icon now changes to a 'closed padlock' Log Out icon that the user can click to begin the Log Out process. A 'Forgot Password' page is also re-designed from the AllAuth templates but it's full functionality is not yet activated for this version.
-
-![incorrect username/email warning](documentation/final_views/incorrect_sign_in.png)  
-*User is given feedback if they submit incorrect details where one item is correct and the other is incorrect*  
-
-
-![fill out field warning](documentation/final_views/fill_field_warning.png)  
-*Django built in field warnings for incorrect/forgotten fields input*  
-
-
-![Sign In message and Log In icon change](documentation/final_views/signin_message.png)  
-*Sign In message and Log In icon change*
-
-
-**Sign Out**
-
-<details open>
-    <summary>Sign Out Page</summary>  
-    <img src="documentation/final_views/logout.png">  
-</details>
-  
-A user may choose to return to the Home page and stay logged in or leave the site, logged out.
-
-![sign out message](documentation/final_views/signed_out.png)  
-*User is given feedback in message format to confirm sign out, Profile icon no longer visible in navigation bar - message disappears after 3 seconds or if user clicks 'x'*  
-
+    <img src="documentation/screenshots/signin.png">  
+</details> 
+<br>
 <hr>
 
-**Profile**
-
-<details open>
-    <summary>Profile Page - Registered Users only</summary>  
-    <img src="documentation/final_views/profile.png">  
-</details>
-  
-The user profile is created upon registration and displays a placeholder image and 'Edit Profile' button to allow the user to personalise their view. With future releases this page will be accessible to other users and allow connection, currently it is only viewable to the user.
-  
-<details>
-    <summary>Profile Page - Placeholder image for Profile</summary>  
-    <img src="documentation/final_views/placeholder_profile.png">  
-</details>
-  
-  
-**Profile Edit**
+**Google Log In**
+Google validation requires this page for logging in.
 
 <details>
-    <summary>Edit Profile Modal</summary>  
-    <img src="documentation/final_views/edit_profile.png">  
-</details>
-
-Modal appears over the Profile page and allows users to edit their Profile Picture, Display Name (Display Name will be required for the future features of leaving Feedback/Reviews, Adding Friends and Direct Messaging) and Bio. Using the RichTextField input field, user's have more control of the formatting of their text if they wish.
-
+    <summary>Google Login</summary>  
+    <img src="documentation/screenshots/google_login.png">  
+</details> 
+<br>
 <hr>
 
-**Articles**
-
-<details open>
-    <summary>Articles Page - Unregistered User View (mobile/tablet), Registered User View with 'Add Article' icon (desktop)</summary>  
-    <img src="documentation/final_views/articles.png">  
-</details>
+**Log Out**
+The logout confirmation page. One tester wanted this removed as if they had clicked the login button it annoyed them that there was an extra step. After some consideration, I decided to keep it in - I can't be the only person to have accidentally clicked log out when I didn't mean to. 
 
 <details>
-    <summary>Read Article Page - Unregistered User View</summary>  
-    <img src="documentation/final_views/art_unregview.png">  
-</details>  
-  
-Unregistered Users have access to all articles available on FreeFido. When registered and logged in, they may access the 'Add Article' button, 'Like/Unlike' icon and leave a comment for Admin approval. Articles created are displayed on individual 'cards' which display in rows for larger screens and columns for portrait, mobile view.
+    <summary>Logout</summary>  
+    <img src="documentation/screenshots/logout.png">  
+</details> 
 
-![site pagination arrow for moving page every 6 articles](documentation/final_views/site_pag.png)  
-*Site pagination kicks in to display 6 articles per page. Arrows at the base of the article section allow users to move forward and back*  
-
-
-Unregistered Users are free to read the articles and comments left on FreeFido but they cannot 'Like/Comment' them until they have signed up and logged in.
-
-![like/comment count under article](documentation/final_views/like_comment.png)  
-*A Likes and Comments counter is visible under every article. Logged-In Users can interact by clicking the heart outline to like. 'Heart outline' icon is replaced by filled Heart icon*  
-
-
-![zero likes icon](documentation/final_views/zerolikes.png)  
-*Likes icon is represented by an outlined heart icon. When it receives a like from the logged-in user, it becomes a filled heart icon*  
-  
-
-<details open>
-    <summary>Add a Comment - Registered User View</summary>  
-    <img src="documentation/final_views/comments.png">  
-</details>
-
-A comment box is visible to logged-in users only. Their comment is submitted for review by the Admin, once approved, the comment appears on the website.
-
-![comment awaiting approval message](documentation/final_views/approval_comment.png)  
-*Comment is awaiting approval message displayed after comment submit*
-  
-
-<details>
-    <summary>Delete Comment - Registered User View for Comment Author only</summary>  
-    <img src="documentation/final_views/comm_del_icon.png">  
-</details>
-
-For the author of the comment, when logged in, a trash icon will appear to allow them to delete the comment if they wish. 
-
-
-**Create Article**
-
-<details open>
-    <summary>Create Article Page - Registered, Logged In User View</summary>  
-    <img src="documentation/final_views/add_article.png">  
-</details>  
-  
-The user may create an article and include their own image or allow a placeholder image. Feedback is given to the user to guide them if they do not fill out the required sections appropriately. The Submit button saves the article for Admin approval. Once approved, the article will appear on the main page.  
-  
-
-<details>
-    <summary>Placeholder image for Articles - credit: Pattern Monster with FreeFido purple</summary>  
-    <img src="documentation/final_views/placeholder_img.png">  
-</details>
-
-
-![feedback that article is awaiting spproval by Admin](documentation/final_views/art_approve.png)  
-*Admin approval is required for articles to keep FreeFido on topic. Feedback is provided to the user by message that the article is awaiting approval*
-
-
-**Edit Article**
-
-<details open>
-    <summary>Edit Article Page - Registered, Logged In User View - Article Author View - Edit/Delete Icon</summary>  
-    <img src="documentation/final_views/art_eddel_reg.png">  
-</details>
-
-<details>
-    <summary>Edit Article Page - Only accessible to the Article Author</summary>  
-    <img src="documentation/final_views/edit_article.png">  
-</details>
-  
-If a user spots a typo, error or wants to add new information to their article, then they may edit the article and submit for immediate reposting. A certain amount of trust exists between Admin and the FreeFido community to hope that no inappropriate or off-topic content will be shared, which will result in an immediate deletion of the user's account by the Admin. These issues will be locked down in the future development of FreeFido to allow certain content/words to be flagged and removed by the Admin or not allow the form to be submitted in the first place. Community guidelines will also be developed.
-
-<details>
-    <summary>Edit Article Message</summary>  
-    <img src="documentation/final_views/art_updated_msg.png">  
-</details>
-
-
-**Delete Article**
-
-<details>
-    <summary>Delete Article Page - Only accessible to the Article Author </summary>  
-    <img src="documentation/final_views/delete_article.png">  
-</details>
-
-![delete article successful message](documentation/final_views/del_art_msg.png)  
-*User is informed that their article has been deleted - message disappears after 3 seconds*
-
-
-**Search Function**
-
-<details open>
-    <summary>Search Function - Visible on Article pages only</summary>  
-    <img src="documentation/final_views/search.png">  
-</details>  
-  
-A user may search for something particular using the 'Search' field, which only appears on article related pages. If the search yields no results then the user is informed and provided with a link back to the articles.
-
-<details>
-    <summary>Search Function No Articles Found - Visible on Article pages only</summary>  
-    <img src="documentation/final_views/no_articles.png">  
-</details>
-
+<br>
 <hr>
 
-**Bookings**
-
-<details open>
-    <summary>Bookings Page - Registered, logged-in Users only</summary>  
-    <img src="documentation/final_views/booking.png">  
-</details>
-  
-The booking system that has been created for FreeFido is a basic booking system that 'gets the job done' for the starting business. The user may create, edit and delete their bookings, they are informed if a date/time is unavailable and they see a display message if their booking is saved. For future development, the UI of this booking system will improve to make unavailable times shaded-out/hidden and the user will receive confirmation emails for all bookings saved. Only 4 bookings may be held for each user and currently this includes past bookings, which the user must delete themselves. This is to remind the user of all bookings incase they may have forgotten and not attended their booked time slot, making it unavailable for someone else. In the future booking feature, the user will receive an email informing them that they have missed a booking, the booking will be flagged with a red text message on the dashboard and the user will be reminded that repeated no-shows for bookings will have their access to bookings revoked for a period of time.
+**Privacy Policy and Terms of Service**
+The Privacy Policy and the Terms of Service were required by Google so I asked Perplexity AI to help me write a simple versions. This was little scary because legal documents tend to be. The main points are that this is an educational project, I'm not keeping or tracking any of the users data and the only thing I'm requesting from Google is the email address and profile name. Hopefully, that's all I need.
 
 <details>
-    <summary>Bookings Page - Max Bookings Reached</summary>  
-    <img src="documentation/final_views/maxbooking.png">  
-</details>
-
-
-**Booking Create**
-
-<details open>
-    <summary>Booking Create Page - Visible only to Logged-In Users</summary>  
-    <img src="documentation/final_views/booking_c.png">  
-</details>  
-  
-For creating a booking, the user is informed of the necessary fields to be filled in to secure the booking via feedback. The user may add a second dog if they wish, or leave this to another time. A dropdown selection of 'Breed Choices' is made available for quicker booking, with 'Other' included for mixed breeds. This information is important to the FreeFido staff member who maybe operating the gate for allowing entry. The dog's appearance will help them to identify and confirm the booking along with the human user information.
-Date and time is selectable via a calendar widget for date and dropdown selection menu displaying the hour slots from 8am to 8pm. FreeFido is super kind and opens every single day of the year for it's community members.
-
-![past booking warning](documentation/final_views/past_book.png)  
-*Warning shown to Users if they choose a date in the past, can only save a booking with a valid date/time*  
- 
-  
-![unavaialable date/time](documentation/final_views/unavailable_datetime.png)  
-*If a date/time combo is unavailable then the user is informed via warning message - future version of the booking system will have shaded out portions for the unavailable dates/times to make it easier on the user*  
-
-
-![booking saved message](documentation/final_views/booking_saved_msg.png)  
-*User feedback is delivered by message once a booking has been submitted through creation or edit- message disappears after 3 seconds*
-
-
-**Edit Booking**
+    <summary>Privacy Policy</summary>  
+    <img src="documentation/screenshots/privacy.png">  
+</details> 
 
 <details>
-    <summary>Edit Booking Page - Visible for Logged-In Users who have made a previous Booking</summary>  
-    <img src="documentation/final_views/booking_e.png">  
-</details>
-
-**Delete Booking**
-
-<details>
-    <summary>Delete Booking Page - Visible for Logged-In Users who have made a previous Booking</summary>  
-    <img src="documentation/final_views/booking_d.png">  
-</details>
-  
-A user may delete thier booking or return to the booking page incase they clicked the delete icon in error.
-
-![deleted booking message](documentation/final_views/booking_del_msg.png)  
-*User feedback is delivered by message once a booking has been deleted - message dissappears after 3 seconds*
-
+    <summary>Terms of Service</summary>  
+    <img src="documentation/screenshots/terms.png">  
+</details> 
+<br>
 <hr>
-
-**Gallery**
-
-<details open>
-    <summary>Gallery Page - Registered, Logged-In User View with 'Add Photo' icon, Unregistered User View without icon</summary>  
-    <img src="documentation/final_views/gallery.png">  
-</details>
-  
-The FreeFido Gallery page allows the user and Admin to quickly upload snapshots from the park's activities to create a continuous flow of updated images. An overlay on hover/touch on mobile shows the user brief information about the photograph. The carousel of images at the top of the page shows some highlighted photos. For future development this carousel will display a collection of randomly selected images from the bulk of images availabale and stored in the Cloudinary database.    
-
-<details>
-    <summary>Gallery Page - Unregistered User view with photo info on hover(Desktop)/touch (on Mobile)</summary>  
-    <img src="documentation/final_views/gal_unreg_info.png">  
-</details>
-
-**Add Photo**
-
-<details open>
-    <summary>Add Photo Page - Registered Users only</summary>  
-    <img src="documentation/final_views/add_photo.png">  
-</details>
-  
-All fields are required for the Upload Image form to be submitted and saved correctly. Feedback prompts the user if they have neglected a field.
-
-**Delete Photo**
-
-<details open>
-    <summary>Photo Delete - Registered User View - delete icon only visible over the photos uploaded by that logged-in user. </summary>  
-    <img src="documentation/final_views/gal_reg_del.png">  
-</details>
-
-<details>
-    <summary>Delete Photo Page</summary>  
-    <img src="documentation/final_views/del_photo_modal.png">  
-</details>
-  
-If a user no longer wants their image to appear, or if they have made a mistake, thay may delete their image. Admin approval is not needed for images to be posted and future development will include community posting guidelines and a form of AI software to check the image for any unwanted content.  
-   
-![delete photo user message, successful deletion](documentation/final_views/photo_del_msg.png)  
-*User feedback is provided by message, informing user that the photo has been deleted successfully - message disappears after 3 seconds*
-
-<hr>
-
-**Visit Us**
-
-<details>
-    <summary>Visit Us Page</summary>  
-    <img src="documentation/final_views/visit.png">  
-</details>
-  
-This page offers the user business information including opening hours and address. An embedded interactive Google Map allows the user to see FreeFido's location without leaving the site. If they require driving directions to the park, they can click on the map's 'View larger map' link to go to Google Maps in a new browser tab.
-
-For future development, this page will hold the 'Feedback' feature for registered users to leave a review of the park. 
-
-<hr>
-
-**403, 404, 500 Pages**
-
-These templates were added to this project in order to give the user the functionality to return to the website by using the links in the navigation bar or the Back to Homepage button on the Error page.
-
-![404 error page](documentation/final_views/404error.png)
-
-- They are triggered when a user tries to access:
-  - information that is not theirs - 403,
-  - information that does not exist anymore - 404,
-  - something has gone wrong with the server and cannot retrieve database - 500
 
 **Admin Panel**
 
-Through Django's built-in Administration Panel, the Admin has full access over the data submitted to the website by registered Users. To access the Admin panel the Admin user adds '/admin/' to the end of the URL to display [https://freefido.herokuapp.com/admin/](https://freefido.herokuapp.com/admin/). A username and password is requested. For FreeFido, Admin approval is needed for articles and comments to keep the site on topic and to prevent spamming. Registered, logged-in users' have instant access to make a booking and upload images.
-
-![django admin panel view](documentation/final_views/dj_adminpanel.png)  
-*Django Admin panel view for FreeFido Administrator - content selection menu on left hand side*  
-
-
-Users articles and comments require approval by the Admin of FreeFido to keep the website content on topic. Admin can change the status of articles from 'Draft' to 'Published'.
-
-<details>
-    <summary>Dropdown menu allowing Admin to 'publish' a users article, 'Save' button must be clicked to confirm</summary>  
-    <img src="documentation/final_views/draft_art.png">  
-</details>  
-
-  
-<details>
-    <summary>Dropdown menu allowing Admin to 'approve' a users comment, 'Go' must be clicked to confirm</summary>  
-    <img src="documentation/final_views/comment_apprv.png">  
-</details>
-    
-
-Admin can control users bookings via the Django Admin panel.  
-
-<details>
-    <summary>All bookings are made available to the Admin</summary>  
-    <img src="documentation/final_views/djbooking.png">  
-</details> -->
-
+Through Django's built-in Administration Panel, the Admin has full access over the data submitted to the website by registered Users. To access the Admin panel the Admin user adds '/admin/' to the end of the URL to display [https://litrpg-library-2e24401b712e.herokuapp.com/admin/](https://freefido.herokuapp.com/admin/). A username and password is requested. For LitRPG Library, Admin approval is needed for reviews and comments to keep the site on topic and to prevent spamming. Updates to these do not need approval. Here an admin can add/edit/delete any books/reviews/comments.
 
 ## Future Features
 
