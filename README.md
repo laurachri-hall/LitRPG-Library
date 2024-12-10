@@ -271,20 +271,28 @@ The Admin Dashboard provides comprehensive management capabilities, allowing adm
 
 This ERD reflects a well-organized and security-focused design, catering to both user needs and administrative functionalities within the **LitRPG Library** platform.
 
-<!-- # Features
+
+# Features
 
 ## User View - Registered/Unregistered
 
-It was important to me from the beginning that FreeFido be accessible to an unregistered user, in some capacitites. I wanted the website to sell the product to a new user quickly by immediately inviting them into the community through the park's information, articles and gallery sections. The following is a breakdown of the site's accessibility for registered/unregistered users:
+Most of the readable content is available to an unregistered user. Posting, editing and deleting of reviews or comments is limited to registered users. Naturally, the navbar changes depending on the user's status. Additionally, on the home page some buttons and sections also change. 
 
 | Feature   | Unregistered User | Registered, Logged-In User |
 |-----------|-------------------|-----------------|
-| Home Page | Visable           | Visable         |
-| Profile   | Not Visible - 'Profile' icon only appears for registered, logged-in users | Visable and full feature interaction available |
-| Articles  | Visable but not interactable via 'Likes/Comments', 'Add Article' button not visible | Visable and full feature interaction available |
-| Booking   | Icon visible but redirected to Sign In page/Sign Up through link | Visable and full feature interaction available |
+| Home Page | Visable - content changes          | Visable - content changes        |
+| Review List  | Visible | Visable  |
+| Review Detail | Review and comments visable - no interactions/ 'Add to TBR' button not visable| Visable and full feature interaction available depending on authorship|
+| TBR List   | Not Visable | Visable and full feature interaction available |
 | Gallery   | Visable but no option to 'Add Photo' | Visable and full feature interaction available |
 | Visit Us  | Visable and map interaction available | Visible and map interaction available |
+<!-- 
+
+
+
+It was important to me from the beginning that FreeFido be accessible to an unregistered user, in some capacitites. I wanted the website to sell the product to a new user quickly by immediately inviting them into the community through the park's information, articles and gallery sections. The following is a breakdown of the site's accessibility for registered/unregistered users:
+
+
 
 
 ## CRUD Functionality
