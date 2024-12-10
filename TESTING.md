@@ -29,29 +29,19 @@ Return back to the [README.md](README.md) file.
 
 <!-- | HTML Source Code/Page | Errors | Warnings |
 | ---- | ------ | -------- | 
-| Home | 0 | 0 |
+| Index | 0 | 0 |
 | Sign In | 0 | 0 |
-| Sign Up | 0 | 0 |
-| Profile | 0 | 0 |
-| Edit Profile Modal | 0 | 0 |
-| Articles | 0 | 0 |
-| Add Article | 0 | 0 |
-| View Article | 0 | 0 |
-| Edit Article | 0 | 0 |
-| Delete Article | 0 | 0 |
-| Delete Comment | 0 | 0 |
-| Booking | 0 | 0 |
-| Create Booking | 0 | 0 |
-| Edit Booking | 0 | 0 |
-| Delete Booking| 0 | 0 |
-| Gallery | 0 | 0 |
-| Add Photo | 0 | 0 |
-| Delete Photo Modal | 0 | 0 |
-| Visit Us | 0 | 0 |
-| Forgot Password | 0 | 0 |
-| Error 403 | 0 | 0 |
-| Error 404 | 0 | 0 |
-| Error 500 | 0  | 0 | -->
+| Register | 0 | 0 |
+| SI w/ Google | 0 | 0 |
+| Log out| 0 | 0 |
+| Add Book | 0 | 0 |
+| Add Review | 0 | 0 |
+| Review Detail | 0 | 0 |
+| Review List | 0 | 0 |
+| Review Edit | 0 | 0 |
+| tbr_list | 0 | 0 |
+| TOS | 0 | 0 |
+| PP| 0  | 0 | -->
   
 <hr>  
 

@@ -8,3 +8,6 @@ node_modules/
 .github/
 cloudinary_python.txt
 review/fixtures
+data.json
+data1.json
+data2.json
