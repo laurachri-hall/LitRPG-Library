@@ -6,12 +6,12 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('review', '0004_alter_comment_approved_alter_comment_rating'),
+        ("review", "0004_alter_comment_approved_alter_comment_rating"),
     ]
 
     operations = [
         migrations.AlterModelOptions(
-            name='comment',
-            options={'ordering': ['-created_on']},
+            name="comment",
+            options={"ordering": ["-created_on"]},
         ),
     ]

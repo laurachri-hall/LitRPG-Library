@@ -19,12 +19,13 @@ class HomePage(TemplateView):
         context = super().get_context_data(**kwargs)
 
         # Featured reviews (as already implemented)
-        context['featured_reviews'] = Review.objects.filter(featured=True)[:3]
+        context["featured_reviews"] = Review.objects.filter(featured=True)[:3]
 
         if self.request.user.is_authenticated:
             # Fetch all reviews or the latest review for the logged-in user
-            context['user_reviews'] = Review.objects.filter(
-                user=self.request.user).order_by('-created_on')[:3]
+            context["user_reviews"] = Review.objects.filter(
+                user=self.request.user
+            ).order_by("-created_on")[:3]
 
         return context
 
@@ -33,6 +34,7 @@ class ReviewList(generic.ListView):
     """
     List of all reviews
     """
+
     queryset = Review.objects.filter(status=1)
     template_name = "review_list.html"
     paginate_by = 6
@@ -42,14 +44,14 @@ class UserReviewsView(LoginRequiredMixin, ListView):
     """
     lists a users reviews
     """
+
     model = Review
     template_name = "user_reviews.html"
     context_object_name = "reviews"
 
     def get_queryset(self):
         # Return reviews belonging to the logged-in user
-        return Review.objects.filter(
-            user=self.request.user).order_by('-created_on')
+        return Review.objects.filter(user=self.request.user).order_by("-created_on")
 
 
 def review_detail(request, slug):
@@ -70,8 +72,8 @@ def review_detail(request, slug):
         comment.review = review
         comment.save()
         messages.add_message(
-            request,
-            messages.SUCCESS, 'Comment submitted and awaiting approval.')
+            request, messages.SUCCESS, "Comment submitted and awaiting approval."
+        )
 
     return render(
         request,
@@ -90,19 +92,19 @@ def add_review(request):
     """
     Add Review
     """
-    if request.method == 'POST':
+    if request.method == "POST":
         # Include files if using file uploads
         review_form = ReviewForm(request.POST, request.FILES)
         if review_form.is_valid():
-            book = review_form.cleaned_data['book']
+            book = review_form.cleaned_data["book"]
 
             # Check if a review for this book already exists
             existing_review = Review.objects.filter(book=book).first()
-            print(
-                f"Existing review for book {book.id}: {existing_review}")
+            print(f"Existing review for book {book.id}: {existing_review}")
             if existing_review:
                 return HttpResponse(
-                    "A review for this book already exists.", status=400)
+                    "A review for this book already exists.", status=400
+                )
 
             try:
                 # Save the review with slug generation
@@ -119,8 +121,9 @@ def add_review(request):
                 messages.success(
                     request,
                     f'Your review for "{book.book_title}" has '
-                    'been added successfully and is awaiting approval.')
-                return redirect('home')
+                    "been added successfully and is awaiting approval.",
+                )
+                return redirect("home")
 
             except IntegrityError as e:
                 # Handle the error if an issue
@@ -128,16 +131,15 @@ def add_review(request):
                     "An error occurred while saving your review."
                     "Please try again "
                     "later.",
-                    status=500)
+                    status=500,
+                )
     else:
         review_form = ReviewForm()
 
     return render(
         request,
         "review/add_review.html",
-        {
-            "review_form": review_form
-        },
+        {"review_form": review_form},
     )
 
 
@@ -146,21 +148,21 @@ def review_edit(request, slug):
     Edit Review
     """
     review = get_object_or_404(Review, slug=slug)
-    if request.method == 'POST':
+    if request.method == "POST":
         book = review.book
         form = ReviewForm(request.POST, instance=review)
         if form.is_valid():
             form.save()
             messages.success(
-                    request,
-                    f'Your review for "{book.book_title}" has '
-                    'been updated successfully!')
-            return redirect('review_detail', slug=review.slug)
+                request,
+                f'Your review for "{book.book_title}" has '
+                "been updated successfully!",
+            )
+            return redirect("review_detail", slug=review.slug)
     else:
         form = ReviewForm(instance=review)
 
-    return render(
-        request, 'review/review_edit.html', {'form': form, 'review': review})
+    return render(request, "review/review_edit.html", {"form": form, "review": review})
 
 
 def review_delete(request, slug):
@@ -171,14 +173,13 @@ def review_delete(request, slug):
     review = get_object_or_404(Review, slug=slug)
     # Check if the logged-in user is the owner of the review
     if request.user != review.user:
-        return HttpResponseForbidden(
-                "You are not allowed to delete this review.")
+        return HttpResponseForbidden("You are not allowed to delete this review.")
 
     # If the request method is POST, delete the review
-    if request.method == 'POST':
+    if request.method == "POST":
         review.delete()
-        messages.success(request, 'Review deleted successfully!')
-        return redirect('home')  # Redirect to home after deletion
+        messages.success(request, "Review deleted successfully!")
+        return redirect("home")  # Redirect to home after deletion
 
 
 def comment_edit(request, slug, comment_id):
@@ -197,12 +198,11 @@ def comment_edit(request, slug, comment_id):
             comment.review = review
             comment.approved = True
             comment.save()
-            messages.add_message(request, messages.SUCCESS, 'Comment Updated!')
+            messages.add_message(request, messages.SUCCESS, "Comment Updated!")
         else:
-            messages.add_message(
-                request, messages.ERROR, 'Error updating comment!')
+            messages.add_message(request, messages.ERROR, "Error updating comment!")
 
-    return HttpResponseRedirect(reverse('review_detail', args=[slug]))
+    return HttpResponseRedirect(reverse("review_detail", args=[slug]))
 
 
 def comment_delete(request, slug, comment_id):
@@ -215,24 +215,24 @@ def comment_delete(request, slug, comment_id):
 
     if comment.user == request.user:
         comment.delete()
-        messages.add_message(request, messages.SUCCESS, 'Comment deleted!')
+        messages.add_message(request, messages.SUCCESS, "Comment deleted!")
     else:
         messages.add_message(
-                request,
-                messages.ERROR, 'You can only delete your own comments!')
+            request, messages.ERROR, "You can only delete your own comments!"
+        )
 
-    return HttpResponseRedirect(reverse('review_detail', args=[slug]))
+    return HttpResponseRedirect(reverse("review_detail", args=[slug]))
 
 
 def add_book(request):
     """
     view to add book
     """
-    if request.method == 'POST':
+    if request.method == "POST":
         book_form = BookForm(request.POST, request.FILES)
         if book_form.is_valid():
-            title = book_form.cleaned_data['book_title']
-            author = book_form.cleaned_data['book_author']
+            title = book_form.cleaned_data["book_title"]
+            author = book_form.cleaned_data["book_author"]
 
             # Check for existing books with the same title and author
             existing_book = Book.objects.filter(
@@ -241,28 +241,25 @@ def add_book(request):
 
             if existing_book:
                 messages.warning(
-                        request,
-                        f'A book titled "{title}" by {author} already exists.')
+                    request, f'A book titled "{title}" by {author} already exists.'
+                )
             else:
                 book_form.save()
-                messages.success(
-                        request, f'Successfully added "{title}" by {author}.')
-                return redirect('home')
+                messages.success(request, f'Successfully added "{title}" by {author}.')
+                return redirect("home")
     else:
         book_form = BookForm()
 
     return render(
         request,
         "review/add_book.html",
-        {
-            "book_form": book_form
-        },
+        {"book_form": book_form},
     )
 
 
 def like_review(request, pk):
     if not request.user.is_authenticated:
-        return JsonResponse({'error': 'User not authenticated'}, status=403)
+        return JsonResponse({"error": "User not authenticated"}, status=403)
 
     review = get_object_or_404(Review, pk=pk)
 
@@ -273,12 +270,12 @@ def like_review(request, pk):
         review.likes.add(request.user)  # Like
         liked = True
 
-    return JsonResponse({'liked': liked, 'total_likes': review.likes.count()})
+    return JsonResponse({"liked": liked, "total_likes": review.likes.count()})
 
 
 def like_comment(request, pk):
     if not request.user.is_authenticated:
-        return JsonResponse({'error': 'Authentication required.'}, status=403)
+        return JsonResponse({"error": "Authentication required."}, status=403)
 
     comment = get_object_or_404(Comment, pk=pk)
     if request.user in comment.likes.all():
@@ -288,5 +285,4 @@ def like_comment(request, pk):
         comment.likes.add(request.user)
         liked = True
 
-    return JsonResponse({'liked': liked, 'total_likes': comment.total_likes()})
-
+    return JsonResponse({"liked": liked, "total_likes": comment.total_likes()})

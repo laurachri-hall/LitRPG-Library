@@ -9,7 +9,7 @@ STATUS = ((0, "Draft"), (1, "Published"))
 
 
 class Book(models.Model):
-    book_cover = CloudinaryField('image')
+    book_cover = CloudinaryField("image")
     book_title = models.CharField(max_length=200)
     book_author = models.CharField(max_length=200)
     series_name = models.CharField(max_length=200, blank=True)
@@ -20,22 +20,21 @@ class Book(models.Model):
 
 
 class Review(models.Model):
-    book = models.OneToOneField(
-        Book, on_delete=models.CASCADE, related_name="review")
+    book = models.OneToOneField(Book, on_delete=models.CASCADE, related_name="review")
     title = models.CharField(max_length=200)
     slug = models.SlugField(max_length=200, unique=True)
-    user = models.ForeignKey(
-        User,
-        on_delete=models.CASCADE,
-        related_name="reviews")
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="reviews")
     book_cover = models.ForeignKey(
         Book,
         on_delete=models.CASCADE,
         related_name="book_cover_reviews",
-        null=True, blank=True)
+        null=True,
+        blank=True,
+    )
     content = models.TextField()
     rating = models.PositiveIntegerField(
-        validators=[MinValueValidator(1), MaxValueValidator(5)])
+        validators=[MinValueValidator(1), MaxValueValidator(5)]
+    )
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     status = models.IntegerField(choices=STATUS, default=0)
@@ -55,14 +54,14 @@ class Review(models.Model):
 
 class Comment(models.Model):
     review = models.ForeignKey(
-            Review, on_delete=models.CASCADE, related_name="comments")
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="comments")
+        Review, on_delete=models.CASCADE, related_name="comments"
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name="comments")
     content = models.TextField()
     rating = models.PositiveIntegerField(
         validators=[MinValueValidator(1), MaxValueValidator(5)],
         null=True,
-        blank=True  # Allow empty input
+        blank=True,  # Allow empty input
     )
     created_on = models.DateTimeField(auto_now_add=True)
     approved = models.BooleanField(default=True)
@@ -73,5 +72,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"{self.content} | by {self.user}"
+
     def total_likes(self):
         return self.likes.count()

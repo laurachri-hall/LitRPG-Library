@@ -691,6 +691,8 @@ Admin can control users bookings via the Django Admin panel.
 Future enhancements for the **LitRPG Library** will focus on improving user experience and functionality. Planned features include:
 
 - **Enhanced Categorization**: Better categorization of subgenres to help users navigate the vast array of LitRPG books more easily.
+
+- **Profile Page and/or Dashboard**: A place where the user can change/update their details, control their book tracking lists, see and edit/delete their reviews/comments.
   
 - **Tagging System**: Allowing users to add tags to reviews, making it easier to find related content and themes.
 
