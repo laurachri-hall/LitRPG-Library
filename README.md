@@ -721,7 +721,7 @@ To start the deployment process, please follow the below steps:
 ## Code
 
 - [Code Institute's](learn.codeinstitute.net) Learning Content and supporting documents, especially the  'I Think Therefore I Blog' section and Django Deployment Guidelines PDF.
-- [Perplexity AI](https://www.perplexity.ai/) for breaking down Python concepts and Django documentation into something more understandable, helping problem solve coding issues.
+- [Perplexity AI](https://www.perplexity.ai/) for helping problem solve coding issues.
 - [Chat GPT](https://chatgpt.com/) As above.
 - [Bootstrap 5](https://getbootstrap.com/docs/4.1/getting-started/introduction/) for many of the project's features.
 
