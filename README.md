@@ -365,33 +365,37 @@ Mostly for balance at this point, but I wanted to add some other features to the
 <br>
 
 **Home Page - Call to Action/Recent Reviews**
-Thinking of mobile users, I wanted one more call to action at the bottom of the page to make it easy to register. If already registered and signed in this section appears as a 
+Thinking of mobile users, I wanted one more call to action at the bottom of the page to make it easy to register if they scrolled all the way down. If already registered and signed in, this section appears as a welcome back greeting along with recent reviews the user may have written.
 
 <details open>
-    <summary>Home Page - Call to Action/Recent Reviews</summary> 
-    <img src="documentation/screenshots/featured.png">  
+    <summary>Home Page - Call to Action/Recent Reviews - Unregistered</summary> 
+    <img src="documentation/screenshots/footer_cta.png">  
 </details>
 <br>
+
+<details open>
+    <summary>Home Page - Call to Action/Recent Reviews - Registered</summary> 
+    <img src="documentation/screenshots/recent_reviews.png">  
+</details>
+<hr>
+
+**Reviews Page**
+
+A list of all the reviews. There is pagination at the bottom breaking it up in to six reviews per page. I wanted it obvious that each card was clickable rather than the default of just the text being linked. So, I made the entire card the link and added a hover/focus effect in the CSS to make it obvious to the user each card was interactive. 
+
+<details>
+    <summary>Reviews Page - Visible to all users</summary>  
+    <img src="documentation/screenshots/reviews.png">  
+</details>  
+
+<hr>
 
 <!-- 
 
 
 
 
-**About Page**
 
-<details>
-    <summary>About Page - Visible to all Users</summary>  
-    <img src="documentation/final_views/about.png">  
-</details>  
-
-
-The 'About' section of the Home Page contains three sections of information for the user, 'About', 'Safety', 'Benefits'. These sections display paragraphs and bulleted lists of information about the park and its positive values and benefits. Within each paragraph is a colour-coded word which acts as a link to bring the user to an important section of the website.
-
-![Paragraph link](documentation/final_views/linkarea.png)  
-*'visit' provides a link to the Visit Us page as the user reads through the park's information*
-
-<hr>
 
 **Registration/SignUp**
 
