@@ -299,6 +299,7 @@ Users are able to Create, Read, Update and Delete their shared information on Li
 ## Feature Showcase 
 
 **Header/Navigation & Footer**
+Nav and footer links change depending on users status. For the mobile view I changed the traditional hamburger to a book but kept it in the normal position. When I tried centering the navigation on mobile, it 1. looked terrible and 2. caused confusion in testers, so I reverted back to the normal right hand side view and all was right with the world.
 
 <details open>
     <summary>Header & Navigation - All Users </summary>  
@@ -316,6 +317,7 @@ Users are able to Create, Read, Update and Delete their shared information on Li
     <summary>Footer - Registered Users</summary>  
     <img src="documentation/screenshots/registered_footer.png">  
 </details>
+<br>
 
 **Home Page**
 
@@ -332,20 +334,48 @@ The hero image itself is a gif. I went through many iterations of this image as 
     <summary>Home Page - Registered Users</summary>  
     <img src="documentation/screenshots/hero_registered.png">  
 </details>
+<br>
 
-In the Home Page 'Hero' section, when a user is not registered they will see a 'Sign Up' button under the section text, which will bring them to the Sign Up page. When logged in, they will see 'Book Today!' which will bring them to the booking page.
+**Home Page - Instruction cards**
 
+When I was testing, users stated they were initially a bit confused about what to do. I added the instruction cards to show the expected flow of the site and how to use it - add a book, review, comment and track books. These can be click to take a user to the appropriate page.
+
+<details open>
+    <summary>Home Page - Instruction Cards</summary>  
+    <img src="documentation/screenshots/instruction_cards.png">  
+</details>
+<br>
+
+**Home Page - What is LitRPGs**
+Since my site is dedicated to particular kind of book I thought a definition was in order. This gives a basic overview of the genre and the image displays some types of LitRPG Books.
+
+<details open>
+    <summary>Home Page - Instruction Cards</summary>  
+    <img src="documentation/screenshots/definition.png">  
+</details>
+<br>
+
+**Home Page - Featured Books**
+Mostly for balance at this point, but I wanted to add some other features to the homepage. I decided on featured books as this seemed useful as well as asthetically pleasing. Three books can be featured at one time.
+
+<details open>
+    <summary>Home Page - Instruction Cards</summary>  
+    <img src="documentation/screenshots/featured.png">  
+</details>
+<br>
+
+**Home Page - Call to Action/Recent Reviews**
+Thinking of mobile users, I wanted one more call to action at the bottom of the page to make it easy to register. If already registered and signed in this section appears as a 
+
+<details open>
+    <summary>Home Page - Call to Action/Recent Reviews</summary> 
+    <img src="documentation/screenshots/featured.png">  
+</details>
+<br>
 
 <!-- 
 
-**Home Page**
 
-<details open>
-    <summary>Home Page - Visible to all Users</summary>  
-    <img src="documentation/final_views/home.png">  
-</details>
-
-In the Home Page 'Hero' section, when a user is not registered they will see a 'Sign Up' button under the section text, which will bring them to the Sign Up page. When logged in, they will see 'Book Today!' which will bring them to the booking page.
 
 
 **About Page**
