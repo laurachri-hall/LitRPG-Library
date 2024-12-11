@@ -27,10 +27,10 @@ Return back to the [README.md](README.md) file.
 
 ### HTML Validation
 
-<!-- | HTML Source Code/Page | Errors | Warnings |
+| HTML Source Code/Page | Errors | Warnings |
 | ---- | ------ | -------- | 
 | Index | 0 | 0 |
-| Sign In | 0 | 0 |
+<!-- | Sign In | 0 | 0 |
 | Register | 0 | 0 |
 | SI w/ Google | 0 | 0 |
 | Log out| 0 | 0 |
@@ -210,12 +210,7 @@ Accessibility was included in every planning stage for FreeFido, through the use
   
 
 **Dev Tools Device Testing - all features tested, issues noted below**
-| Device  | Feature    | Issue  | Fix  |
-| ------- | ---------- | ------ |------|
-| iPhone 4 | Messages | Text overlap with 'x' close button, article image squashed | Separate media query created for screens max-width: 350px to cope with iPhone4 320px screen width, message font size reduced, article image size reduced |
-| iPhone12 Pro | All features | No issues | None needed |
-| Samsung Galaxy A51 | All features | No issues | None needed |
-| iPad Pro | All features | No issues | None needed |
+Tested with responsive dimensions and no issues.
    
   
 **Real World Device Testing**
