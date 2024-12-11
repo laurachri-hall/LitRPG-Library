@@ -62,11 +62,13 @@ Return back to the [README.md](README.md) file.
 
 ### Python Validation
 
-<!-- [CI Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the Python files that were created or edited by myself. No issues presented and line lengths were double checked. I have included some screenshots with the results below.
+[CI Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the Python files that were created or edited by myself. No issues presented and line lengths were double checked. I have included some screenshots with the results below.
 
 | Feature | admin.py | forms.py | models.py | urls.py | views.py |
-|---------|----------|----------|-----------|---------|----------| -->
-<!-- | Articles | [no errors](documentation/testing/art_admin.png) | [no errors](documentation/testing/art_forms.png) | [no errors](documentation/testing/art_models.png) | [no errors](documentation/testing/art_urls.png) | [no errors](documentation/testing/art_views.png) | -->
+|---------|----------|----------|-----------|---------|----------|
+| To Be Read | [no errors](documentation/testing/py/review_admin.png) | [no errors](documentation/testing/py/review_forms.png) | [no errors](documentation/testing/py/review_models.png) | [no errors](documentation/testing/py/review_urls.png) | [no errors](documentation/testing/py/review_views.png) |
+| To Be Read | [no errors](documentation/testing/py/tbr_admin.png) | N/A | [no errors](documentation/testing/py/tbr_models.png) | [no errors](documentation/testing/py/tbr_urls.png) | [no errors](documentation/testing/py/tbr_views.png) |
+| config | settings.py: [no errors](documentation/testing/py/config_settings.png) | N/A | N/A | [no errors](documentation/testing/py/config_urls.png) | N/A |
 
 
 <hr>
@@ -208,22 +210,21 @@ Accessibility was included in every planning stage for FreeFido, through the use
   
 
 **Dev Tools Device Testing - all features tested, issues noted below**
-<!-- | Device  | Feature    | Issue  | Fix  |
+| Device  | Feature    | Issue  | Fix  |
 | ------- | ---------- | ------ |------|
 | iPhone 4 | Messages | Text overlap with 'x' close button, article image squashed | Separate media query created for screens max-width: 350px to cope with iPhone4 320px screen width, message font size reduced, article image size reduced |
 | iPhone12 Pro | All features | No issues | None needed |
 | Samsung Galaxy A51 | All features | No issues | None needed |
-| iPad Pro | All features | No issues | None needed | -->
+| iPad Pro | All features | No issues | None needed |
    
   
 **Real World Device Testing**
-<!-- | Device      | Feature    | Issue  | Fix  | 
+| Device      | Feature    | Issue  | Fix  | 
 | ------------| ---------- | ------ |------|
-| OPPO Reno 8 Lite |   All features    | No issues | None needed |
-| iPhone XR | All features |  No issues  | None needed |
-| iPhone 12  | All features | No issues | None needed |
-| iPad Pro 2021 |    All features      |    No issues    |  None needed |
-| Acer Aspire 3 2019 laptop | All features | No issues | None needed | -->
+| iPhone 15| All features |  No issues  | None needed |
+| iPhone 13 mini  | All features | No issues | None needed |
+| iPad Air 2022 |    All features      |    No issues    |  None needed |
+| MacBook Air M3 2024| All features | No issues | None needed |
 
 
 ## Bugs  
@@ -240,13 +241,3 @@ As a newcomer to Django and database development, I faced numerous challenges ty
 
 ### Known Bugs
 
-<!-- - An error is logged in the console for the deployed FreeFido site:
-   'alert.js:21 Uncaught TypeError: Cannot read properties of null (reading 'defaultPrevented')
-    at Q.close (alert.js:21:22)
-    at (index):337:19'
-    
-From reading through the linked lines of JS, it seems that the error stems from an issue with calling 'EVENT_CLOSE', originating from the Bootstrap library. Other members of my group experienced the same error in their console. There were no issues with closing the modals in my features and their functionality. I will pursue this issue in future developments as I believe it may stem from a third-party library clash.
-
-- The scrollbar redesign did not translate over to Mozilla and Safari browsers, further learning about webkits is needed to push the design across all browsers.
-
-There are currently no other known bugs, if you find one then please do let me know :smile: -->
