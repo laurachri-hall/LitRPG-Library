@@ -26,22 +26,40 @@ Return back to the [README.md](README.md) file.
 ## Validation
 
 ### HTML Validation
+Three pages had errors, as shown below. All errors were related to summer note or django forms.
+
+<details open>
+    <summary>Register - Errors</summary>  
+    <img src="documentation/testing/register_htmlerrors.png">  
+</details>
+<br>
+<details open>
+    <summary>Add Review - Errors</summary>  
+    <img src="documentation/testing/addreview_htmlerrors.png">  
+</details>
+<br>
+<details open>
+    <summary>Review Edit - Errors</summary>  
+    <img src="documentation/testing/reviewedit_htmlerrors.png">  
+</details>
+<br>
+
 
 | HTML Source Code/Page | Errors | Warnings |
 | ---- | ------ | -------- | 
 | Index | 0 | 0 |
-<!-- | Sign In | 0 | 0 |
-| Register | 0 | 0 |
+| Sign In | 0 | 0 |
+| Register | 4 | 0 |
 | SI w/ Google | 0 | 0 |
 | Log out| 0 | 0 |
 | Add Book | 0 | 0 |
-| Add Review | 0 | 0 |
+| Add Review | 9 | 0 |
 | Review Detail | 0 | 0 |
 | Review List | 0 | 0 |
-| Review Edit | 0 | 0 |
+| Review Edit | 9 | 0 |
 | tbr_list | 0 | 0 |
 | TOS | 0 | 0 |
-| PP| 0  | 0 | -->
+| PP| 0  | 0 |
   
 <hr>  
 
