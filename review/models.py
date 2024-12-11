@@ -64,7 +64,7 @@ class Comment(models.Model):
         blank=True,  # Allow empty input
     )
     created_on = models.DateTimeField(auto_now_add=True)
-    approved = models.BooleanField(default=True)
+    approved = models.BooleanField(default=False)
     likes = models.ManyToManyField(User, related_name="liked_comments", blank=True)
 
     class Meta:

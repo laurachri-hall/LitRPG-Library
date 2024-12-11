@@ -62,7 +62,7 @@ def review_detail(request, slug):
     review = get_object_or_404(queryset, slug=slug)
     book = review.book
     comments = review.comments.all().order_by("-created_on")
-    comment_count = review.comments.filter(approved=True).count()
+    comment_count = review.comments.filter(approved=False).count()
     comment_form = CommentForm()
     if request.method == "POST":
         comment_form = CommentForm(data=request.POST)
