@@ -31,6 +31,8 @@ p {
     color: var(--text-color);
 }
 
+
+
 /* Navbar */
 
 .navbar {
@@ -227,6 +229,7 @@ a.your-reviews-link a {
     max-height: 70%;
     max-width:auto;
 }
+
 /* Cards */
 
 .card {

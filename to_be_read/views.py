@@ -16,20 +16,23 @@ def add_to_read_list(request, book_id):
             request, f"'{book.book_title}' has been added to your TBR list."
         )
     else:
-        messages.info(request, f"'{book.book_title}' is already in your TBR list.")
+        messages.info(
+            request, f"'{book.book_title}' is already in your TBR list.")
     return redirect(reverse("review_detail", args=[review.slug]))
 
 
 @login_required
 def tbr_list(request):
     # Get all books in the user's To Be Read list
-    tbr_books = ToBeRead.objects.filter(user=request.user).select_related("book")
+    tbr_books = ToBeRead.objects.filter(
+        user=request.user).select_related("book")
     paginator = Paginator(tbr_books, 6)  # Paginate with 6 items per page
 
     page_number = request.GET.get("page")
     page_obj = paginator.get_page(page_number)
 
-    return render(request, "to_be_read/tbr_list.html", {"tbr_books": tbr_books})
+    return render(
+        request, "to_be_read/tbr_list.html", {"tbr_books": tbr_books})
 
 
 @login_required

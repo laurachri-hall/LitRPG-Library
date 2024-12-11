@@ -204,4 +204,14 @@ APPEND_SLASH = False
 GRAPH_MODELS = {
     "all_applications": True,
     "group_models": True,
+
+}
+
+SUMMERNOTE_CONFIG = {
+    # You can put custom Summernote settings
+    'summernote': {
+        # Change editor size
+        'width': '100%',
+    },
+
 }

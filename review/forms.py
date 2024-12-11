@@ -24,10 +24,11 @@ class ReviewForm(forms.ModelForm):
         prepopulated_fields = {"slug": ("title",)}
         widgets = {
             "content": SummernoteWidget(),
+                "width": "100%",
+                "height": "200px",
         }
 
     def save(self, commit=True):
-        # Create a new instance without saving to the database yet
         instance = super().save(commit=False)
 
         # Automatically generate slug from the title if it's empty

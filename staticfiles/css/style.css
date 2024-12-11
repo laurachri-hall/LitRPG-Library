@@ -31,6 +31,26 @@ p {
     color: var(--text-color);
 }
 
+/* Ensure the Summernote editor respects container width */
+.note-editor {
+    max-width: 100%; /* Prevent overflow */
+    width: 100%; /* Fill the width of its container */
+    box-sizing: border-box; /* Include padding/borders in width */
+}
+
+/* Editable area inside the Summernote editor */
+.note-editable {
+    max-width: 100%; /* Prevent text/content from overflowing */
+    min-height: 150px; /* Set a reasonable minimum height */
+    word-wrap: break-word; /* Prevent long text from breaking layout */
+}
+
+/* Make inserted images responsive inside the editor */
+.note-editable img {
+    max-width: 100%; /* Scale images */
+    height: auto;
+}
+
 /* Navbar */
 
 .navbar {
@@ -154,8 +174,8 @@ p {
     text-decoration: none;
 }
 
-.custom-link {
-    color:var(--accent-color);
+a.your-reviews-link a {
+    color:var(--text-color);
     font-weight: 700;
     text-decoration: none;
 }
@@ -227,6 +247,7 @@ p {
     max-height: 70%;
     max-width:auto;
 }
+
 /* Cards */
 
 .card {
@@ -263,15 +284,6 @@ p {
     background-color: #292a33;
     transition: all 0.3s ease;
     text-align: left;
-}
-
-.tbr-card {
-    max-width: 80%;
-    max-height:auto;
-}
-
-.tbr-book-cover {
-    border: 1px solid var(--text-color);
 }
 
 .image-flash {
@@ -423,8 +435,15 @@ p {
     flex-direction: row;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
+    max-width: 80%;
+    max-height:auto;
+    box-shadow: none;
+}
+
+.tbr-book-cover {
+    border: 1px solid var(--text-color);
+    box-shadow: none;
 }
 
 .tbr-card img {
@@ -438,6 +457,7 @@ p {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
 }
 
 .tbr-card .card-footer {
@@ -466,7 +486,6 @@ footer .social-border {
     justify-content: center;
     align-items: center;
     margin-top: 10px;
-    /* Adjust spacing as needed */
 }
 
 footer .social-links {

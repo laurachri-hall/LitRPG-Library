@@ -1,8 +1,13 @@
 $(document).ready(function() {
     $('.summernote').summernote({
-        height: 300, // set editor height
-        minHeight: null, // set minimum height of editor
-        maxHeight: null, // set maximum height of editor
-        focus: true // set focus to editable area after initializing summernote
+        height: '100%', // Match the height in the widget configuration
+        width: 300, // Ensure it adapts to the container
+        toolbar: [
+            ['style', ['bold', 'italic', 'underline', 'clear']],
+            ['font', ['strikethrough', 'superscript', 'subscript']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']]
+        ]
     });
 });

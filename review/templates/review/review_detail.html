@@ -10,7 +10,7 @@
     <div class="row g-0">
       <div class="col-md-6 masthead-text">
         <h1 class="post-title my-2 mx-2">{{ review.title }}: by {{ book.book_author }}</h1>
-        <p class="my-2 mx-2">
+        <p class="my-2 mx-2" style="color:#1f1d5e; font-weight:300px;">
           Review by: {{review.user}} |
           {% if review.updated_on and review.updated_on != review.created_on %}
           Updated on: {{ review.updated_on|date:"F j, Y" }}
@@ -116,7 +116,7 @@
 <div class="container px-4">
   <div class="row">
     <div class="col-12">
-      <strong class="text-secondary">
+      <strong>
         <i class="far fa-comments"></i> {{ comment_count }} Comments
       </strong>
       <hr />
@@ -130,7 +130,7 @@
       <div class="card-body">
         {% for comment in comments %}
         <div
-          class="p-2 comments {% if not comment.approved and comment.author == user %}faded{% elif not comment.approved %}d-none{% endif %}">
+          class="p-2 {% if not comment.approved and comment.author == user %}faded{% elif not comment.approved %}d-none{% endif %}">
           <p>
             <strong>{{ comment.user }}</strong>
             <span>{{ comment.created_on }}</span> wrote:
@@ -158,7 +158,7 @@
             </button>
             {% else %}
             <!-- Optional: Message or Disabled Button for Guests -->
-            <p class="text-muted">Log in to like this comment.</p>
+            <p style="color:#91a5fe;">Log in to like this comment.</p>
             {% endif %}
           </div>
           {% endif %}
