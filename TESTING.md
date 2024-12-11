@@ -159,66 +159,42 @@ Testing was carried out on a desktop using the Chrome and Edge browsers to ensur
 LitRPG was tested on the following browsers, new users were created, registered users data edited and all features were tested:
 
 - Chrome Version 131.0.6778.109 
-- 131.0.2903.86
-- Version 18.1.1 
-
-<!-- | Browser | Issue | Functionality |
-|---------|-------|---------------|
-| FireFox | Profile Edit/Upload Image - File input 'Browse' Button centered in input field | Button works as expected |
-| FireFox | Profile Dashboard - scrollbars following Mozilla styling | No issue |
-| Safari  | Scrollbars following Safari styling | No issue | -->
+- Edge 131.0.2903.86
+- Safari Version 18.1.1 
 
 <hr>
 
 ### Testing User Stories
 
-<!-- User Stories are documented in the FreeFido [GitHub Projects Board](https://github.com/users/amylour/projects/4). User Stories are numbered, with Acceptance Criteria and Tasks detailed within. Testing was carried out on Dev Tools for desktop/tablet/mobile, by creating multiple accounts for test users: FidoTest1, FidoTest2, FidoTest3 etc and following through by ensuring that the Acceptance Criteria were met. All features were tested to ensure that they provided the user with the expected output and action.
+ User Stories are documented in the LitRPG Library [GitHub Projects Board](https://github.com/users/laurachri-hall/projects/6). User stories are sequentially numbered, with acceptance criteria outlined for all and tasks detailed for most. Testing was conducted using Dev Tools across desktop, tablet, and mobile devices. Each feature was thoroughly tested to verify that it delivered the expected functionality and behavior for users throughout the project.
+### User Story Testing
 
+| User Story                                      | Acceptance Criteria Met? | Tested | Response                              | Pass/Fail | Fix       |
+|------------------------------------------------|--------------------------|--------|---------------------------------------|-----------|-----------|
+| #1 - View paginated lists of posts             | Yes                      | Yes    | Pagination works correctly and displays the appropriate pages | Pass | -         |
+| #2 - Posting a Review                          | Yes                      | Yes    | Reviews can be posted and displayed   | Pass      | -         |
+| #3 - Editing a Review                          | Yes                      | Yes    | Changes to reviews are saved and displayed | Pass | -         |
+| #4 - Deleting a Review                         | Yes                      | Yes    | Reviews are removed from the system   | Pass      | -         |
+| #5 - Liking a Review                           | Yes                      | Yes    | Reviews can be liked/unliked          | Pass      | -         |
+| #6 - Posting a Comment                         | Yes                      | Yes    | Comments can be added successfully    | Pass      | -         |
+| #7 - Editing a Comment                         | Yes                      | Yes    | Comments can be edited successfully   | Pass      | -         |
+| #8 - Deleting a Comment                        | Yes                      | Yes    | Comments are deleted successfully     | Pass      | -         |
+| #9 - Liking a Comment                          | Yes                      | Yes    | Comments can be liked/unliked         | Pass      | -         |
+| #10 - Adding a book to the TBR pile (wishlist) | Yes                      | Yes    | Book added to TBR list successfully   | Pass      | -         |
+| #11 - Removing a book from the TBR pile        | Yes                      | Yes    | Book is removed from the TBR list     | Pass      | -         |
+| #12 - Move a book to the Read List             | Feature not included in this version - "could have" item | No | - | - | - |
+| #13 - Accessing User Profile                   | Feature not included in this version - "could have" item | No | - | - | - |
+| #14 - Managing Reviews                         | Feature not included in this version - "could have" item | No | - | - | - |
+| #15 - Managing Comments                        | Feature not included in this version - "could have" item | No | - | - | - |
+| #16 - Login with Google                        | Yes                      | Yes    | Users can log in using Google credentials | Pass | -         |
+| #17 - Opening a Post                           | Yes                      | Yes    | Users can open posts successfully     | Pass      | -         |
 
-| User Story                 | Acceptance Criteria Met?  | Tested | Response     | Pass/Fail | Fix     |
-|----------------------------|---------------------------|--------|--------------|-----------|---------|
-| #1 - Home/About Template   | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #2 - Navigation            | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #3 - Footer                | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #4 - Login Page            | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #5 - SignUp/Register Page  | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #6 - Profile SetUp         | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #7 - Make a Booking Page   | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #8 - Create a Booking Page | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #9 - Visit Us Page         | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #10 - Logout Page          | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #11 - Booking Confirmation Email | Feature not included in this version - 'Should Have' item | | | | |
-| #12 - Edit User Profile    | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #13 - Delete User Profile  | Feature left in backlog as currently unnecessary, User can delete individual items and Admin can delete complete account, future version will include delete account | | | | |
-| #14 - Edit Booking         | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #15 - Delete Booking       | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #16 - Error Pages          | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #17 - Articles             | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #18 - Site Pagination      | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #19 - View Likes           | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #20 - View Articles        | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #21 - Open Article         | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #22 - Like/Unlike Article  | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #23 - Comment on a Post    | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #24 - Gallery Page         | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #24(mistake-allocated #24 twice) | Alert Messages | Yes   | No issues    | Pass      |    -    |
-| #25 - Create Article       | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #26 - Delete Article       | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #27 - Edit Article         | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #28 - Search Function      | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #29 - Delete Comment       | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #30 - User Feedback for max Booking Allowance | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #31 - Upload Image to Gallery Wall | Yes                       | Yes    | No issues    | Pass      |    -    |
-| #32 - Add Review           | Feature not included in this version - 'Could Have' item | | | | |
-| #33 - Edit Review          | Feature not included in this version - 'Could Have' item | | | | |
-| #34 - Delete Review        | Feature not included in this version - 'Could Have' item | | | | |
-| #35 - Delete Photo         | Yes                       | Yes    | No issues    | Pass      |    -    | -->
 
 <hr>
   
 ### Dev Tools/Real World Device Testing
 
-<!-- Responsiveness testing was carried out using Google Dev Tools on the devices detailed within the below table. Responsiveness was evident on all features throughout all tested devices. Occassionally I would have to refresh the page by clicking the 'FreeFido' logo as the page would load zoomed in or out on the simualted device. When refreshed and CSS checked the desired outcome was observed. I put this down to a caching issue in Chrome as this issue was not observed when testing on the available real world devices. -->
+I conducted responsiveness testing using Google Dev Tools on the devices listed in the table below, and all features were responsive across all tested devices. However, I faced a few challenges. When Debug was set to False, the site didn’t update as expected, and I noticed inconsistencies between resizing the browser window directly and using DevTools, which led to trust issues and more testing on real devices. Even with Debug set to True, refreshing didn’t always work, so I sometimes had to run collectstatic and clear the cache to see updates. 
   
 
 **Dev Tools Device Testing - all features tested, issues noted below**
@@ -238,13 +214,34 @@ Tested with responsive dimensions and no issues.
   
 As a newcomer to Django and database development, I faced numerous challenges typical of first-time projects. The following bugs were particularly complex, requiring extensive troubleshooting and occasional guidance from support resources.
 
-| No. | Bug | Solved | Fix | Solution Credit | Commit no. |
-| --- | ---------------- | ---- | ------------- | -------------- | ------------|
-| 1   | Unable to deploy to Heroku | Yes | Procfile set up incorrect - missing "web:" and removed a trailing backslash from a url in allowed hosts | Me! I Found it! Win! | a9f523b and e9057d4 |
-| 2   | CSS not showing in development or deployed site | Yes | Debug was set to False for deployment - swaped back to True and everything worked. | A wild Amy appeared in Coding Coach| none |
-| 3  | Migrations not migrating | Yes | In the book model I changed "book" to "book_title" | Me! I fixed it! Another Win!| 6c98937 |
-| 4 | When editing a comment, form forces you to select a rating again. This appears in the comment as a double rating | Yes | the javascript was fetching all of the innter conent of the element with the ID of comment{{ comment.id }} and I needed to move the review content outside of this div | The Wonderful Coding Wizard Ruu at Coding Coach| e3a0f90 |
+| No. | Bug Description                                        | Solved | Fix/Action Taken                                                          | Solution Credit | Commit No. |
+|-----|-------------------------------------------------------|--------|---------------------------------------------------------------------------|-----------------|------------|
+| 1   | Unable to deploy to Heroku                            | Yes    | Procfile set up incorrectly, removed trailing backslash                   | Me              | a9f523b, e9057d4 |
+| 2   | CSS not loading in development or deployment          | Yes    | Debug mode incorrectly set                                                | Amy (Coding Coach)             | N/A        |
+| 3   | Migration issues after modifying models               | Yes    | Corrected field name in Book model                                        | Me, Perplexity AI              | 6c98937    |
+| 4   | Double rating issue in comments on edit               | Yes    | Adjusted JavaScript and div placement                                     | Roo (Coding Coach) | e3a0f90 |
+| 5   | TBR button in hero not redirecting correctly          | Yes    | Fixed the URL link for TBR button in the hero section                     | Me, Perplexity AI             | c526d47    |
+| 6   | Comment editing not saving                            | Yes    | Added trailing slash to comment.js for correct submission handling        | Me, Perplexity AI              | e731098    |
+| 7   | Overflow issue in add/edit forms for reviews          | Yes    | Adjusted form layout and styling                                          | Roo (Coding Coach)             | 6823495    |
+| 8   | Review links insufficient contrast                    | Yes    | Improved contrast in review links for accessibility                      | Me              | a8ac5ee    |
+| 9   | Pause script for hero image missing                   | Yes    | Re-added pause script to index.html                                       | Me              | 770b35     |
+| 10  | Navbar covering content on small screens              | Yes    | Adjusted navbar styling and position for better responsiveness            | Me, ChatGBT              | 51848f8, f9d9b58 |
+| 11  | Duplicate delete and edit buttons on review page      | Yes    | Removed duplicate buttons                                                 | Me              | a6d895e    |
+| 12  | Like button not displaying or functioning             | Yes    | Debugged and fixed JavaScript for like functionality                      | Me, Chat GPT              | 2d370f7    |
+| 13  | Hero image size changes unpredictably                 | Yes    | Fixed CSS for consistent hero image size                                  | Me, ChatGPT              | d6384c2    |
+| 14  | Error in Google verification                          | Yes    | Corrected Google verification file and moved to appropriate path          | Me. Chat GPT              | 77f1e54    |
+| 15  | HTML validation issues with SVG files                 | Yes    | Added trailing slashes to SVG tags                                        | Me, Chat GPT              | 9818675    |
+| 16  | Google Sign-In integration not functioning            | Yes    | Adjusted TOS/PP and implemented required verification methods             | Me, Chat GBT              | 63bb55b    |
+| 17  | Buttons misaligned on mobile view                     | Yes    | Adjusted CSS for mobile-friendly layout                                   | Me              | 330e2b     |
+| 18  | Index page missing important layout sections          | Yes    | Restored accidentally deleted call-to-action and review sections          | Me              | 6ad562c    |
+| 19  | Overlapping Delete/Confirm modals                     | Yes    | Removed duplicate modal instances                                         | John (Coding Coach)             | a6d895e    |
+| 20  | Comment approvals default to "approved"              | Yes    | Changed comment model back to requiring manual admin approval             | Me              | d0471fa    |
+| 21  | Error handling not providing clear feedback to users  | Yes    | Implemented clearer error messages     | Me, ChatGPT              | f2dca74    |
+
+
 
 
 ### Known Bugs
+
+None of which I know. Please let me know if any are found and I'll do my best to fix them. 
 
