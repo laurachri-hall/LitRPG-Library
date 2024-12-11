@@ -100,24 +100,23 @@ Three pages had errors, as shown below. All errors were related to summer note o
 <hr> 
    
 ### Lighthouse Scores
-
-<!-- Lighthouse testing was carried out in Incognito mode to acheive the best result. Performance was lower than preferred due to the site being image heavy. Images used in the sites design were saved in webp and png format, and compressed using [tinypng](https://tinypng.com/) and [Convertio](https://www.convertio.co) to offer the best chance for a decent performance score. The CDNs used for Bootstrap were also noted in the Lighthouse report as causing issue with performance. This report will be reviewed for future development of Freefido to raise this score.
+Testing was carried out in Lighthouse with the overall scores being fairly reasonable on desktop and quite a bit lower on mobile. I will consider image size and other possible ways to handle user uploaded images to limit size and format in the next version of LitRPG Library.
 
 **Desktop**  
 
-![Lighthouse scores desktop](documentation/testing/desktop_lh.png)  
+![Lighthouse scores desktop](documentation/testing/index_desk.png)  
 *Desktop Home Page*  
   
-![Lighthouse scores desktop](documentation/testing/dt_art_lh.png)  
+![Lighthouse scores desktop](documentation/testing/reviewdetail_desktop.png)  
 *Desktop Article Page*
   
 **Mobile**  
 
-![Lighthouse scores mobile](documentation/testing/mobile_lh.png) 
+![Lighthouse scores mobile](documentation/testing/index_mobile.png) 
 *Mobile Home Page*  
   
-![Lighthouse scores mobile](documentation/testing/mob_art_lh.png) 
-*Mobile Article Page* -->
+![Lighthouse scores mobile](documentation/testing/reviewdetail_mobile.png) 
+*Mobile Article Page*
   
 <hr>  
 
