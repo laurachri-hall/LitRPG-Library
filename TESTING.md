@@ -122,9 +122,9 @@ Testing was carried out in Lighthouse with the overall scores being fairly reaso
 
 ### Wave Accessibility Evaluation
 
-<!-- ![WAVE Web Accessibility Evaluation Tools](documentation/testing/wave_report.png)  
+![WAVE Web Accessibility Evaluation Tools](documentation/testing/wave.png)  
   
-Accessibility was included in every planning stage for FreeFido, through the use of the WAVE report tool I could ensure that any necessary changes were made to make the website as accessible as it could be. A minor contrast issue with a word rendered in orange for the feature theme and the absence of text in article image cards, due to their design, was noted in the report. These will be considered in the next version of FreeFido to better it's score. -->
+I used the Wave tool to ensure accessiblity. There were a couple of contrast errors but I couldn't find the little icon on the page to show me where they were. I suspect it may be the page links in my footer. When active/hovered over they go fairly dark. The alerts related to the fact I'm switching out the hero image on click and it didn't like that the names were similar. Additionally, it pointed out a redundent link in the navigation (my logo and the 'home' tab). I disagree and think they should both be linked. It also reports that I skipped a heading level. 
   
 <hr>  
 
@@ -132,42 +132,37 @@ Accessibility was included in every planning stage for FreeFido, through the use
 
 ### User Input/Form Validation
 
-<!-- Testing was carried out on desktop using a Chrome browser to ensure all forms take the intended input and process the input appropriately.
+Testing was carried out on a desktop using the Chrome and Edge browsers to ensure all forms take the intended input and process the input appropriately.
 
-| Feature                    | Tested?  | User Input Required | User Feedback Provided     | Pass/Fail | Fix |
-|----------------------------|----------|---------------------|----------------------------|-----------|-----|
-| Navbar Logo and Icons | Yes | Click | Logo takes user to 'Home', icons take user to intended location. Tooltips used in desktop/mobile view to provide accessibility and further information about the icons purpose and intention | Pass | - |
-| Home Page color text - 'visit', 'Join', 'articles' | Yes | Click | Users are informed of links purpose vis tooltip and link takes user to intended location | Pass | - |
-| Sign Up Page               | Yes      | Email/Username/Password | Empty fields deliver prompt to user, email field demands '@' symbols, [username/password](documentation/testing/signup_input.png) too similar, password too short | Pass | - |
-| Sign In | Yes | Username/Email and Password | Username/Email/Password must be exactly as registered originally in either lowercase/uppercase or mixture | Pass | - |
-| Edit Profile (Registered User) | Yes | User may replace the placeholder image for Profile Image. All other fields are optional. | No feedback needed as placeholder profile picture is provided as default, user may change it they wish, other fields optional. | Pass | - |
-| Search Field | Yes | Any input accepted | User will be presented with the results of their search, if their search input matches an article then they will receive the applicable articles, otherwise 'No article found' will display | Pass | - |
-| Add Article (Registered User) | Yes | Mixture of required image/text fields | 'Please fill out this field' is displayed to user, article receives placeholder image if no image provided if RichTextField is left blank then user receives [this](documentation/testing/art_required.png) feedback | Pass | - |
-| Comment Box (Registered User) | Yes | Text input accepted | User is informed that their comment is awaiting approval | Pass | - |
-| Like/Unlike button (Registered User) | Yes | Click | Button changes from empty heart to full heart and number of likes changes | Pass | - |
-| Edit Article (Registered, Author) | Yes | Image/Text fields | Changes made to Article are saved and displayed | Pass | - |
-| Delete Article (Registered, Author) | Yes | Click button to choose 'Confirm' or 'Return to Articles' | Article is deleted or user returns to main article page | Pass | - |
-| Delete Comment (Registered, Author) | Yes | Click button to choose 'Delete' or 'Return to Articles' | Comment is deleted or user returns to main article page | Pass | - |
-| Create Booking (Registered User only) | Yes | Test input and selection from date/time widget/dropdown selection | User is prompted to 'Fill out this Field' for required fields, if date/time is unavailable they are informed by message to pick another date/time | Pass | - |
-| Edit Booking (Registered User)| Yes | Text fields | User may make changes to be saved, prompted to 'Fill out this field' is anything is left blank,  if date/time is unavailable they are informed by message to pick another date/time | Pass | - |
-| Delete Booking (Registered User) | Yes | Click button to choose 'Delete' or 'Return to Bookings' | Booking is deleted or user is returned to bookings page | Pass | - |
-| Upload Image (Registered User) | Yes | Image/Text fields | User is prompted to fill out the required fields, user may exit the page using icons if they change their mind | Pass | - |
-| Gallery Image | Yes | Hover/touch(on mobile) | User is presented with an overlay on the chosen image giving details on the image, photo uploader receives 'delete' icon when logged in | Pass | - |
-| Delete Photo (Registered, Uploader) | Yes | Click to 'Cancel' or 'Delete' | Cancel hides the modal, delete removes image and returns user to gallery | Pass | - |
-| Back to Top button - Gallery Page | Yes | Click | Button returns user to top when clicked | Pass | - |
-| Sign Out (Registered User) | Yes | Click to choose 'It's time to go' or 'Return home' | User is signed out and informed by message on screen, return home button brings user back to home page, still logged in | Pass | - |
-| Footer icons | Yes | Click | Icons take user to intended location via a new tab, tooltips provided inform user of icon purpose if they are not familiar with them | Pass | - | -->
+| Feature                        | Tested? | User Input Required                | User Feedback Provided                                                                                          | Pass/Fail | Fix |
+|--------------------------------|---------|------------------------------------|----------------------------------------------------------------------------------------------------------------|-----------|-----|
+| **Navbar Logo and Links**      | Yes     | Click                             | Links navigate to correct pages. Tooltips provide context in desktop/mobile views.                             | Pass      | -   |
+| **Home Page Text Links**       | Yes     | Click                             | Text links (e.g., 'Home', 'Register', 'Reviews') work as expected.       | Pass      | -   |
+| **Hero Image Pauses**       | Yes     | Click                             | Image switches from gif to png on      | Pass    |      -     |                                     | Pass      | -   |
+| **Sign In Page**               | Yes     | Username/Email/Password           | Inputs must match registration exactly; errors prompt user for corrections.                                    | Pass      | -   |
+| **Google Sign In**             | Yes     | Click                             | Redirects to Google OAuth login; user is returned to the website as logged in.                                 | Pass      | -   |
+| **Sign Out Button**            | Yes     | Click                             | User is logged out and sees a confirmation message.                                                            | Pass      | -   |
+| **Add Review**                 | Yes     | Title/Content/Text Fields         | Prompts for missing required fields, review is saved and displayed.                                            | Pass      | -   |
+| **Edit Review**                | Yes     | Title/Content/Text Fields         | Displays saved changes; prompts for missing required fields if left empty.                                     | Pass      | -   |
+| **Delete Review**              | Yes     | Click                             | Confirms deletion with a modal. Deletes review or cancels and returns to the page.                             | Pass      | -   |
+| **Add Comment**                | Yes     | Text Input                        | User receives confirmation of submission, awaiting moderation (if applicable).                                 | Pass      | -   |
+| **Edit Comment**               | Yes     | Text Input                        | Changes to comments are saved and updated in real-time.                                                        | Pass      | -   |
+| **Delete Comment**             | Yes     | Click                             | Modal confirms deletion; comment is deleted or action is canceled.                                             | Pass      | -   |
+| **Like/Unlike Comments**       | Yes     | Click                             | Like count updates instantly.                                                                                  | Pass | - |
+| **Like/Unlike Reviews**       | Yes     | Click                             | Like count updates instantly.                                                                                  | Pass | - |
+
+
+
 
 ### Browser Compatibility
 
-<!-- Freefido was tested on the following browsers, new users were created, old users data edited and all features were tested:
+LitRPG was tested on the following browsers, new users were created, registered users data edited and all features were tested:
 
-- Chrome v114.0.5735.199
-- Firefox v114.0.2
-- Edge v114.0.1823.79
-- Safari v16.5.1
+- Chrome Version 131.0.6778.109 
+- 131.0.2903.86
+- Version 18.1.1 
 
-| Browser | Issue | Functionality |
+<!-- | Browser | Issue | Functionality |
 |---------|-------|---------------|
 | FireFox | Profile Edit/Upload Image - File input 'Browse' Button centered in input field | Button works as expected |
 | FireFox | Profile Dashboard - scrollbars following Mozilla styling | No issue |
