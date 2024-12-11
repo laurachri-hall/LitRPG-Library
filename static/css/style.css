@@ -227,7 +227,7 @@ a.your-reviews-link a {
 .to-be-read-banner{
     border: 2px solid var(--secondary-color);
     max-height: 70%;
-    max-width:auto;
+    max-width:100%;
 }
 
 /* Cards */
@@ -419,7 +419,7 @@ a.your-reviews-link a {
     overflow: hidden;
     margin-bottom: 20px;
     max-width: 80%;
-    max-height:auto;
+    max-height:none;
     box-shadow: none;
 }
 

@@ -80,7 +80,7 @@ Three pages had errors, as shown below. All errors were related to summer note o
 
 ### Python Validation
 
-[CI Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the Python files that were created or edited by myself. No issues presented and line lengths were double checked. I have included some screenshots with the results below.
+[CI Python Linter](https://pep8ci.herokuapp.com/#) was used to validate the Python files that were created or edited by me. There were no issues, screenshots can be seen below.
 
 | Feature | admin.py | forms.py | models.py | urls.py | views.py |
 |---------|----------|----------|-----------|---------|----------|
@@ -93,9 +93,9 @@ Three pages had errors, as shown below. All errors were related to summer note o
 
 ### CSS Validation 
 
-<!-- [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate my CSS file. External CSS for Bootstrap, provided by [CDN](https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css) was not tested. Warnings were present, these were related to my use of variables for colors and fonts in my CSS file.
+[W3C CSS Validator](https://jigsaw.w3.org/css-validator/) was used to validate my CSS file. External CSS was not tested. No issues.
 
-![css validation](documentation/testing/css_valid.png) -->
+![css validation](documentation/testing/css_validation.png)
   
 <hr> 
    
