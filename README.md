@@ -737,6 +737,6 @@ Most cover images were obtained from the following sources:
 ## Acknowledgements
 
 - Many thanks to my family for all their support, especially Dad who did a lot of testing for me. 
-- Thank you to my course facilitator Amy Richardson for her amazingly positive support, guidance and advice. Her ability to handle all situations in a calm manner is inspiring. 
+- Thank you to my course facilitator Amy Richardson for her amazingly positive support, guidance and advice. Her ability to handle all situations in a calm manner is inspiring. Amy's README and TESTING from her [Free Fido Project](https://github.com/amylour/FreeFido_v2) were also used as a basis for my own. 
 - Good wishes and thanks to all the members of my bootstrap course. They are an amazing group of individuals and it has a pleasure working with them all. 
 - Immense gratitude to go to all the members of the Coding Coach Slack channel, especially Roo and John. I wouldn't have made it through without their help!
