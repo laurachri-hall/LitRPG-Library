@@ -6,17 +6,17 @@
 
 ## Introduction
 
-LitRPG Library is a review websites specifically for books in the LitRPG and LitRPG adjacent genre. It has been developed ad part of the Code Insititutes 16 Week Fult-Stack Developer Bootcamp as my final project - demonstrating all I have learned so far. Essential criteria include use of Django, database manipulation and CRUD functionality. It is for educational purposes only (for right now).
+LitRPG Library is a review website specifically for books in the LitRPG and adjacent genres. It has been developed as part of the Code Institute's 16-week Full-Stack Developer Bootcamp as my final project, demonstrating all I have learned so far. Essential criteria include the use of Django, database manipulation, and CRUD functionality. It is for educational purposes only (for now).
 
-View live site here : [LitRPG Library](https://litrpg-library-2e24401b712e.herokuapp.com/)  
-  
-For Admin access with relevant sign-in information: [LitRPG Admin](lhttps://litrpg-library-2e24401b712e.herokuapp.com/admin/)
+View the live site here: [LitRPG Library](https://litrpg-library-2e24401b712e.herokuapp.com/)
 
-<hr>
+For Admin access with relevant sign-in information: [LitRPG Admin](https://litrpg-library-2e24401b712e.herokuapp.com/admin/)
+
+---
 
 ## Table of Contents
 
-- [LitRPG Library](#flitrpglibrary)
+- [LitRPG Library](#litrpg-library)
   - [Introduction](#introduction)
   - [Table of Contents](#table-of-contents)
   - [Overview](#overview)
@@ -38,7 +38,7 @@ For Admin access with relevant sign-in information: [LitRPG Admin](lhttps://litr
     - [User Profile](#user-profile)
   - [Scope Plane](#scope-plane)
   - [Structural Plane](#structural-plane)
-  - [Skeleton \& Surface Planes](#skeleton--surface-planes)
+  - [Skeleton & Surface Planes](#skeleton--surface-planes)
     - [Wireframes](#wireframes)
     - [Database Schema - Entity Relationship Diagram](#database-schema---entity-relationship-diagram)
     - [Security](#security)
@@ -47,17 +47,17 @@ For Admin access with relevant sign-in information: [LitRPG Admin](lhttps://litr
   - [CRUD Functionality](#crud-functionality)
   - [Feature Showcase](#feature-showcase)
   - [Future Features](#future-features)
-- [Technologies \& Languages Used](#technologies--languages-used)
-  - [Libraries \& Frameworks](#libraries--frameworks)
-  - [Tools \& Programs](#tools--programs)
+- [Technologies & Languages Used](#technologies--languages-used)
+  - [Libraries & Frameworks](#libraries--frameworks)
+  - [Tools & Programs](#tools--programs)
 - [Testing](#testing)
 - [Deployment](#deployment)
   - [Connecting to GitHub](#connecting-to-github)
   - [Django Project Setup](#django-project-setup)
   - [Cloudinary API](#cloudinary-api)
   - [Elephant SQL](#elephant-sql)
-  - [Heroku deployment](#heroku-deployment)
-  - [Clone project](#clone-project)
+  - [Heroku Deployment](#heroku-deployment)
+  - [Clone Project](#clone-project)
   - [Fork Project](#fork-project)
 - [Credits](#credits)
   - [Code](#code)
@@ -65,25 +65,35 @@ For Admin access with relevant sign-in information: [LitRPG Admin](lhttps://litr
     - [Additional reading/tutorials/books/blogs](#additional-readingtutorialsbooksblogs)
   - [Acknowledgements](#acknowledgements)
 
+---
+
 ## Overview
 
 LitRPG Library is a book review and ‘to be read’ book tracking app for all readers of the LitRPG and adjacent genres. Users are invited to:
 
-- Join the LitRPG community
-- Add a book they want to review
-- Write and comment on book reviews
-- Add books reviewed on the site to a ‘To Be Read’ list
+- Join the LitRPG community.
+- Add a book they want to review.
+- Write and comment on book reviews.
+- Add books reviewed on the site to a ‘To Be Read’ list.
 
-LitRPG is accessible via all browsers with full responsiveness on different screen sizes. Its aim is to simplify the process of selecting books, foster a vibrant community centred around LitRPG and related genres and create a 'To Be Read' (TBR) wishlist. I have created this site to meet the needs of LitRPG readers. While, there are other book review and tracking sites out there most do no handle the different nuances of the LitRPG genre well. LitRPG aims to offer a more tailored experience for those who love Progression Fantasy, GameLit, Wuxia and LitRPG. In future developments of this this project, I hope to offer users an upgraded tracking system (select which books in a series to add to TBR or read list as the number of books in a LitRPG series can be quite large). A full list of all books added to the library and the ability to search the reviews and books. I'd also like to add the ability to move books to a read list from the tbr list and add categories and tags to help organise the books.
+LitRPG Library is accessible via all browsers with full responsiveness on different screen sizes. Its aim is to simplify the process of selecting books, foster a vibrant community centered around LitRPG and related genres, and create a 'To Be Read' (TBR) wishlist. 
 
+While there are other book review and tracking sites out there, most do not handle the unique nuances of the LitRPG genre well. LitRPG Library aims to offer a more tailored experience for those who love Progression Fantasy, GameLit, Wuxia, and LitRPG. 
 
+Future development plans include offering users:
+- An upgraded tracking system (e.g., select which books in a series to add to the TBR or read list).
+- A full list of all books added to the library with the ability to search reviews and books.
+- Features like moving books between TBR and read lists, adding categories, and tags for better organization.
 
-# UX - User Experience
+---
 
-## Design Inspiration
+## UX - User Experience
 
-The design of my LitRPG review website evolved gradually as I navigated the learning curve of Django. Initially, I found myself overwhelmed by the framework's complexities, which left little room for creative expression. However, as I began to piece together the foundational elements of the site, I discovered more about my vision for the project and how it aligned with my growing capabilities.
-Throughout this process, I drew inspiration from various sources, particularly book tracking websites like [hardcover.app](https://hardcover.app/). Their clean and intuitive interfaces highlighted the importance of user experience, motivating me to create a space where readers could easily navigate through reviews and track their reading progress.
+### Design Inspiration
+
+The design of LitRPG Library evolved gradually as I navigated the learning curve of Django. Initially, I felt overwhelmed by the framework's complexities, which left little room for creative expression. However, as I pieced together the foundational elements of the site, I discovered more about my vision for the project and how it aligned with my growing capabilities.
+
+I drew inspiration from various sources, particularly book tracking websites like [hardcover.app](https://hardcover.app/). Their clean and intuitive interfaces highlighted the importance of user experience, motivating me to create a space where readers could easily navigate through reviews and track their reading progress.
 
 ### Colour Scheme
 
@@ -216,7 +226,14 @@ The wireframes for LitRPG are fairly low fidelity, using stand in images and ico
 
 <details open>
     <summary>Mobile/Tablet Home Page Wireframe</summary>  
-    <img src="documentation/wireframes/wireframe_home.png">  
+    <img src="documentation/screenshots/wireframe_home.png">  
+</details>
+
+- Review Detail Page
+
+<details open>
+    <summary>Mobile/Tablet Home Page Wireframe</summary>  
+    <img src="documentation/screenshots/wf_reviewdetail.png">  
 </details>
 
 
@@ -431,7 +448,7 @@ This is the way each individual review displays. There are a lot changes on this
 The page where you can edit your review.
 
 <details>
-    <summary>Delete Modal</summary>  
+    <summary>Edit Review</summary>  
     <img src="documentation/screenshots/edit_review.png">  
 </details> 
 <br>
@@ -738,5 +755,5 @@ Most cover images were obtained from the following sources:
 
 - Many thanks to my family for all their support, especially Dad who did a lot of testing for me. 
 - Thank you to my course facilitator Amy Richardson for her amazingly positive support, guidance and advice. Her ability to handle all situations in a calm manner is inspiring. Amy's README and TESTING from her [Free Fido Project](https://github.com/amylour/FreeFido_v2) were also used as a basis for my own. 
-- Good wishes and thanks to all the members of my bootstrap course. They are an amazing group of individuals and it has a pleasure working with them all. 
+- Good wishes and thanks to all the members of my bootcamp course. They are an amazing group of individuals and it has a pleasure working with them all. 
 - Immense gratitude to go to all the members of the Coding Coach Slack channel, especially Roo and John. I wouldn't have made it through without their help!
